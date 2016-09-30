@@ -38,7 +38,7 @@ def hello(path):
         p(path)
         p()
         for row in subjects:
-            p(str(row.label)
+            p(str(row.label))
             
     return doc.render()
 
