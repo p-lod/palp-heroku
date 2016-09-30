@@ -14,6 +14,10 @@ app = Flask(__name__)
 @app.route('/', methods=['GET'], defaults={'path': ''})
 @app.route('/<path:path>')
 def hello(path):
+    g = rdflib.Graph()
+
+    result = g.parse("p-lod-vocabulary.nt", format="nt")
+
     doc = dominate.document(title="Pompeii LOD: ")
     with doc:
         h1("Pompeii LOD")
