@@ -16,7 +16,7 @@ app = Flask(__name__)
 def hello(path):
     g = rdflib.Graph()
 
-    result = g.parse("p-lod-vocabulary.nt", format="nt")
+    result = g.parse("p-lod.nt", format="nt")
 
     doc = dominate.document(title="Pompeii LOD: ")
     with doc:
