@@ -1,4 +1,5 @@
 import os
+import urllib.request
 
 import dominate
 from dominate.tags import *
@@ -21,9 +22,10 @@ app = Flask(__name__)
 @app.route('/', methods=['GET'], defaults={'path': ''})
 @app.route('/<path:path>')
 def hello(path):
+
     g = rdflib.Graph()
 
-    result = g.parse("p-lod.nt", format="nt")
+    result = g.parse("https://p-lod.github.io/p-lod.nt", format="nt")
     subjects = g.query(
         """SELECT DISTINCT ?s ?label
            WHERE {
