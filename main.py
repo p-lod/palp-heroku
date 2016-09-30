@@ -11,10 +11,12 @@ import rdflib
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def hello():
+@app.route('/', methods=['GET'], defaults={'path': ''})
+@app.route('/<path:path>')
+def hello(path):
     doc = dominate.document(title="Pompeii LOD: ")
     with doc:
         h1("Pompeii LOD")
+        p(path)
     return doc.render()
 
