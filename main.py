@@ -16,5 +16,5 @@ def hello():
     doc = dominate.document(title="Pompeii LOD: ")
     with doc:
         h1("Pompeii LOD")
-    return doc.render
+    return doc.render()
 
