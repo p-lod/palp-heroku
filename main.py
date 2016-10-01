@@ -27,7 +27,7 @@ result = g.parse("https://p-lod.github.io/p-lod.nt", format="nt")
 @app.route('/p-lod/entities/<path:entity>')
 def entities(entity):
  
-    result = g.query(
+    eresult = g.query(
         """SELECT ?p ?o ?plabel ?olabel
            WHERE {
               p-lod-e:%s ?p ?o .
@@ -35,13 +35,13 @@ def entities(entity):
               OPTIONAL { ?o rdfs:label ?olabel }
            }""" % (entity), initNs = ns)
 
-    label = g.query(
+    elabel = g.query(
         """SELECT ?slabel 
            WHERE {
               p-lod-e:%s rdfs:label ?slabel
            }""" % (entity), initNs = ns)
            
-    parts = g.query(
+    eparts = g.query(
         """SELECT ?part ?label
            WHERE {
               ?part dcterms:isPartOf p-lod-e:%s .
@@ -49,14 +49,17 @@ def entities(entity):
            } ORDER BY ?label""" % (entity), initNs = ns)
 
     edoc = dominate.document(title="Pompeii LOD: ")
+    with edoc.head:
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/base-context-min.css')
+    
     with edoc:
         h1("P-LOD: Linked Open Data for Pompeii")
         hr()
 
-        for row in label:
+        for row in elabel:
             h2(str(row.slabel))
 
-        for row in result:
+        for row in eresult:
             if str(row.p) == 'http://www.w3.org/2000/01/rdf-schema#label':
                 continue
             elif str(row.plabel) != 'None':
@@ -76,9 +79,9 @@ def entities(entity):
                     span(olabel)
             p()
         
-        if len(parts) > 0:
+        if len(eparts) > 0:
             h3('Has parts')
-            for part in parts:
+            for part in eparts:
                 p(a(str(part.label), href = str(part.part).replace('http://digitalhumanities.umass.edu','')))
         
         hr()
@@ -111,8 +114,18 @@ def vocabulary(vocab):
               ?instance rdf:type p-lod-v:%s .
               ?instance rdfs:label ?label .
            } ORDER BY ?label""" % (vocab), initNs = ns)
+           
+    vsubclasses = g.query(
+        """SELECT ?subclass ?label
+           WHERE {
+              ?subclass rdfs:subClassOf p-lod-v:%s .
+              ?subclass rdfs:label ?label .
+           } ORDER BY ?label""" % (vocab), initNs = ns)    
 
     vdoc = dominate.document(title="Pompeii LOD: ")
+    with vdoc.head:
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/base-context-min.css')
+        
     with vdoc:
         h1("P-LOD: Linked Open Data for Pompeii")
         hr()
@@ -144,6 +157,13 @@ def vocabulary(vocab):
             h3('Entities')
             for instance in vinstances:
                 p(a(str(instance.label), href = str(instance.instance).replace('http://digitalhumanities.umass.edu','')))
+        
+        if len(vsubclasses) > 0:
+            h3('Subclasses')
+            for subclass in vsubclasses:
+                p(a(str(subclass.label), href = str(subclass.subclass).replace('http://digitalhumanities.umass.edu','')))
+
+
         hr()
         with p():
             span("P-LOD is overseen by Steven Ellis, Sebastian Heath and Eric Poehler. Data available on ")
