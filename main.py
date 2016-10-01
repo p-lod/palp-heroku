@@ -82,9 +82,64 @@ def entities(entity):
                 
     return edoc.render()
     
-@app.route('/p-lod/vocabulary/<path:vocabulary>')
-def vocabulary(entity):
-    return entity
+@app.route('/p-lod/vocabulary/<path:vocab>')
+def vocabulary(vocab):
+    vresult = g.query(
+        """SELECT ?p ?o ?plabel ?olabel
+           WHERE {
+              p-lod-v:%s ?p ?o .
+              OPTIONAL { ?p rdfs:label ?plabel }
+              OPTIONAL { ?o rdfs:label ?olabel }
+           }""" % (vocab), initNs = ns)
+
+    vlabel = g.query(
+        """SELECT ?slabel 
+           WHERE {
+              p-lod-v:%s rdfs:label ?slabel
+           }""" % (vocab), initNs = ns)
+           
+    vinstances = g.query(
+        """SELECT ?instance ?label
+           WHERE {
+              ?instance rdf:type p-lod-v:%s .
+              ?instance rdfs:label ?label .
+           } ORDER BY ?label""" % (vocab), initNs = ns)
+
+    vdoc = dominate.document(title="Pompeii LOD: ")
+    with vdoc:
+        h1("P-LOD: Linked Open Data for Pompeii")
+        hr()
+
+        for row in vlabel:
+            h2(str(row.slabel))
+
+        for row in vresult:
+            if str(row.p) == 'http://www.w3.org/2000/01/rdf-schema#label':
+                continue
+            elif str(row.plabel) != 'None':
+                p(str(row.plabel)+":", style = "margin-left:.25em")
+            else:
+                p(i(str(row.p)), style = "margin-left:.25em")
+                
+            with p(style="margin-left:1em"):
+                if str(row.olabel) != "None":
+                    olabel = str(row.olabel)
+                else:
+                    olabel = str(row.o)
+                
+                if str(row.o)[0:4] == 'http':
+                    a(olabel,href = str(row.o).replace('http://digitalhumanities.umass.edu',''))
+                else:
+                    span(olabel)
+            p()
+        
+        if len(vinstances) > 0:
+            h3('Entities')
+            for instance in vinstances:
+                p(a(str(instance.label), href = str(instance.instance).replace('http://digitalhumanities.umass.edu','')))
+                
+    return vdoc.render()
+
 
 @app.route('/')
 def index():
