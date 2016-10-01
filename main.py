@@ -19,13 +19,21 @@ ns = {"dcterms": "http://purl.org/dc/terms/",
 
 app = Flask(__name__)
 
+g = rdflib.Graph()
+
+result = g.parse("https://p-lod.github.io/p-lod.nt", format="nt")
+
+@app.route('/p-lod/entities/<path:entity>')
+def entities(entity):
+    return entity
+    
+@app.route('/p-lod/vocabulary/<path:entity>')
+def entities(entity):
+    return entity
+
 @app.route('/', methods=['GET'], defaults={'path': ''})
-@app.route('/<path:path>')
-def hello(path):
+def plod(path):
 
-    g = rdflib.Graph()
-
-    result = g.parse("https://p-lod.github.io/p-lod.nt", format="nt")
     subjects = g.query(
         """SELECT DISTINCT ?s ?label
            WHERE {
