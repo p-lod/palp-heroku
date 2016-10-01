@@ -12,6 +12,7 @@ from flask import redirect, url_for
 import rdflib
 
 ns = {"dcterms" : "http://purl.org/dc/terms/",
+      "owl"     : "http://www.w3.org/2002/07/owl#",
       "rdf"     : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs"    : "http://www.w3.org/2000/01/rdf-schema#" ,
       "p-lod"   : "http://digitalhumanities.umass.edu/p-lod/",
@@ -47,10 +48,17 @@ def entities(entity):
               ?part dcterms:isPartOf p-lod-e:%s .
               ?part rdfs:label ?label .
            } ORDER BY ?label""" % (entity), initNs = ns)
+           
+    esameas = g.query(
+        """SELECT ?url ?label
+           WHERE {
+              ?url owl:sameAs p-lod-e:%s .
+              ?url rdfs:label ?label .
+           }""" % (entity), initNs = ns)
 
     edoc = dominate.document(title="Pompeii LOD: ")
     with edoc.head:
-        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/base-context-min.css')
+        link(rel='stylesheet', href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u",crossorigin="anonymous")
     
     with edoc:
         h1("P-LOD: Linked Open Data for Pompeii")
@@ -79,14 +87,24 @@ def entities(entity):
                     span(olabel)
             p()
         
+        if len(esameas) > 0:
+            for row in esameas:
+                p("Has alternate identifier:", style = "margin-left:.25em")
+                p("<"+str(row.url)+">", style = "margin-left:1em")
+
+        
+        p("Current suggested permalink (not yet implemented):",style="margin-left:.25em")
+        p("<http://digitalhumanities.umass.edu/p-lod/entities/%s>." % (entity), style="margin-left:1em" )
+
+        
         if len(eparts) > 0:
             h3('Has parts')
             for part in eparts:
-                p(a(str(part.label), href = str(part.part).replace('http://digitalhumanities.umass.edu','')))
-        
+                p(a(str(part.label), href = str(part.part).replace('http://digitalhumanities.umass.edu','')), style="margin-left:1em")
+                
         hr()
         with p():
-            span("P-LOD is overseen by Steven Ellis, Sebastian Heath and Eric Poehler. Data available on ")
+            span("P-LOD is under construction and is overseen by Steven Ellis, Sebastian Heath and Eric Poehler. Data available on ")
             a("Github", href = "https://github.com/p-lod/p-lod")
             span(".")
                 
@@ -124,7 +142,7 @@ def vocabulary(vocab):
 
     vdoc = dominate.document(title="Pompeii LOD: ")
     with vdoc.head:
-        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/base-context-min.css')
+        link(rel='stylesheet', href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u",crossorigin="anonymous")
         
     with vdoc:
         h1("P-LOD: Linked Open Data for Pompeii")
@@ -156,12 +174,12 @@ def vocabulary(vocab):
         if len(vinstances) > 0:
             h3('Entities')
             for instance in vinstances:
-                p(a(str(instance.label), href = str(instance.instance).replace('http://digitalhumanities.umass.edu','')))
+                p(a(str(instance.label), href = str(instance.instance).replace('http://digitalhumanities.umass.edu','')), style="margin-left:.25em")
         
         if len(vsubclasses) > 0:
             h3('Subclasses')
             for subclass in vsubclasses:
-                p(a(str(subclass.label), href = str(subclass.subclass).replace('http://digitalhumanities.umass.edu','')))
+                p(a(str(subclass.label), href = str(subclass.subclass).replace('http://digitalhumanities.umass.edu','')), style="margin-left:.25em")
 
 
         hr()
