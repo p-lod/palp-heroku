@@ -7,6 +7,7 @@ from dominate.tags import *
 from flask import Flask
 from flask import render_template
 from flask import request
+from flask import redirect, url_for
 
 import rdflib
 
@@ -143,17 +144,17 @@ def vocabulary(vocab):
             h3('Entities')
             for instance in vinstances:
                 p(a(str(instance.label), href = str(instance.instance).replace('http://digitalhumanities.umass.edu','')))
-                
+        hr()
+        with p():
+            span("P-LOD is overseen by Steven Ellis, Sebastian Heath and Eric Poehler. Data available on ")
+            a("Github", href = "https://github.com/p-lod/p-lod")
+            span(".")   
+                 
     return vdoc.render()
 
 
 @app.route('/')
 def index():
-    indexdoc = dominate.document(title="Pompeii LOD")
-    with indexdoc:
-        h1("Pompeii LOD")
-        p(a("r1", href='/p-lod/entities/r1'))
-             
-    return indexdoc.render()
+    return redirect("/p-lod/entities/pompeii", code=302)
     
 
