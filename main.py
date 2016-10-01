@@ -94,7 +94,7 @@ def entities(entity):
 
         
         p("Current suggested permalink (not yet implemented):",style="margin-left:.25em")
-        p("<http://digitalhumanities.umass.edu/p-lod/entities/%s>." % (entity), style="margin-left:1em" )
+        p("<http://digitalhumanities.umass.edu/p-lod/entities/%s>" % (entity), style="margin-left:1em" )
 
         
         if len(eparts) > 0:
@@ -184,9 +184,9 @@ def vocabulary(vocab):
 
         hr()
         with p():
-            span("P-LOD is overseen by Steven Ellis, Sebastian Heath and Eric Poehler. Data available on ")
+            span("P-LOD is under construction and is overseen by Steven Ellis, Sebastian Heath and Eric Poehler. Data available on ")
             a("Github", href = "https://github.com/p-lod/p-lod")
-            span(".")   
+            span(".")  
                  
     return vdoc.render()
 
