@@ -9,6 +9,8 @@ from flask import render_template
 from flask import request
 from flask import redirect, url_for
 
+
+
 import rdflib
 
 ns = {"dcterms" : "http://purl.org/dc/terms/",
@@ -190,6 +192,9 @@ def vocabulary(vocab):
                  
     return vdoc.render()
 
+@app.route('/p-lod/map')
+def map_entity()
+    pass
 
 @app.route('/')
 def index():
