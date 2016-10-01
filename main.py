@@ -193,7 +193,7 @@ def vocabulary(vocab):
     return vdoc.render()
 
 @app.route('/p-lod/map')
-def map_entity()
+def map_entity():
     pass
 
 @app.route('/')
