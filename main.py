@@ -61,7 +61,7 @@ def entities(entity):
         link(rel='stylesheet', href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u",crossorigin="anonymous")
     
     with edoc:
-        h1("P-LOD: Linked Open Data for Pompeii")
+        h1(a("P-LOD: Linked Open Data for Pompeii", href="/p-lod/entities/pompeii"))
         hr()
 
         for row in elabel:
@@ -145,7 +145,7 @@ def vocabulary(vocab):
         link(rel='stylesheet', href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u",crossorigin="anonymous")
         
     with vdoc:
-        h1("P-LOD: Linked Open Data for Pompeii")
+        h1(a("P-LOD: Linked Open Data for Pompeii", href="/p-lod/entities/pompeii"))
         hr()
 
         for row in vlabel:
