@@ -79,6 +79,12 @@ def entities(entity):
             h3('Has parts')
             for part in parts:
                 p(a(str(part.label), href = str(part.part).replace('http://digitalhumanities.umass.edu','')))
+        
+        hr()
+        with p():
+            span("P-LOD is overseen by Steven Ellis, Sebastian Heath and Eric Poehler. Data available on ")
+            a("Github", href = "https://github.com/p-lod/p-lod")
+            span(".")
                 
     return edoc.render()
     
