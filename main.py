@@ -25,7 +25,7 @@ app = Flask(__name__)
 
 g = rdflib.Graph()
 
-result = g.parse("https://p-lod.github.io/p-lod.nt", format="nt")
+result = g.parse("p-lod.nt", format="nt")
 
 @app.route('/p-lod/entities/<path:entity>')
 def entities(entity):
