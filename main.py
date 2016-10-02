@@ -61,54 +61,62 @@ def entities(entity):
     edoc = dominate.document(title="Pompeii LOD: ")
     with edoc.head:
         link(rel='stylesheet', href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u",crossorigin="anonymous")
-    
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css", integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp", crossorigin="anonymous")
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js",integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa",crossorigin="anonymous")
+
     with edoc:
-        h1(a("P-LOD: Linked Open Data for Pompeii", href="/p-lod/entities/pompeii"))
-        hr()
-
-        for row in elabel:
-            h2(str(row.slabel))
-
-        for row in eresult:
-            if str(row.p) == 'http://www.w3.org/2000/01/rdf-schema#label':
-                continue
-            elif str(row.plabel) != 'None':
-                p(str(row.plabel)+":", style = "margin-left:.25em")
-            else:
-                p(i(str(row.p)), style = "margin-left:.25em")
-                
-            with p(style="margin-left:1em"):
-                if str(row.olabel) != "None":
-                    olabel = str(row.olabel)
-                else:
-                    olabel = str(row.o)
-                
-                if str(row.o)[0:4] == 'http':
-                    a(olabel,href = str(row.o).replace('http://digitalhumanities.umass.edu',''))
-                else:
-                    span(olabel)
-            p()
-        
-        if len(esameas) > 0:
-            for row in esameas:
-                p("Has alternate identifier:", style = "margin-left:.25em")
-                p("<"+str(row.url)+">", style = "margin-left:1em")
+        with div(cls="container"):
+            h3(a("P-LOD: Linked Open Data for Pompeii", href="/p-lod/entities/pompeii"))
+            hr()
 
         
-        p("Current suggested permalink (not yet implemented):",style="margin-left:.25em")
-        p("<http://digitalhumanities.umass.edu/p-lod/entities/%s>" % (entity), style="margin-left:1em" )
+            with dl(cls="dl-horizontal"):
+                dt()
+                for row in elabel:
+                    dd(strong(str(row.slabel), cls="large"))
+                    
+                for row in eresult:
+                    if str(row.p) == 'http://www.w3.org/2000/01/rdf-schema#label':
+                        continue
+                    elif str(row.plabel) != 'None':
+                        dt(str(row.plabel))
+                    else:
+                        dt(i(str(row.p)))
+                
+                    with dd():
+                        if str(row.olabel) != "None":
+                            olabel = str(row.olabel)
+                        else:
+                            olabel = str(row.o)
+                
+                        if str(row.o)[0:4] == 'http':
+                            a(olabel,href = str(row.o).replace('http://digitalhumanities.umass.edu',''))
+                        else:
+                            span(olabel)
+                
+        
+                if len(esameas) > 0:
+                    for row in esameas:
+                        dt("Alternate identifier")
+                        dd(str(row.url))
 
         
-        if len(eparts) > 0:
-            h3('Has parts')
-            for part in eparts:
-                p(a(str(part.label), href = str(part.part).replace('http://digitalhumanities.umass.edu','')), style="margin-left:1em")
+                dt("Future permalink")
+                dd("http://digitalhumanities.umass.edu/p-lod/entities/%s" % (entity) )
+
+        
+                if len(eparts) > 0:
+                    dt('Has parts')
+                    with dd():
+                        for part in eparts:
+                            span(a(str(part.label), href = str(part.part).replace('http://digitalhumanities.umass.edu','')))
+                            br()
                 
-        hr()
-        with p():
-            span("P-LOD is under construction and is overseen by Steven Ellis, Sebastian Heath and Eric Poehler. Data available on ")
-            a("Github", href = "https://github.com/p-lod/p-lod")
-            span(".")
+            hr()
+            with p():
+                span("P-LOD is under construction and is overseen by Steven Ellis, Sebastian Heath and Eric Poehler. Data available on ")
+                a("Github", href = "https://github.com/p-lod/p-lod")
+                span(".")
                 
     return edoc.render()
     
@@ -145,50 +153,57 @@ def vocabulary(vocab):
     vdoc = dominate.document(title="Pompeii LOD: ")
     with vdoc.head:
         link(rel='stylesheet', href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u",crossorigin="anonymous")
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css", integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp", crossorigin="anonymous")
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js",integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa",crossorigin="anonymous")
         
     with vdoc:
-        h1(a("P-LOD: Linked Open Data for Pompeii", href="/p-lod/entities/pompeii"))
-        hr()
+        with div(cls="container"):
+            h3(a("P-LOD: Linked Open Data for Pompeii", href="/p-lod/entities/pompeii"))
+            hr()
 
-        for row in vlabel:
-            h2(str(row.slabel))
+            with dl(cls="dl-horizontal"):
+                dt()
+                for row in vlabel:
+                    dd(strong(str(row.slabel), cls="large"))
 
-        for row in vresult:
-            if str(row.p) == 'http://www.w3.org/2000/01/rdf-schema#label':
-                continue
-            elif str(row.plabel) != 'None':
-                p(str(row.plabel)+":", style = "margin-left:.25em")
-            else:
-                p(i(str(row.p)), style = "margin-left:.25em")
+                for row in vresult:
+                    if str(row.p) == 'http://www.w3.org/2000/01/rdf-schema#label':
+                        continue
+                    elif str(row.plabel) != 'None':
+                        dt(str(row.plabel)+":")
+                    else:
+                        dt(i(str(row.p)), style = "margin-left:.25em")
                 
-            with p(style="margin-left:1em"):
-                if str(row.olabel) != "None":
-                    olabel = str(row.olabel)
-                else:
-                    olabel = str(row.o)
+                    with dd():
+                        if str(row.olabel) != "None":
+                            olabel = str(row.olabel)
+                        else:
+                            olabel = str(row.o)
                 
-                if str(row.o)[0:4] == 'http':
-                    a(olabel,href = str(row.o).replace('http://digitalhumanities.umass.edu',''))
-                else:
-                    span(olabel)
-            p()
+                        if str(row.o)[0:4] == 'http':
+                            a(olabel,href = str(row.o).replace('http://digitalhumanities.umass.edu',''))
+                        else:
+                            span(olabel)
         
-        if len(vinstances) > 0:
-            h3('Entities')
-            for instance in vinstances:
-                p(a(str(instance.label), href = str(instance.instance).replace('http://digitalhumanities.umass.edu','')), style="margin-left:.25em")
+                if len(vinstances) > 0:
+                    dt('Entities')
+                    with dd():
+                        for instance in vinstances:
+                            span(a(str(instance.label), href = str(instance.instance).replace('http://digitalhumanities.umass.edu','')))
+                            br()
         
-        if len(vsubclasses) > 0:
-            h3('Subclasses')
-            for subclass in vsubclasses:
-                p(a(str(subclass.label), href = str(subclass.subclass).replace('http://digitalhumanities.umass.edu','')), style="margin-left:.25em")
+                if len(vsubclasses) > 0:
+                    dt('Subclasses')
+                    with dd():
+                        for subclass in vsubclasses:
+                            span(a(str(subclass.label), href = str(subclass.subclass).replace('http://digitalhumanities.umass.edu','')))
+                            br()
 
-
-        hr()
-        with p():
-            span("P-LOD is under construction and is overseen by Steven Ellis, Sebastian Heath and Eric Poehler. Data available on ")
-            a("Github", href = "https://github.com/p-lod/p-lod")
-            span(".")  
+            hr()
+            with p():
+                span("P-LOD is under construction and is overseen by Steven Ellis, Sebastian Heath and Eric Poehler. Data available on ")
+                a("Github", href = "https://github.com/p-lod/p-lod")
+                span(".")  
                  
     return vdoc.render()
 
@@ -201,3 +216,4 @@ def index():
     return redirect("/p-lod/entities/pompeii", code=302)
     
 
+    
