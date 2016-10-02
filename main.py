@@ -36,7 +36,7 @@ def entities(entity):
               p-lod-e:%s ?p ?o .
               OPTIONAL { ?p rdfs:label ?plabel }
               OPTIONAL { ?o rdfs:label ?olabel }
-           }""" % (entity), initNs = ns)
+           } ORDER BY ?p""" % (entity), initNs = ns)
 
     elabel = g.query(
         """SELECT ?slabel 
