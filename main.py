@@ -153,7 +153,7 @@ def vocabulary(vocab):
            WHERE {
               ?instance rdf:type p-lod-v:%s .
               ?instance rdfs:label ?label .
-           } ORDER BY ?label""" % (vocab), initNs = ns)
+           } ORDER BY ?instance""" % (vocab), initNs = ns)
            
     vsubclasses = g.query(
         """SELECT ?subclass ?label
