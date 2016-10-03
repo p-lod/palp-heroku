@@ -984,7 +984,7 @@
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/numbered-entity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://digitalhumanities.umass.edu/p-lod/vocabulary/entity> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/bibliographic-resource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/bibliographic-resource> <http://www.w3.org/2000/01/rdf-schema#label> "Bibliographic Resource" .
-<http://digitalhumanities.umass.edu/p-lod/vocabulary/bibliographic-resource> <http://www.w3.org/2000/01/rdf-schema#:subClassOf> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/bibliographic-resource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> <http://www.w3.org/2000/01/rdf-schema#label> "Inscription as published in CIL" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
