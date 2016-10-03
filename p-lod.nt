@@ -170,37 +170,46 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i1> <http://www.w3.org/2000/01/rdf-schema#label> "Pompeii Region II, Insula 1" .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i1> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/r2> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i1> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/r2-i2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/r2-i1> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/Plans/plan_2_01.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/insula> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i2> <http://www.w3.org/2000/01/rdf-schema#label> "Pompeii Region II, Insula 2" .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i2> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/r2> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i2> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/r2-i3> .
+<http://digitalhumanities.umass.edu/p-lod/entities/r2-i2> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/Plans/plan_2_02.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/insula> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i3> <http://www.w3.org/2000/01/rdf-schema#label> "Pompeii Region II, Insula 3" .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i3> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/r2> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i3> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/r2-i4> .
+<http://digitalhumanities.umass.edu/p-lod/entities/r2-i3> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/Plans/plan_2_03.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/insula> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i4> <http://www.w3.org/2000/01/rdf-schema#label> "Pompeii Region II, Insula 4" .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i4> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/r2> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i4> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/r2-i5> .
+<http://digitalhumanities.umass.edu/p-lod/entities/r2-i4> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/Plans/plan_2_04.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/insula> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i5> <http://www.w3.org/2000/01/rdf-schema#label> "Pompeii Region II, Insula 5" .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i5> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/r2> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i5> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/r2-i6> .
+<http://digitalhumanities.umass.edu/p-lod/entities/r2-i5> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/Plans/plan_2_05.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i6> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/insula> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i6> <http://www.w3.org/2000/01/rdf-schema#label> "Pompeii Region II, Insula 6" .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i6> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/r2> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i6> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/r2-i7> .
+<http://digitalhumanities.umass.edu/p-lod/entities/r2-i6> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/R2/2%2006%2000%20p1.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/insula> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i7> <http://www.w3.org/2000/01/rdf-schema#label> "Pompeii Region II, Insula 7" .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i7> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/r2> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i7> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/r2-i8> .
+<http://digitalhumanities.umass.edu/p-lod/entities/r2-i7> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/Plans/plan_2_07.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i8> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/insula> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i8> <http://www.w3.org/2000/01/rdf-schema#label> "Pompeii Region II, Insula 8" .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i8> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/r2> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i8> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/r2-i9> .
+<http://digitalhumanities.umass.edu/p-lod/entities/r2-i8> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/Plans/plan_2_08.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i9> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/insula> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i9> <http://www.w3.org/2000/01/rdf-schema#label> "Pompeii Region II, Insula 9" .
 <http://digitalhumanities.umass.edu/p-lod/entities/r2-i9> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/r2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/r2-i9> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/Plans/plan_2_09.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r3-i1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/insula> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r3-i1> <http://www.w3.org/2000/01/rdf-schema#label> "Pompeii Region III, Insula 1" .
 <http://digitalhumanities.umass.edu/p-lod/entities/r3-i1> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/r3> .
