@@ -27,6 +27,16 @@ g = rdflib.Graph()
 
 result = g.parse("p-lod.nt", format="nt")
 
+def plodheader(doc):
+    
+    doc.head += meta(charset="utf-8")
+    doc.head += meta(http_equiv="X-UA-Compatible", content="IE=edge")
+    doc.head += meta(name="viewport", content="width=device-width, initial-scale=1")
+    doc.head += link(rel='stylesheet', href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u",crossorigin="anonymous")
+    doc.head += link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css", integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp", crossorigin="anonymous")
+    doc.head += script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js",integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa",crossorigin="anonymous")
+    doc.head += style("body { padding-top: 60px; }")
+
 @app.route('/p-lod/entities/<path:entity>')
 def entities(entity):
  
@@ -58,17 +68,17 @@ def entities(entity):
               ?url rdfs:label ?label .
            }""" % (entity), initNs = ns)
 
-    edoc = dominate.document(title="Pompeii LOD: ")
-    with edoc.head:
-        link(rel='stylesheet', href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u",crossorigin="anonymous")
-        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css", integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp", crossorigin="anonymous")
-        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js",integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa",crossorigin="anonymous")
+    edoc = dominate.document(title="Pompeii LOD")
+    plodheader(edoc)
 
     with edoc:
+    
+        with nav(cls="navbar navbar-default navbar-fixed-top"):
+           with div(cls="container-fluid"):
+               with div(cls="navbar-header"):
+                   a("P-LOD: Linked Open Data for Pompeii", href="/p-lod/entities/pompeii",cls="navbar-brand")
+    
         with div(cls="container"):
-            h3(a("P-LOD: Linked Open Data for Pompeii", href="/p-lod/entities/pompeii"))
-            hr()
-
         
             with dl(cls="dl-horizontal"):
                 dt()
@@ -112,11 +122,13 @@ def entities(entity):
                             span(a(str(part.label), href = str(part.part).replace('http://digitalhumanities.umass.edu','')))
                             br()
                 
-            hr()
-            with p():
-                span("P-LOD is under construction and is overseen by Steven Ellis, Sebastian Heath and Eric Poehler. Data available on ")
-                a("Github", href = "https://github.com/p-lod/p-lod")
-                span(".")
+        with footer(cls="footer"):
+            with div(cls="container"):
+                with p(cls="text-muted"):
+                    span("P-LOD is under construction and is overseen by Steven Ellis, Sebastian Heath and Eric Poehler. Data available on ")
+                    a("Github", href = "https://github.com/p-lod/p-lod")
+                    span(".")
+
                 
     return edoc.render()
     
@@ -151,16 +163,16 @@ def vocabulary(vocab):
            } ORDER BY ?label""" % (vocab), initNs = ns)    
 
     vdoc = dominate.document(title="Pompeii LOD: ")
-    with vdoc.head:
-        link(rel='stylesheet', href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u",crossorigin="anonymous")
-        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css", integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp", crossorigin="anonymous")
-        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js",integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa",crossorigin="anonymous")
-        
-    with vdoc:
-        with div(cls="container"):
-            h3(a("P-LOD: Linked Open Data for Pompeii", href="/p-lod/entities/pompeii"))
-            hr()
+    plodheader(vdoc)
 
+    with vdoc:
+
+        with nav(cls="navbar navbar-default navbar-fixed-top"):
+           with div(cls="container-fluid"):
+               with div(cls="navbar-header"):
+                   a("P-LOD: Linked Open Data for Pompeii", href="/p-lod/entities/pompeii",cls="navbar-brand")
+
+        with div(cls="container"):
             with dl(cls="dl-horizontal"):
                 dt()
                 for row in vlabel:
