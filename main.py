@@ -76,7 +76,7 @@ def entities(entity):
         with nav(cls="navbar navbar-default navbar-fixed-top"):
            with div(cls="container-fluid"):
                with div(cls="navbar-header"):
-                   a("P-LOD: Linked Open Data for Pompeii", href="/p-lod/entities/pompeii",cls="navbar-brand")
+                   a("P-LOD: Linked Open Data for Pompeii: Entity", href="/p-lod/entities/pompeii",cls="navbar-brand")
     
         with div(cls="container"):
         
@@ -170,7 +170,7 @@ def vocabulary(vocab):
         with nav(cls="navbar navbar-default navbar-fixed-top"):
            with div(cls="container-fluid"):
                with div(cls="navbar-header"):
-                   a("P-LOD: Linked Open Data for Pompeii", href="/p-lod/entities/pompeii",cls="navbar-brand")
+                   a("P-LOD: Linked Open Data for Pompeii: Vocabulary", href="/p-lod/entities/pompeii",cls="navbar-brand")
 
         with div(cls="container"):
             with dl(cls="dl-horizontal"):
