@@ -46,7 +46,7 @@ def entities(entity):
               p-lod-e:%s ?p ?o .
               OPTIONAL { ?p rdfs:label ?plabel }
               OPTIONAL { ?o rdfs:label ?olabel }
-           } ORDER BY ?p""" % (entity), initNs = ns)
+           } ORDER BY ?plabel""" % (entity), initNs = ns)
 
     elabel = g.query(
         """SELECT ?slabel 
@@ -59,7 +59,7 @@ def entities(entity):
            WHERE {
               ?part dcterms:isPartOf p-lod-e:%s .
               ?part rdfs:label ?label .
-           } ORDER BY ?label""" % (entity), initNs = ns)
+           } ORDER BY ?part""" % (entity), initNs = ns)
            
     esameas = g.query(
         """SELECT ?url ?label
