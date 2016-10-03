@@ -551,7 +551,7 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/r9-i4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/insula> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r9-i4> <http://www.w3.org/2000/01/rdf-schema#label> "Pompeii Region IX, Insula 4" .
 <http://digitalhumanities.umass.edu/p-lod/entities/r9-i4> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/r9> .
-<http://digitalhumanities.umass.edu/p-lod/entities/r9-i4> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/r9-i> .
+<http://digitalhumanities.umass.edu/p-lod/entities/r9-i4> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/r9-i5> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r9-i4> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/Plans/plan_9_04.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r9-i5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/insula> .
 <http://digitalhumanities.umass.edu/p-lod/entities/r9-i5> <http://www.w3.org/2000/01/rdf-schema#label> "Pompeii Region IX, Insula 5" .
