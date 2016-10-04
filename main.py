@@ -67,6 +67,17 @@ def entities(entity):
               ?url owl:sameAs p-lod-e:%s .
               ?url rdfs:label ?label .
            }""" % (entity), initNs = ns)
+           
+    eobjects = g.query(
+        """SELECT ?s ?p ?slabel ?plabel 
+           WHERE {
+              ?s  ?p p-lod-e:%s .
+              OPTIONAL { ?s rdfs:label ?slabel }
+              OPTIONAL { ?p rdfs:label ?plabel }
+              FILTER ( ?p != p-lod-v:next )
+              FILTER ( ?p != dcterms:isPartOf )
+              FILTER ( ?p != owl:sameAs )
+           }  ORDER BY ?s""" % (entity), initNs = ns)
 
     edoc = dominate.document(title="Pompeii LOD")
     plodheader(edoc)
@@ -121,6 +132,16 @@ def entities(entity):
                         for part in eparts:
                             span(a(str(part.label), href = str(part.part).replace('http://digitalhumanities.umass.edu','')))
                             br()
+                
+                if len(eobjects) > 0:
+                    dt("Property of")
+                    with dd():
+                         for s_p in eobjects:
+                            a(str(s_p.slabel), href= str(s_p.s).replace('http://digitalhumanities.umass.edu',''))
+                            span(" via ")
+                            span(str(s_p.plabel))
+                            br()
+
                 
         with footer(cls="footer"):
             with div(cls="container"):
