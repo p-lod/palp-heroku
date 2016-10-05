@@ -27,7 +27,7 @@ g = rdflib.Graph()
 
 result = g.parse("p-lod.nt", format="nt")
 
-def plodheader(doc):
+def plodheader(doc, plod = ''):
     
     doc.head += meta(charset="utf-8")
     doc.head += meta(http_equiv="X-UA-Compatible", content="IE=edge")
@@ -36,6 +36,8 @@ def plodheader(doc):
     doc.head += link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css", integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp", crossorigin="anonymous")
     doc.head += script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js",integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa",crossorigin="anonymous")
     doc.head += style("body { padding-top: 60px; }")
+    doc.head += meta(name="DC.title",lang="en",content="%s" % (plod) )
+    doc.head += meta(name="DC.identifier", content="http://digitalhumanities.umass.edu/p-lod/%s" % plod)
 
 @app.route('/p-lod/entities/<path:entity>')
 def entities(entity):
@@ -79,17 +81,17 @@ def entities(entity):
               FILTER ( ?p != owl:sameAs )
            }  ORDER BY ?s""" % (entity), initNs = ns)
 
-    edoc = dominate.document(title="Pompeii LOD")
-    plodheader(edoc)
-
-    with edoc:
+    edoc = dominate.document(title="Linked Open Data for Pompeii: %s" % (entity))
+    plodheader(edoc, entity)
     
+    edoc.body['prefix'] = "bibo: http://purl.org/ontology/bibo/  cc: http://creativecommons.org/ns#  dcmitype: http://purl.org/dc/dcmitype/  dcterms: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  nm: http://nomisma.org/id/  owl:  http://www.w3.org/2002/07/owl#  rdfs: http://www.w3.org/2000/01/rdf-schema#   rdfa: http://www.w3.org/ns/rdfa#  rdf:  http://www.w3.org/1999/02/22-rdf-syntax-ns#  skos: http://www.w3.org/2004/02/skos/core#"
+    with edoc:
         with nav(cls="navbar navbar-default navbar-fixed-top"):
            with div(cls="container-fluid"):
                with div(cls="navbar-header"):
                    a("P-LOD Linked Open Data for Pompeii: Entity", href="/p-lod/entities/pompeii",cls="navbar-brand")
     
-        with div(cls="container"):
+        with div(cls="container", about="/p-lod/%s" % (entity)):
         
             with dl(cls="dl-horizontal"):
                 dt()
@@ -130,7 +132,7 @@ def entities(entity):
                     dt('Has parts')
                     with dd():
                         for part in eparts:
-                            span(a(str(part.label), href = str(part.part).replace('http://digitalhumanities.umass.edu','')))
+                            span(a(str(part.label), rel="dcterms:hasPart", href = str(part.part).replace('http://digitalhumanities.umass.edu','')))
                             br()
                 
                 if len(eobjects) > 0:
@@ -183,8 +185,8 @@ def vocabulary(vocab):
               ?subclass rdfs:label ?label .
            } ORDER BY ?label""" % (vocab), initNs = ns)    
 
-    vdoc = dominate.document(title="Pompeii LOD: ")
-    plodheader(vdoc)
+    vdoc = dominate.document(title="Pompeii LOD: %s" % (vocab))
+    plodheader(vdoc, vocab)
 
     with vdoc:
 
