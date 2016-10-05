@@ -150,6 +150,8 @@ def entities(entity):
                 with p(cls="text-muted"):
                     span("P-LOD is under construction and is overseen by Steven Ellis, Sebastian Heath and Eric Poehler. Data available on ")
                     a("Github", href = "https://github.com/p-lod/p-lod")
+                    span(". Parse ")
+                    a('RDFa', href="http://www.w3.org/2012/pyRdfa/extract?uri=http://p-lod.herokuapp.com/p-lod/entities/%s" % (entity))
                     span(".")
 
                 
