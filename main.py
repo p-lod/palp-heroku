@@ -7,7 +7,7 @@ from dominate.tags import *
 from flask import Flask
 from flask import render_template
 from flask import request
-from flask import redirect, url_for
+from flask import redirect, url_for, after_this_request
 
 
 
@@ -29,6 +29,7 @@ result = g.parse("p-lod.nt", format="nt")
 
 def plodheader(doc, plod = ''):
     
+    # doc['xmlns'] = "http://www.w3.org/1999/xhtml" # Dominate doesn't produce closed no-content tags
     doc.head += meta(charset="utf-8")
     doc.head += meta(http_equiv="X-UA-Compatible", content="IE=edge")
     doc.head += meta(name="viewport", content="width=device-width, initial-scale=1")
@@ -41,7 +42,11 @@ def plodheader(doc, plod = ''):
 
 @app.route('/p-lod/entities/<path:entity>')
 def entities(entity):
- 
+    # @after_this_request
+    # def add_header(response):
+    #    response.headers['Content-Type'] = 'application/xhtml+xml; charset=utf-8'
+    #    return response
+         
     eresult = g.query(
         """SELECT ?p ?o ?plabel ?olabel
            WHERE {
@@ -79,7 +84,7 @@ def entities(entity):
               FILTER ( ?p != p-lod-v:next )
               FILTER ( ?p != dcterms:isPartOf )
               FILTER ( ?p != owl:sameAs )
-           }  ORDER BY ?s""" % (entity), initNs = ns)
+           }  ORDER BY ?s LIMIT 1000""" % (entity), initNs = ns)
 
     edoc = dominate.document(title="Linked Open Data for Pompeii: %s" % (entity))
     plodheader(edoc, entity)
@@ -135,8 +140,12 @@ def entities(entity):
                             span(a(str(part.label), rel="dcterms:hasPart", href = str(part.part).replace('http://digitalhumanities.umass.edu','')))
                             br()
                 
-                if len(eobjects) > 0:
-                    dt("Property of")
+                objlength = len(eobjects)
+                if objlength > 0:
+                    lenstr = ''
+                    if objlength == 1000:
+                        lenstr = '(first 1000)'
+                    dt("Property of %s" % (lenstr))
                     with dd():
                          for s_p in eobjects:
                             a(str(s_p.slabel), href= str(s_p.s).replace('http://digitalhumanities.umass.edu',''))
