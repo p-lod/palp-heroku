@@ -1878,86 +1878,107 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0165> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 165" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0165> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0165> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0165> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0166> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0166> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 166" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0166> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0166> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0166> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0167> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0167> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 167" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0167> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0167> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0167> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0168> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0168> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 168" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0168> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0168> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0168> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0169> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0169> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 169" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0169> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0169> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0169> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0170> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0170> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 170" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0170> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0170> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0170> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0171> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0171> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 171" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0171> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0171> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0171> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0172> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0172> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 172" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0172> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0172> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0172> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0173> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0173> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 173" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0173> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0173> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0173> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0174> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0174> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 174" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0174> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0174> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0174> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0175> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0175> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 175" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0175> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0175> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0175> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0176> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0176> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 176" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0176> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0176> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0176> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0177> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0177> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 177" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0177> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0177> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0177> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0178> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0178> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 178" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0178> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0178> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0178> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0179> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0179> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 179" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0179> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0179> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0179> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0180> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0180> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 180" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0180> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0180> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0180> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0181> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0181> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 181" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0181> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0181> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0181> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0182> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0182> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 182" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0182> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0182> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0182> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0183> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0183> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 183" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0183> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0183> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0183> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0184> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0184> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 184" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0184> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0184> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0184> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0185> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0185> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 185" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0185> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0185> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0185> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/554897> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0186> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0186> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 186" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0186> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
