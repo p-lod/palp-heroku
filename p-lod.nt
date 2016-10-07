@@ -5,6 +5,7 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/named-entities> .
 <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <https://gazetteer.dainst.org/place/2338718> .
 <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> <http://digitalhumanities.umass.edu/p-lod/vocabulary/description> "High level identifier for the concept of Pompeii." .
+<http://digitalhumanities.umass.edu/p-lod/entities/pompeii> <http://digitalhumanities.umass.edu/p-lod/vocabulary/edh-equiv> <http://edh-www.adw.uni-heidelberg.de/edh/geographie/11925/karte> .
 <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pleiades-equiv> <https://pleiades.stoa.org/places/433032> .
 <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> <http://digitalhumanities.umass.edu/p-lod/vocabulary/wikidata-equiv> <http://www.wikidata.org/entity/Q43332> .
 <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/index.htm> .
@@ -1032,6 +1033,9 @@
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://www.w3.org/2000/01/rdf-schema#label> "Arachne" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://www.w3.org/2000/01/rdf-schema#domain> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/edh-equiv> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/edh-equiv> <http://www.w3.org/2000/01/rdf-schema#label> "Epigraphic Database Heidelberg" .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/edh-equiv> <http://www.w3.org/2000/01/rdf-schema#domain> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://www.w3.org/2000/01/rdf-schema#label> "Has language" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://www.w3.org/2000/01/rdf-schema#domain> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
@@ -7960,6 +7964,7 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1667> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1667> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 1667" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1667> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1667> <http://digitalhumanities.umass.edu/p-lod/vocabulary/edh-equiv> <http://edh-www.adw.uni-heidelberg.de/edh/inschrift/HD021751> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1667> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1668> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1668> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 1668" .
@@ -8085,6 +8090,7 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1698> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 1698" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1698> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1698> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1698> <http://digitalhumanities.umass.edu/p-lod/vocabulary/edh-equiv> <http://edh-www.adw.uni-heidelberg.de/edh/inschrift/HD018646> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1699> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1699> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 1699" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1699> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
