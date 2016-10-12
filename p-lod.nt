@@ -15809,3 +15809,101 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/cie-8752> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8752" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cie-8752> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cie-8752> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8753> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8753> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8753> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8753" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8753> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8753> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8754> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8754> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8754> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8754" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8754> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8754> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8755> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8755> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8755> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8755" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8755> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8755> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8756> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8756> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8756> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8756" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8756> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8756> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8757> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8757> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8757> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8757" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8757> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8757> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8758> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8758> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8758> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8758" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8758> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8758> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8759> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8759> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8759> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8759" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8759> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8759> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8760> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8760> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8760> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8760" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8760> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8760> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8761> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8761> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8761> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8761" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8761> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8761> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8762> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8762> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8762> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8762" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8762> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8762> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8763> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8763> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8763> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8763" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8763> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8763> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8654> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8764> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8764> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8764" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8764> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8764> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8765> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8765> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8765> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8765" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8765> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8765> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8766> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8766> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8766> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8766" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8766> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8766> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8767> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8767> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8767> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8767" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8767> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8767> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8768> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8768> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8768> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8768" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8768> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8768> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8769> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8769> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8769> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8769" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8769> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8769> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/etruscan-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8769> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8770> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8770> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8770> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8770" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8770> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8770> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/etruscan-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8770> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8771> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8771> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8771> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8771" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8771> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8771> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/etruscan-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8771> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8772> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8772> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8772> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8772" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8772> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8772> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/etruscan-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8772> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8773> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8773> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8773> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8773" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8773> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8773> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/etruscan-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8773> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8774> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8774> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8774> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8774" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8774> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8774> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/etruscan-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8774> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cie-8775> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8775> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8775> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum 8770" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8775> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/etruscan-language> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-8775> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> .
