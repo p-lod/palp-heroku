@@ -253,9 +253,21 @@ def vocabulary(vocab):
                  
     return vdoc.render()
 
-@app.route('/p-lod/map')
-def map_entity():
-    pass
+@app.route('/api/geojson/<path:entity>')
+def geojson_entity(entity):
+        geojsonr = g.query(
+        """SELECT ?lat ?long ?geojson
+           WHERE {
+              OPTIONAL { p-lod-e:%s p-lod-v:latitude ?lat ;
+                                    p-lod-v:longitude ?long .
+                         }
+              OPTIONAL { p-lod-e:%s p-lod-v:geojson ?geojson }
+           }""" % (entity, entity), initNs = ns)
+        
+        if len(geojsonr) > 0:
+            for row in geojsonr:
+                pass
+                    
 
 @app.route('/')
 def index():
