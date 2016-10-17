@@ -894,6 +894,22 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/via-degli-augustali> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/street> .
 <http://digitalhumanities.umass.edu/p-lod/entities/via-degli-augustali> <http://www.w3.org/2000/01/rdf-schema#label> "via degli Augustali" .
 <http://digitalhumanities.umass.edu/p-lod/entities/via-degli-augustali> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/r7> .
+<http://digitalhumanities.umass.edu/p-lod/entities/first-style> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/wall-painting-style> .
+<http://digitalhumanities.umass.edu/p-lod/entities/first-style> <http://www.w3.org/2000/01/rdf-schema#label> "First Style" .
+<http://digitalhumanities.umass.edu/p-lod/entities/first-style> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/named-entities> .
+<http://digitalhumanities.umass.edu/p-lod/entities/first-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/getty-lod-equiv> <http://vocab.getty.edu/aat/300020607> .
+<http://digitalhumanities.umass.edu/p-lod/entities/second-style> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/wall-painting-style> .
+<http://digitalhumanities.umass.edu/p-lod/entities/second-style> <http://www.w3.org/2000/01/rdf-schema#label> "Second Style" .
+<http://digitalhumanities.umass.edu/p-lod/entities/second-style> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/named-entities> .
+<http://digitalhumanities.umass.edu/p-lod/entities/second-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/getty-lod-equiv> <http://vocab.getty.edu/aat/300020609> .
+<http://digitalhumanities.umass.edu/p-lod/entities/third-style> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/wall-painting-style> .
+<http://digitalhumanities.umass.edu/p-lod/entities/third-style> <http://www.w3.org/2000/01/rdf-schema#label> "Third Style" .
+<http://digitalhumanities.umass.edu/p-lod/entities/third-style> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/named-entities> .
+<http://digitalhumanities.umass.edu/p-lod/entities/third-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/getty-lod-equiv> <http://vocab.getty.edu/aat/300020611> .
+<http://digitalhumanities.umass.edu/p-lod/entities/fourth-style> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/wall-painting-style> .
+<http://digitalhumanities.umass.edu/p-lod/entities/fourth-style> <http://www.w3.org/2000/01/rdf-schema#label> "Fourth Style" .
+<http://digitalhumanities.umass.edu/p-lod/entities/fourth-style> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/named-entities> .
+<http://digitalhumanities.umass.edu/p-lod/entities/fourth-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/getty-lod-equiv> <http://vocab.getty.edu/aat/300020613> .
 <http://digitalhumanities.umass.edu/p-lod/entities/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/numbered-entity> .
 <http://digitalhumanities.umass.edu/p-lod/entities/1> <http://www.w3.org/2000/01/rdf-schema#label> "P-LOD Entity 1" .
 <http://digitalhumanities.umass.edu/p-lod/entities/1> <http://www.w3.org/2002/07/owl#sameAs> <http://digitalhumanities.umass.edu/p-lod/entities/r1> .
@@ -1215,6 +1231,9 @@
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/street> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/street> <http://www.w3.org/2000/01/rdf-schema#label> "Street" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/street> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/wall-painting-style> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/wall-painting-style> <http://www.w3.org/2000/01/rdf-schema#label> "Pompeian Wall Painting Style" .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/wall-painting-style> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/description> <http://www.w3.org/2000/01/rdf-schema#label> "Description" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/latitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
@@ -1233,6 +1252,9 @@
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://www.w3.org/2000/01/rdf-schema#label> "Pagescan" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://www.w3.org/2000/01/rdf-schema#domain> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/getty-lod-equiv> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/getty-lod-equiv> <http://www.w3.org/2000/01/rdf-schema#label> "Getty LOD" .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/getty-lod-equiv> <http://www.w3.org/2000/01/rdf-schema#domain> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/pleiades-equiv> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/pleiades-equiv> <http://www.w3.org/2000/01/rdf-schema#label> "Pleiades" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/pleiades-equiv> <http://www.w3.org/2000/01/rdf-schema#domain> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
