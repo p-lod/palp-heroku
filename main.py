@@ -1,15 +1,24 @@
+import html
+
+# because dominate will stop on html
+pyhtml = html
+
 import os
+import re
+import urllib.parse
 import urllib.request
 
 import dominate
 from dominate.tags import *
+
+from bs4 import BeautifulSoup
 
 from flask import Flask
 from flask import render_template
 from flask import request
 from flask import redirect, url_for, after_this_request
 
-
+import markdown
 
 import rdflib
 
@@ -48,10 +57,11 @@ def entities(entity):
     #    return response
          
     eresult = g.query(
-        """SELECT ?p ?o ?plabel ?olabel
+        """SELECT ?p ?o ?plabel ?prange ?olabel
            WHERE {
               p-lod-e:%s ?p ?o .
               OPTIONAL { ?p rdfs:label ?plabel }
+              OPTIONAL { ?p rdfs:range ?prange }
               OPTIONAL { ?o rdfs:label ?olabel }
            } ORDER BY ?plabel""" % (entity), initNs = ns)
 
@@ -99,6 +109,7 @@ def entities(entity):
         with div(cls="container", about="/p-lod/%s" % (entity)):
         
             with dl(cls="dl-horizontal"):
+                unescapehtml = False
                 dt()
                 for row in elabel:
                     dd(strong(str(row.slabel), cls="large"))
@@ -117,10 +128,19 @@ def entities(entity):
                         else:
                             olabel = str(row.o)
                 
-                        if str(row.o)[0:4] == 'http':
-                            a(olabel,href = str(row.o).replace('http://digitalhumanities.umass.edu',''))
+                        if re.search(r'(\.png|\.jpg)$', row.o):
+                            img(src=row.o,style="max-width:350px")
+                        elif str(row.o)[0:4] == 'http':
+                            if 'http://digitalhumanities.umass.edu' in str(row.o):
+                                a(olabel, title = str(row.o),href = str(row.o).replace('http://digitalhumanities.umass.edu',''))
+                            else:
+                                a(str(row.o),href = str(row.o).replace('http://digitalhumanities.umass.edu',''))
                         else:
-                            span(olabel)
+                            if str(row.prange) == 'http://digitalhumanities.umass.edu/p-lod/vocabulary/markdown-literal':
+                                unescapehtml = True
+                                span( markdown.markdown(olabel),cls="unescapehtml")
+                            else:
+                                span(olabel)
                 
         
                 if len(esameas) > 0:
@@ -162,10 +182,17 @@ def entities(entity):
                     span(". Parse ")
                     a('RDFa', href="http://www.w3.org/2012/pyRdfa/extract?uri=http://p-lod.herokuapp.com/p-lod/entities/%s" % (entity))
                     span(".")
+                    
+    if unescapehtml == True:
+        soup =  BeautifulSoup(edoc.render(), "html.parser") 
+        for each_div in soup.find_all("span", class_="unescapehtml"):
+            asoup = BeautifulSoup(pyhtml.unescape(str(each_div)),'html.parser')
+            each_div.replace_with(asoup)
+        return str(soup)
+    else:
+        return edoc.render()
 
                 
-    return edoc.render()
-    
 @app.route('/p-lod/vocabulary/<path:vocab>')
 def vocabulary(vocab):
     vresult = g.query(
