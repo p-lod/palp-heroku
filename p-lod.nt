@@ -1,5 +1,5 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/named-entities> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
-<http://digitalhumanities.umass.edu/p-lod/entities/named-entities> <http://www.w3.org/2000/01/rdf-schema#label> "All P-LOD named entities" .
+<http://digitalhumanities.umass.edu/p-lod/entities/named-entities> <http://www.w3.org/2000/01/rdf-schema#label> "Initial P-LOD Named Entities" .
 <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
 <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> <http://www.w3.org/2000/01/rdf-schema#label> "Pompeii" .
 <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/named-entities> .
@@ -15720,6 +15720,7 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2879> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2880> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/bibliographic-resource> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> <http://www.w3.org/2000/01/rdf-schema#label> "Corpus Inscriptionum Etruscarum, Volume 2, Fasicule 2" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/named-entities> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> <http://digitalhumanities.umass.edu/p-lod/vocabulary/description> "Pandolfini, A. M., Pauli, C., Cristofani, M., Istituto per l'archeologia etrusco-italica (Rome)., Istituto nazionale di studi etruschi ed italici (Florence, Italie)., Preussische Akademie der Wissenschaften., Deutsche Akademie der Wissenschaften (RDA)., ... Akademie der Wissenschaften der DDR. (1996). <i>Corpus Inscriptionum Etruscarum: Voluminis Secundi [Sect II], Fasciculum 2</i>. Romae: Istituto per l'archeologia etrusco-italica del Consiglio nazionale delle ricerche." .
 <http://digitalhumanities.umass.edu/p-lod/entities/cie-2-2> <http://digitalhumanities.umass.edu/p-lod/vocabulary/see-also> <http://www.worldcat.org/oclc/490162131> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cie-8747> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cie-inscription> .
