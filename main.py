@@ -128,7 +128,7 @@ def entities(entity):
                         else:
                             olabel = str(row.o)
                 
-                        if re.search(r'(\.png|\.jpg)$', row.o):
+                        if re.search(r'(\.png|\.jpg)$', row.o, flags= re.I):
                             img(src=row.o,style="max-width:350px")
                         elif str(row.o)[0:4] == 'http':
                             if 'http://digitalhumanities.umass.edu' in str(row.o):
