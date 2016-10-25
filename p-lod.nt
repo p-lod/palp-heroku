@@ -770,6 +770,8 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/via-dell-abbondanza> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/street> .
 <http://digitalhumanities.umass.edu/p-lod/entities/via-dell-abbondanza> <http://www.w3.org/2000/01/rdf-schema#label> "via dell'Abbondanza" .
 <http://digitalhumanities.umass.edu/p-lod/entities/via-dell-abbondanza> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> .
+<http://digitalhumanities.umass.edu/p-lod/entities/via-dell-abbondanza> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Ancient_Roman_Pompeii_-_Pompeji_-_Campania_-_Italy_-_July_10th_2013_-_36.jpg/1024px-Ancient_Roman_Pompeii_-_Pompeji_-_Campania_-_Italy_-_July_10th_2013_-_36.jpg" .
+<http://digitalhumanities.umass.edu/p-lod/entities/via-dell-abbondanza> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> "[Wikimedia commons](https://commons.wikimedia.org/wiki/File:Ancient_Roman_Pompeii_-_Pompeji_-_Campania_-_Italy_-_July_10th_2013_-_36.jpg)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/via-del-vesuvia> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/street> .
 <http://digitalhumanities.umass.edu/p-lod/entities/via-del-vesuvia> <http://www.w3.org/2000/01/rdf-schema#label> "via del Vesuvio" .
 <http://digitalhumanities.umass.edu/p-lod/entities/via-del-vesuvia> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> .
