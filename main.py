@@ -72,10 +72,11 @@ def entities(entity):
            }""" % (entity), initNs = ns)
            
     eparts = g.query(
-        """SELECT ?part ?label
+        """SELECT ?part ?label ?vfile
            WHERE {
               ?part dcterms:isPartOf p-lod-e:%s .
               ?part rdfs:label ?label .
+              OPTIONAL { ?part p-lod-v:visual-documentation-file ?vfile }
            } ORDER BY ?part""" % (entity), initNs = ns)
            
     esameas = g.query(
@@ -156,9 +157,26 @@ def entities(entity):
                 if len(eparts) > 0:
                     dt('Has parts')
                     with dd():
+                        first = 0
+                        curlabel = ''
                         for part in eparts:
-                            span(a(str(part.label), rel="dcterms:hasPart", href = str(part.part).replace('http://digitalhumanities.umass.edu','')))
-                            br()
+                            label = str(part.label)
+                            if curlabel != label:
+                                curlabel = label
+                                
+                                if first == 1:
+                                    first = 0
+                                    pstyle = ''
+                                else:
+                                    pstyle = 'border-top: thin dotted #aaa;width:25%'
+
+                                p(a(label, rel="dcterms:hasPart", href = str(part.part).replace('http://digitalhumanities.umass.edu','')), style=pstyle)
+                            
+
+                            if str(part.vfile) != "None":
+                                thumb = str(part.vfile)
+                                a(img(style="margin-left:1em;margin-bottom:15px;max-width:150px;max-height:150px",src=thumb),href=str(part.part).replace('http://digitalhumanities.umass.edu',''))
+
                 
                 objlength = len(eobjects)
                 if objlength > 0:
