@@ -152,8 +152,7 @@ def entities(entity):
         
                 dt("Future permalink")
                 dd("http://digitalhumanities.umass.edu/p-lod/entities/%s" % (entity) )
-
-        
+      
                 if len(eparts) > 0:
                     dt('Has parts')
                     with dd():
@@ -176,7 +175,6 @@ def entities(entity):
                             if str(part.vfile) != "None":
                                 thumb = str(part.vfile)
                                 a(img(style="margin-left:1em;margin-bottom:15px;max-width:150px;max-height:150px",src=thumb),href=str(part.part).replace('http://digitalhumanities.umass.edu',''))
-
                 
                 objlength = len(eobjects)
                 if objlength > 0:

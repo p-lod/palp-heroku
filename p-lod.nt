@@ -677,6 +677,8 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-nola> <http://www.w3.org/2000/01/rdf-schema#label> "Porta Nola" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-nola> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-nola> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/Gates/Gate%20Nola.htm> .
+<http://digitalhumanities.umass.edu/p-lod/entities/porta-nola> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Pompeji-via-di-nola.JPG/1024px-Pompeji-via-di-nola.JPG" .
+<http://digitalhumanities.umass.edu/p-lod/entities/porta-nola> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> "[Wikimedia commons](https://commons.wikimedia.org/wiki/File:Pompeji-via-di-nola.JPG)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-sarno> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/city-gate> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-sarno> <http://www.w3.org/2000/01/rdf-schema#label> "Porta Sarno" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-sarno> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
@@ -691,6 +693,8 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-stabia> <http://www.w3.org/2000/01/rdf-schema#label> "Porta Stabia" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-stabia> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-stabia> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/Gates/Gate%20Stabian.htm> .
+<http://digitalhumanities.umass.edu/p-lod/entities/porta-stabia> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Pompeii_street08.jpg/1024px-Pompeii_street08.jpg" .
+<http://digitalhumanities.umass.edu/p-lod/entities/porta-stabia> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-source> "[Wikimedia commons](https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Pompeii_street08.jpg/1024px-Pompeii_street08.jpg)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-marina> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/city-gate> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-marina> <http://www.w3.org/2000/01/rdf-schema#label> "Porta Marina" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-marina> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
@@ -709,6 +713,8 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-vesuvio> <http://www.w3.org/2000/01/rdf-schema#label> "Porta Vesuvio" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-vesuvio> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-vesuvio> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/Gates/Gate%20Vesuvio.htm> .
+<http://digitalhumanities.umass.edu/p-lod/entities/porta-vesuvio> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pompei-ma1.jpg/1024px-Pompei-ma1.jpg" .
+<http://digitalhumanities.umass.edu/p-lod/entities/porta-vesuvio> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-source> "[Wikimedia commons](https://commons.wikimedia.org/wiki/File:Pompei-ma1.jpg)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/etruscan-language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/etruscan-language> <http://www.w3.org/2000/01/rdf-schema#label> "Etruscan (language)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/etruscan-language> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/named-entities> .
