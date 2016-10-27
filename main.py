@@ -226,10 +226,11 @@ def vocabulary(vocab):
            }""" % (vocab), initNs = ns)
            
     vinstances = g.query(
-        """SELECT ?instance ?label
+        """SELECT ?instance ?label ?vfile
            WHERE {
               ?instance rdf:type p-lod-v:%s .
               ?instance rdfs:label ?label .
+              OPTIONAL { ?instance p-lod-v:visual-documentation-file ?vfile }
            } ORDER BY ?instance""" % (vocab), initNs = ns)
            
     vsubclasses = g.query(
@@ -277,9 +278,26 @@ def vocabulary(vocab):
                 if len(vinstances) > 0:
                     dt('Entities')
                     with dd():
+                        first = 0
+                        curlabel = ''
+
                         for instance in vinstances:
-                            span(a(str(instance.label), href = str(instance.instance).replace('http://digitalhumanities.umass.edu','')))
-                            br()
+                            label = str(instance.label)
+                            if curlabel != label:
+                                curlabel = label
+                                
+                                if first == 1:
+                                    first = 0
+                                    pstyle = ''
+                                else:
+                                    pstyle = 'border-top: thin dotted #aaa;width:25%'
+
+                                p(a(label, href = str(instance.instance).replace('http://digitalhumanities.umass.edu','')),style = pstyle)
+
+                            if str(instance.vfile) != "None":
+                                thumb = str(instance.vfile)
+                                a(img(style="margin-left:1em;margin-bottom:15px;max-width:150px;max-height:150px",src=thumb),href=str(instance.instance).replace('http://digitalhumanities.umass.edu',''))
+
         
                 if len(vsubclasses) > 0:
                     dt('Subclasses')
