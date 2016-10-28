@@ -971,6 +971,8 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/tower07> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower07> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/tower08> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower07> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://www.pompeiiinpictures.com/pompeiiinpictures/Towers/Towers%20T7.htm> .
+<http://digitalhumanities.umass.edu/p-lod/entities/tower07> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Torre_VII.JPG/1024px-Torre_VII.JPG" .
+<http://digitalhumanities.umass.edu/p-lod/entities/tower07> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> "[Wikimedia commons](https://commons.wikimedia.org/wiki/File:Torre_VII.JPG)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower08> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/entities/tower> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower08> <http://www.w3.org/2000/01/rdf-schema#label> "Tower 8" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower08> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
@@ -986,6 +988,8 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/tower10> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower10> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/tower11> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower10> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://www.pompeiiinpictures.com/pompeiiinpictures/Towers/Towers%20T10.htm> .
+<http://digitalhumanities.umass.edu/p-lod/entities/tower10> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Torre_X.JPG/1024px-Torre_X.JPG" .
+<http://digitalhumanities.umass.edu/p-lod/entities/tower10> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> "[Wikimedia commons](https://commons.wikimedia.org/wiki/File:Torre_X.JPG)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower11> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/entities/tower> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower11> <http://www.w3.org/2000/01/rdf-schema#label> "Tower 11" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower11> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
