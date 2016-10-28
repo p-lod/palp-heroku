@@ -936,6 +936,8 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/entities/named-entity> .
 <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> <http://www.w3.org/2000/01/rdf-schema#label> "City Wall of Pompeii" .
 <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> .
+<http://digitalhumanities.umass.edu/p-lod/entities/city-wall> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Torre_di_Mercurio.JPG/1024px-Torre_di_Mercurio.JPG" .
+<http://digitalhumanities.umass.edu/p-lod/entities/city-wall> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> "[Wikimedia commons](https://commons.wikimedia.org/wiki/File:Torre_di_Mercurio.JPG)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower01> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/entities/tower> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower01> <http://www.w3.org/2000/01/rdf-schema#label> "Tower 1" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower01> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
@@ -995,6 +997,8 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/tower11> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower11> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/tower12> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower11> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://www.pompeiiinpictures.com/pompeiiinpictures/Towers/Towers%20T11.htm> .
+<http://digitalhumanities.umass.edu/p-lod/entities/tower11> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Torre_di_Mercurio.JPG/1024px-Torre_di_Mercurio.JPG" .
+<http://digitalhumanities.umass.edu/p-lod/entities/tower11> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> "[Wikimedia commons](https://commons.wikimedia.org/wiki/File:Torre_di_Mercurio.JPG)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower12> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/entities/tower> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower12> <http://www.w3.org/2000/01/rdf-schema#label> "Tower 12" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower12> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
