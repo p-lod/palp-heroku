@@ -861,6 +861,8 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/vicolo-dei-12-dei> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/street> .
 <http://digitalhumanities.umass.edu/p-lod/entities/vicolo-dei-12-dei> <http://www.w3.org/2000/01/rdf-schema#label> "vicolo dei 12 Dei" .
 <http://digitalhumanities.umass.edu/p-lod/entities/vicolo-dei-12-dei> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/r8> .
+<http://digitalhumanities.umass.edu/p-lod/entities/vicolo-dei-12-dei> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Vicolo_dei_Dodici_Dei_1.JPG/1024px-Vicolo_dei_Dodici_Dei_1.JPG" .
+<http://digitalhumanities.umass.edu/p-lod/entities/vicolo-dei-12-dei> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> "[Wikimedia commons](https://commons.wikimedia.org/wiki/File:Vicolo_dei_Dodici_Dei_1.JPG)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/vicolo-delle-pareti-rossa> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/street> .
 <http://digitalhumanities.umass.edu/p-lod/entities/vicolo-delle-pareti-rossa> <http://www.w3.org/2000/01/rdf-schema#label> "vicolo delle Pareti rossa" .
 <http://digitalhumanities.umass.edu/p-lod/entities/vicolo-delle-pareti-rossa> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/r8> .
@@ -938,49 +940,61 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/tower01> <http://www.w3.org/2000/01/rdf-schema#label> "Tower 1" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower01> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower01> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/tower02> .
+<http://digitalhumanities.umass.edu/p-lod/entities/tower01> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://www.pompeiiinpictures.com/pompeiiinpictures/Towers/Towers%20T1.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower02> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/entities/tower> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower02> <http://www.w3.org/2000/01/rdf-schema#label> "Tower 2" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower02> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower02> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/tower03> .
+<http://digitalhumanities.umass.edu/p-lod/entities/tower02> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://www.pompeiiinpictures.com/pompeiiinpictures/Towers/Towers%20T2.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower03> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/entities/tower> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower03> <http://www.w3.org/2000/01/rdf-schema#label> "Tower 3" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower03> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower03> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/tower04> .
+<http://digitalhumanities.umass.edu/p-lod/entities/tower03> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://www.pompeiiinpictures.com/pompeiiinpictures/Towers/Towers%20T3.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower04> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/entities/tower> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower04> <http://www.w3.org/2000/01/rdf-schema#label> "Tower 4" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower04> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower04> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/tower05> .
+<http://digitalhumanities.umass.edu/p-lod/entities/tower04> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://www.pompeiiinpictures.com/pompeiiinpictures/Towers/Towers%20T4.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower05> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/entities/tower> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower05> <http://www.w3.org/2000/01/rdf-schema#label> "Tower 5" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower05> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower05> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/tower06> .
+<http://digitalhumanities.umass.edu/p-lod/entities/tower05> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://www.pompeiiinpictures.com/pompeiiinpictures/Towers/Towers%20T5.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower06> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/entities/tower> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower06> <http://www.w3.org/2000/01/rdf-schema#label> "Tower 6" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower06> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower06> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/tower07> .
+<http://digitalhumanities.umass.edu/p-lod/entities/tower06> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://www.pompeiiinpictures.com/pompeiiinpictures/Towers/Towers%20T6.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower07> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/entities/tower> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower07> <http://www.w3.org/2000/01/rdf-schema#label> "Tower 7" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower07> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower07> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/tower08> .
+<http://digitalhumanities.umass.edu/p-lod/entities/tower07> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://www.pompeiiinpictures.com/pompeiiinpictures/Towers/Towers%20T7.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower08> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/entities/tower> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower08> <http://www.w3.org/2000/01/rdf-schema#label> "Tower 8" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower08> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower08> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/tower09> .
+<http://digitalhumanities.umass.edu/p-lod/entities/tower08> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://www.pompeiiinpictures.com/pompeiiinpictures/Towers/Towers%20T8.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower09> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/entities/tower> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower09> <http://www.w3.org/2000/01/rdf-schema#label> "Tower 9" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower09> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower09> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/tower10> .
+<http://digitalhumanities.umass.edu/p-lod/entities/tower09> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://www.pompeiiinpictures.com/pompeiiinpictures/Towers/Towers%20T9.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/entities/tower> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower10> <http://www.w3.org/2000/01/rdf-schema#label> "Tower 10" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower10> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower10> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/tower11> .
+<http://digitalhumanities.umass.edu/p-lod/entities/tower10> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://www.pompeiiinpictures.com/pompeiiinpictures/Towers/Towers%20T10.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower11> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/entities/tower> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower11> <http://www.w3.org/2000/01/rdf-schema#label> "Tower 11" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower11> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower11> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/tower12> .
+<http://digitalhumanities.umass.edu/p-lod/entities/tower11> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://www.pompeiiinpictures.com/pompeiiinpictures/Towers/Towers%20T11.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower12> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/entities/tower> .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower12> <http://www.w3.org/2000/01/rdf-schema#label> "Tower 12" .
 <http://digitalhumanities.umass.edu/p-lod/entities/tower12> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
+<http://digitalhumanities.umass.edu/p-lod/entities/tower12> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://www.pompeiiinpictures.com/pompeiiinpictures/Towers/Towers%20T12.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/bibliographic-resource> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> <http://purl.org/dc/terms/isPartOf> <http://digitalhumanities.umass.edu/p-lod/entities/named-entities> .
