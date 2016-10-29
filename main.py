@@ -57,13 +57,14 @@ def entities(entity):
     #    return response
          
     eresult = g.query(
-        """SELECT ?p ?o ?plabel ?prange ?olabel
+        """SELECT ?p ?o ?plabel ?prange ?olabel ?sortorder
            WHERE {
               p-lod-e:%s ?p ?o .
               OPTIONAL { ?p rdfs:label ?plabel }
               OPTIONAL { ?p rdfs:range ?prange }
+              OPTIONAL { ?p p-lod-v:sort-order ?sortorder }
               OPTIONAL { ?o rdfs:label ?olabel }
-           } ORDER BY ?plabel""" % (entity), initNs = ns)
+           } ORDER BY ?sortorder ?plabel""" % (entity), initNs = ns)
 
     elabel = g.query(
         """SELECT ?slabel 
@@ -74,7 +75,7 @@ def entities(entity):
     eparts = g.query(
         """SELECT ?part ?label ?vfile
            WHERE {
-              ?part dcterms:isPartOf p-lod-e:%s .
+              ?part p-lod-v:is-part-of p-lod-e:%s .
               ?part rdfs:label ?label .
               OPTIONAL { ?part p-lod-v:visual-documentation-file ?vfile }
            } ORDER BY ?part""" % (entity), initNs = ns)
@@ -93,7 +94,7 @@ def entities(entity):
               OPTIONAL { ?s rdfs:label ?slabel }
               OPTIONAL { ?p rdfs:label ?plabel }
               FILTER ( ?p != p-lod-v:next )
-              FILTER ( ?p != dcterms:isPartOf )
+              FILTER ( ?p != p-lod-v:is-part-of )
               FILTER ( ?p != owl:sameAs )
            }  ORDER BY ?s LIMIT 1000""" % (entity), initNs = ns)
 
