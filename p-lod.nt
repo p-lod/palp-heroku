@@ -16162,6 +16162,7 @@
 <http://www.w3.org/2002/07/owl#ObjectProperty> <http://www.w3.org/2000/01/rdf-schema#label> "Object Property" .
 <http://www.w3.org/2002/07/owl#sameAs> <http://www.w3.org/2000/01/rdf-schema#label> "Same as" .
 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#label> "Type" .
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/sort-order> "001top-003" .
 <http://www.w3.org/2000/01/rdf-schema#comment> <http://www.w3.org/2000/01/rdf-schema#label> "Comment or description" .
 <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2000/01/rdf-schema#label> "RDF Domain" .
 <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#label> "RDF Range" .
@@ -16219,7 +16220,7 @@
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/wall-painting-style> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/description> <http://www.w3.org/2000/01/rdf-schema#label> "Description" .
-<http://digitalhumanities.umass.edu/p-lod/vocabulary/description> <http://digitalhumanities.umass.edu/p-lod/vocabulary/sort-order> "001top-000" .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/description> <http://digitalhumanities.umass.edu/p-lod/vocabulary/sort-order> "001top-002" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/latitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/latitude> <http://www.w3.org/2000/01/rdf-schema#label> "Latitude" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/longitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
@@ -16265,8 +16266,8 @@
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/see-also> <http://www.w3.org/2000/01/rdf-schema#label> "See also" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> <http://www.w3.org/2000/01/rdf-schema#label> "Photo or drawing" .
-<http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> <http://digitalhumanities.umass.edu/p-lod/vocabulary/sort-order> "001top-010" .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> <http://digitalhumanities.umass.edu/p-lod/vocabulary/sort-order> "001top-000" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> <http://www.w3.org/2000/01/rdf-schema#label> "Photo or drawing source" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> <http://www.w3.org/2000/01/rdf-schema#range> <http://digitalhumanities.umass.edu/p-lod/vocabulary/markdown-literal> .
-<http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> <http://digitalhumanities.umass.edu/p-lod/vocabulary/sort-order> "001top-010" .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> <http://digitalhumanities.umass.edu/p-lod/vocabulary/sort-order> "001top-0001" .
