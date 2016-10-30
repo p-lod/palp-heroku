@@ -921,18 +921,29 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/first-style> <http://www.w3.org/2000/01/rdf-schema#label> "First Style" .
 <http://digitalhumanities.umass.edu/p-lod/entities/first-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/named-entities> .
 <http://digitalhumanities.umass.edu/p-lod/entities/first-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/getty-lod-equiv> <http://vocab.getty.edu/aat/300020607> .
+<http://digitalhumanities.umass.edu/p-lod/entities/first-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/second-style> .
+<http://digitalhumanities.umass.edu/p-lod/entities/first-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/A_cubiculum_decorated_in_the_first_style_with_bands_of_stucco_in_the_House_of_the_Ship_Europa%2C_Pompeii_%2815143252086%29.jpg/509px-A_cubiculum_decorated_in_the_first_style_with_bands_of_stucco_in_the_House_of_the_Ship_Europa%2C_Pompeii_%2815143252086%29.jpg" .
+<http://digitalhumanities.umass.edu/p-lod/entities/first-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> "[Wikimedia commons](https://commons.wikimedia.org/wiki/File:A_cubiculum_decorated_in_the_first_style_with_bands_of_stucco_in_the_House_of_the_Ship_Europa,_Pompeii_(15143252086).jpg)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/second-style> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/wall-painting-style> .
 <http://digitalhumanities.umass.edu/p-lod/entities/second-style> <http://www.w3.org/2000/01/rdf-schema#label> "Second Style" .
 <http://digitalhumanities.umass.edu/p-lod/entities/second-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/named-entities> .
 <http://digitalhumanities.umass.edu/p-lod/entities/second-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/getty-lod-equiv> <http://vocab.getty.edu/aat/300020609> .
+<http://digitalhumanities.umass.edu/p-lod/entities/second-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/third-style> .
+<http://digitalhumanities.umass.edu/p-lod/entities/second-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Metropolitan_wall_painting_Roman_1C_BC_3.jpg/1024px-Metropolitan_wall_painting_Roman_1C_BC_3.jpg" .
+<http://digitalhumanities.umass.edu/p-lod/entities/second-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> "[Wikimedia commons](https://commons.wikimedia.org/wiki/File:Metropolitan_wall_painting_Roman_1C_BC_3.jpg)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/third-style> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/wall-painting-style> .
 <http://digitalhumanities.umass.edu/p-lod/entities/third-style> <http://www.w3.org/2000/01/rdf-schema#label> "Third Style" .
 <http://digitalhumanities.umass.edu/p-lod/entities/third-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/named-entities> .
 <http://digitalhumanities.umass.edu/p-lod/entities/third-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/getty-lod-equiv> <http://vocab.getty.edu/aat/300020611> .
+<http://digitalhumanities.umass.edu/p-lod/entities/third-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/fourth-style> .
+<http://digitalhumanities.umass.edu/p-lod/entities/third-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Pompeji_Casa_Di_Octavio_Quartio_Wall.jpg/859px-Pompeji_Casa_Di_Octavio_Quartio_Wall.jpg" .
+<http://digitalhumanities.umass.edu/p-lod/entities/third-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> "[Wikimedia commons](https://commons.wikimedia.org/wiki/File:Pompeji_Casa_Di_Octavio_Quartio_Wall.jpg)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/fourth-style> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/wall-painting-style> .
 <http://digitalhumanities.umass.edu/p-lod/entities/fourth-style> <http://www.w3.org/2000/01/rdf-schema#label> "Fourth Style" .
 <http://digitalhumanities.umass.edu/p-lod/entities/fourth-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/named-entities> .
 <http://digitalhumanities.umass.edu/p-lod/entities/fourth-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/getty-lod-equiv> <http://vocab.getty.edu/aat/300020613> .
+<http://digitalhumanities.umass.edu/p-lod/entities/fourth-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Pompeji_Casa_Dei_Vettii_Hercules_Child.jpg/515px-Pompeji_Casa_Dei_Vettii_Hercules_Child.jpg" .
+<http://digitalhumanities.umass.edu/p-lod/entities/fourth-style> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> "[Wikimedia commons](https://commons.wikimedia.org/wiki/File:Pompeji_Casa_Dei_Vettii_Hercules_Child.jpg)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
 <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> <http://www.w3.org/2000/01/rdf-schema#label> "City Wall of Pompeii" .
 <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> .
@@ -16213,7 +16224,7 @@
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/street> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/tower> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/tower> <http://www.w3.org/2000/01/rdf-schema#label> "Tower" .
-<http://digitalhumanities.umass.edu/p-lod/vocabulary/tower> <http://www.w3.org/2000/01/rdf-schema#comment> "A tower that is part of the Pompeii's city wall." .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/tower> <http://www.w3.org/2000/01/rdf-schema#comment> "A tower that is part of Pompeii's city wall." .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/tower> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/wall-painting-style> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/wall-painting-style> <http://www.w3.org/2000/01/rdf-schema#label> "Pompeian Wall Painting Style" .

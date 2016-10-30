@@ -77,8 +77,9 @@ def entities(entity):
            WHERE {
               ?part p-lod-v:is-part-of p-lod-e:%s .
               ?part rdfs:label ?label .
+              ?part rdf:type ?type
               OPTIONAL { ?part p-lod-v:visual-documentation-file ?vfile }
-           } ORDER BY ?part""" % (entity), initNs = ns)
+           } ORDER BY ?type ?part""" % (entity), initNs = ns)
            
     esameas = g.query(
         """SELECT ?url ?label
