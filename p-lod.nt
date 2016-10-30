@@ -8432,6 +8432,7 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1763> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1764> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1764> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 1764" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1764> <http://digitalhumanities.umass.edu/p-lod/vocabulary/europeana-equiv> <http://www.europeana.eu/portal/en/record/2058806/EDR__7c8cd8f5ba0e5be4d134af6ff0aff092__artifact__cho> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1764> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1764> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1765> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
@@ -16360,6 +16361,10 @@
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/edh-equiv> <http://www.w3.org/2000/01/rdf-schema#label> "Epigraphic Database Heidelberg" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/edh-equiv> <http://www.w3.org/2000/01/rdf-schema#domain> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/edh-equiv> <http://digitalhumanities.umass.edu/p-lod/vocabulary/sort-order> "005links" .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/europeana-equiv> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/europeana-equiv> <http://www.w3.org/2000/01/rdf-schema#label> "Europeana" .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/europeana-equiv> <http://www.w3.org/2000/01/rdf-schema#domain> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/europeana-equiv> <http://digitalhumanities.umass.edu/p-lod/vocabulary/sort-order> "005links" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://www.w3.org/2000/01/rdf-schema#label> "Has language" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://www.w3.org/2000/01/rdf-schema#domain> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
