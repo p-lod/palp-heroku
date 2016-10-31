@@ -110,6 +110,13 @@ def entities(entity):
            with div(cls="container-fluid"):
                with div(cls="navbar-header"):
                    a("P-LOD Linked Open Data for Pompeii: Entity", href="/p-lod/entities/pompeii",cls="navbar-brand")
+                   with ul(cls="nav navbar-nav"):
+                       with li(cls="dropdown"):
+                           a("Browse", href="#",cls="dropdown-toggle", data_toggle="dropdown")
+                           with ul(cls="dropdown-menu", role="menu"):
+                               li(a('Go to Pompeii', href="/p-lod/entities/pompeii"))
+                               li(a('All Classes', href="/p-lod/vocabulary/entity"))
+                               li(a('All Properties', href="/p-lod/vocabulary/vocabulary-item"))
     
         with div(cls="container", about="/p-lod/%s" % (entity)):
         
@@ -265,6 +272,7 @@ def vocabulary(vocab):
                        with li(cls="dropdown"):
                            a("Browse", href="#",cls="dropdown-toggle", data_toggle="dropdown")
                            with ul(cls="dropdown-menu", role="menu"):
+                               li(a('Go to Pompeii', href="/p-lod/entities/pompeii"))
                                li(a('All Classes', href="/p-lod/vocabulary/entity"))
                                li(a('All Properties', href="/p-lod/vocabulary/vocabulary-item"))
 
