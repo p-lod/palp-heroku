@@ -44,6 +44,7 @@ def plodheader(doc, plod = ''):
     doc.head += meta(name="viewport", content="width=device-width, initial-scale=1")
     doc.head += link(rel='stylesheet', href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u",crossorigin="anonymous")
     doc.head += link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css", integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp", crossorigin="anonymous")
+    doc.head += script(src="http://code.jquery.com/jquery-3.1.1.min.js")
     doc.head += script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js",integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa",crossorigin="anonymous")
     doc.head += style("body { padding-top: 60px; }")
     doc.head += meta(name="DC.title",lang="en",content="%s" % (plod) )
@@ -220,7 +221,7 @@ def vocabulary(vocab):
               p-lod-v:%s ?p ?o .
               OPTIONAL { ?p rdfs:label ?plabel }
               OPTIONAL { ?o rdfs:label ?olabel }
-           }""" % (vocab), initNs = ns)
+           } ORDER BY ?plabel""" % (vocab), initNs = ns)
 
     vlabel = g.query(
         """SELECT ?slabel 
@@ -236,11 +237,11 @@ def vocabulary(vocab):
               OPTIONAL { ?instance p-lod-v:visual-documentation-file ?vfile }
            } ORDER BY ?instance""" % (vocab), initNs = ns)
            
-    vsubclasses = g.query(
-        """SELECT ?subclass ?label
+    vsubs = g.query(
+        """SELECT ?sub ?label
            WHERE {
-              ?subclass rdfs:subClassOf p-lod-v:%s .
-              ?subclass rdfs:label ?label .
+              ?sub rdfs:subClassOf|rdfs:subPropertyOf p-lod-v:%s .
+              ?sub rdfs:label ?label .
            } ORDER BY ?label""" % (vocab), initNs = ns)
     
     vusage = g.query(
@@ -260,6 +261,12 @@ def vocabulary(vocab):
            with div(cls="container-fluid"):
                with div(cls="navbar-header"):
                    a("P-LOD Linked Open Data for Pompeii: Vocabulary", href="/p-lod/entities/pompeii",cls="navbar-brand")
+                   with ul(cls="nav navbar-nav"):
+                       with li(cls="dropdown"):
+                           a("Browse", href="#",cls="dropdown-toggle", data_toggle="dropdown")
+                           with ul(cls="dropdown-menu", role="menu"):
+                               li(a('All Classes', href="/p-lod/vocabulary/entity"))
+                               li(a('All Properties', href="/p-lod/vocabulary/vocabulary-item"))
 
         with div(cls="container"):
             with dl(cls="dl-horizontal"):
@@ -310,11 +317,11 @@ def vocabulary(vocab):
                                 a(img(style="margin-left:1em;margin-bottom:15px;max-width:150px;max-height:150px",src=thumb),href=str(instance.instance).replace('http://digitalhumanities.umass.edu',''))
 
         
-                if len(vsubclasses) > 0:
-                    dt('Subclasses')
+                if len(vsubs) > 0:
+                    dt('Hierarchy')
                     with dd():
-                        for subclass in vsubclasses:
-                            p(a(str(subclass.label), href = str(subclass.subclass).replace('http://digitalhumanities.umass.edu','')))
+                        for sub in vsubs:
+                            p(a(str(sub.label), href = str(sub.sub).replace('http://digitalhumanities.umass.edu','')))
                             
                 if len(vusage) > 0:
                     dt('Used as Property')
