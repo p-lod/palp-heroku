@@ -241,7 +241,15 @@ def vocabulary(vocab):
            WHERE {
               ?subclass rdfs:subClassOf p-lod-v:%s .
               ?subclass rdfs:label ?label .
-           } ORDER BY ?label""" % (vocab), initNs = ns)    
+           } ORDER BY ?label""" % (vocab), initNs = ns)
+    
+    vusage = g.query(
+        """SELECT ?s ?o ?slabel ?olabel
+           WHERE {
+              ?s p-lod-v:%s ?o .
+              OPTIONAL { ?s rdfs:label ?slabel }
+              OPTIONAL { ?o rdfs:label ?olabel }
+           } ORDER BY ?s ?o LIMIT 2000""" % (vocab), initNs = ns)    
 
     vdoc = dominate.document(title="Pompeii LOD: %s" % (vocab))
     plodheader(vdoc, vocab)
@@ -306,8 +314,21 @@ def vocabulary(vocab):
                     dt('Subclasses')
                     with dd():
                         for subclass in vsubclasses:
-                            span(a(str(subclass.label), href = str(subclass.subclass).replace('http://digitalhumanities.umass.edu','')))
-                            br()
+                            p(a(str(subclass.label), href = str(subclass.subclass).replace('http://digitalhumanities.umass.edu','')))
+                            
+                if len(vusage) > 0:
+                    dt('Used as Property')
+                    with dd():
+                        for use in vusage:
+                            with p():
+                                a(str(use.slabel), href = str(use.s).replace('http://digitalhumanities.umass.edu',''))
+                                span(" ⇒ ", style="color:gray")
+                                if str(use.olabel) != 'None':
+                                    label = str(use.olabel)
+                                else:
+                                    label = str(use.o).replace('http://digitalhumanities.umass.edu','')
+                                a(str(label), href = str(use.o).replace('http://digitalhumanities.umass.edu',''))
+                            
 
             hr()
             with p():

@@ -3,7 +3,7 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
 <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> <http://www.w3.org/2000/01/rdf-schema#label> "Pompeii" .
 <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/named-entities> .
-<http://digitalhumanities.umass.edu/p-lod/entities/pompeii> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <https://gazetteer.dainst.org/place/2338718> .
+<http://digitalhumanities.umass.edu/p-lod/entities/pompeii> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-link> <https://gazetteer.dainst.org/place/2338718> .
 <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> <http://digitalhumanities.umass.edu/p-lod/vocabulary/description> "High level identifier for the concept of Pompeii." .
 <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> <http://digitalhumanities.umass.edu/p-lod/vocabulary/edh-equiv> <http://edh-www.adw.uni-heidelberg.de/edh/geographie/11925/karte> .
 <http://digitalhumanities.umass.edu/p-lod/entities/pompeii> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pleiades-equiv> <https://pleiades.stoa.org/places/433032> .
@@ -789,6 +789,7 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-nola> <http://www.w3.org/2000/01/rdf-schema#label> "Porta Nola" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-nola> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-nola> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/Gates/Gate%20Nola.htm> .
+<http://digitalhumanities.umass.edu/p-lod/entities/porta-nola> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pleiades-equiv> <https://pleiades.stoa.org/places/11924823> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-nola> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Pompeji-via-di-nola.JPG/1024px-Pompeji-via-di-nola.JPG" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-nola> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> "[Wikimedia commons](https://commons.wikimedia.org/wiki/File:Pompeji-via-di-nola.JPG)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-sarno> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/city-gate> .
@@ -799,26 +800,30 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-nocera> <http://www.w3.org/2000/01/rdf-schema#label> "Porta Nocera" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-nocera> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-nocera> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/Gates/Gate%20Nuceria.htm> .
+<http://digitalhumanities.umass.edu/p-lod/entities/porta-nocera> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pleiades-equiv> <https://pleiades.stoa.org/places/11924821> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-nocera> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Pompeii_2014.JPG/1024px-Pompeii_2014.JPG" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-nocera> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> "[Wikimedia commons](https://commons.wikimedia.org/wiki/File:Pompeii_2014.JPG)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-stabia> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/city-gate> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-stabia> <http://www.w3.org/2000/01/rdf-schema#label> "Porta Stabia" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-stabia> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-stabia> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/Gates/Gate%20Stabian.htm> .
+<http://digitalhumanities.umass.edu/p-lod/entities/porta-stabia> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pleiades-equiv> <https://pleiades.stoa.org/places/260329425> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-stabia> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Pompeii_street08.jpg/1024px-Pompeii_street08.jpg" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-stabia> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> "[Wikimedia commons](https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Pompeii_street08.jpg/1024px-Pompeii_street08.jpg)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-marina> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/city-gate> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-marina> <http://www.w3.org/2000/01/rdf-schema#label> "Porta Marina" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-marina> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-marina> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/Gates/Gate%20Marine.htm> .
+<http://digitalhumanities.umass.edu/p-lod/entities/porta-marina> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pleiades-equiv> <https://pleiades.stoa.org/places/615138225> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-marina> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Pompei_2012_%288057057228%29.jpg/1024px-Pompei_2012_%288057057228%29.jpg" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-marina> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> "[Wikimedia commons](https://commons.wikimedia.org/wiki/File:Pompei_2012_(8057057228).jpg)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-ercolano> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/city-gate> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-ercolano> <http://www.w3.org/2000/01/rdf-schema#label> "Porta Ercolano" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-ercolano> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/city-wall> .
-<http://digitalhumanities.umass.edu/p-lod/entities/porta-ercolano> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/Gates/Gate%20Ercolano.htm> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-ercolano> <http://digitalhumanities.umass.edu/p-lod/vocabulary/latitude> "40.751823"^^<http://www.w3.org/2001/XMLSchema#decimal> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-ercolano> <http://digitalhumanities.umass.edu/p-lod/vocabulary/longitude> "14.481116"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<http://digitalhumanities.umass.edu/p-lod/entities/porta-ercolano> <http://digitalhumanities.umass.edu/p-lod/vocabulary/p-in-p-equiv> <http://pompeiiinpictures.com/pompeiiinpictures/Gates/Gate%20Ercolano.htm> .
+<http://digitalhumanities.umass.edu/p-lod/entities/porta-ercolano> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pleiades-equiv> <https://pleiades.stoa.org/places/797109353> .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-ercolano> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/The_Streets_of_Pompeii_%2814842927849%29.jpg/640px-The_Streets_of_Pompeii_%2814842927849%29.jpg" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-ercolano> <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file-sources> "[Wikimedia commons](https://commons.wikimedia.org/wiki/File:The_Streets_of_Pompeii_(14842927849).jpg)" .
 <http://digitalhumanities.umass.edu/p-lod/entities/porta-vesuvio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/city-gate> .
@@ -1133,7 +1138,7 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/bibliographic-resource> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/named-entities> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buch/2688> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-link> <http://arachne.uni-koeln.de/item/buch/2688> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> <http://digitalhumanities.umass.edu/p-lod/vocabulary/description> "Zangemeister, K. F. W., & Scho\u0308ne, R. (1871). <i>Corpus inscriptionum latinarum</i>: Vol. 4. Berolini: Apud Georgium Reimerum." .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0001> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 1" .
@@ -8432,7 +8437,7 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1763> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1764> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1764> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 1764" .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1764> <http://digitalhumanities.umass.edu/p-lod/vocabulary/europeana-equiv> <http://www.europeana.eu/portal/en/record/2058806/EDR__7c8cd8f5ba0e5be4d134af6ff0aff092__artifact__cho> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1764> <http://digitalhumanities.umass.edu/p-lod/vocabulary/europeana-link> <http://www.europeana.eu/portal/en/record/2058806/EDR__7c8cd8f5ba0e5be4d134af6ff0aff092__artifact__cho> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1764> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1764> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-1765> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
@@ -9966,102 +9971,102 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2147> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2147> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2147" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2147> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2147> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2147> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2147> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2148> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2148> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2148" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2148> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2148> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2148> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2148> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2149> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2149> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2149" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2149> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2149> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2149> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2149> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2150> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2150> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2150" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2150> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2150> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2150> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2150> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2151> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2151> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2151" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2151> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2151> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2151> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2151> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2152> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2152> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2152" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2152> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2152> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2152> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2152> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2153> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2153> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2153" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2153> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2153> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2153> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2153> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2154> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2154> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2154" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2154> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2154> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2154> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2154> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2155> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2155> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2155" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2155> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2155> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2155> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2155> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2156> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2156> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2156" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2156> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2156> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2156> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2156> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2157> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2157> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2157" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2157> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2157> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2157> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2157> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2158> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2158> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2158" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2158> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2158> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2158> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2158> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2159> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2159> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2159" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2159> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2159> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2159> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2159> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2160> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2160> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2160" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2160> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2160> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2160> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2160> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2161> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2161> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2161" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2161> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2161> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2161> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2161> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2162> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2162> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2162" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2162> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2162> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2162> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2162> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2163> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2163> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2163" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2163> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2163> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2163> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2163> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2164> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2164> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2164" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2164> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2164> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2164> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2164> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/greek-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2165> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2165> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2165" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2165> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2165> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2165> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2165> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2165a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2165a> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2165a" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2165a> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2165a> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://arachne.uni-koeln.de/item/buchseite/555017> .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2165a> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> <http://arachne.uni-koeln.de/item/buchseite/555017> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2165a> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/latin-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2166> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-2166> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 2166" .
@@ -12999,12 +13004,12 @@
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-4961> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-4961> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 4961" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-4961> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-4961> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> "http://arachne.uni-koeln.de/item/buchseite/555385" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-4961> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> "http://arachne.uni-koeln.de/item/buchseite/555385" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-4961> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/old-arabic-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-4962> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://digitalhumanities.umass.edu/p-lod/vocabulary/cil-inscription> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-4962> <http://www.w3.org/2000/01/rdf-schema#label> "CIL IV 4962" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-4962> <http://digitalhumanities.umass.edu/p-lod/vocabulary/is-part-of> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv> .
-<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-4962> <http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> "http://arachne.uni-koeln.de/item/buchseite/555385" .
+<http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-4962> <http://digitalhumanities.umass.edu/p-lod/vocabulary/pagescan> "http://arachne.uni-koeln.de/item/buchseite/555385" .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-4962> <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://digitalhumanities.umass.edu/p-lod/entities/old-arabic-language> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0001> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0002> .
 <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0002> <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/entities/cil-iv-0003> .
@@ -16353,18 +16358,18 @@
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/latitude> <http://www.w3.org/2000/01/rdf-schema#label> "Latitude" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/longitude> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/longitude> <http://www.w3.org/2000/01/rdf-schema#label> "Longitude" .
-<http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://www.w3.org/2000/01/rdf-schema#label> "Arachne" .
-<http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://www.w3.org/2000/01/rdf-schema#domain> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
-<http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-equiv> <http://digitalhumanities.umass.edu/p-lod/vocabulary/sort-order> "005links" .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-link> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-link> <http://www.w3.org/2000/01/rdf-schema#label> "Arachne" .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-link> <http://www.w3.org/2000/01/rdf-schema#domain> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/arachne-link> <http://digitalhumanities.umass.edu/p-lod/vocabulary/sort-order> "005links" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/edh-equiv> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/edh-equiv> <http://www.w3.org/2000/01/rdf-schema#label> "Epigraphic Database Heidelberg" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/edh-equiv> <http://www.w3.org/2000/01/rdf-schema#domain> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/edh-equiv> <http://digitalhumanities.umass.edu/p-lod/vocabulary/sort-order> "005links" .
-<http://digitalhumanities.umass.edu/p-lod/vocabulary/europeana-equiv> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://digitalhumanities.umass.edu/p-lod/vocabulary/europeana-equiv> <http://www.w3.org/2000/01/rdf-schema#label> "Europeana" .
-<http://digitalhumanities.umass.edu/p-lod/vocabulary/europeana-equiv> <http://www.w3.org/2000/01/rdf-schema#domain> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
-<http://digitalhumanities.umass.edu/p-lod/vocabulary/europeana-equiv> <http://digitalhumanities.umass.edu/p-lod/vocabulary/sort-order> "005links" .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/europeana-link> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/europeana-link> <http://www.w3.org/2000/01/rdf-schema#label> "Europeana" .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/europeana-link> <http://www.w3.org/2000/01/rdf-schema#domain> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/europeana-link> <http://digitalhumanities.umass.edu/p-lod/vocabulary/sort-order> "005links" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://www.w3.org/2000/01/rdf-schema#label> "Has language" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/has-language> <http://www.w3.org/2000/01/rdf-schema#domain> <http://digitalhumanities.umass.edu/p-lod/vocabulary/named-entity> .
@@ -16396,6 +16401,8 @@
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/next> <http://digitalhumanities.umass.edu/p-lod/vocabulary/sort-order> "001top-002" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/see-also> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/see-also> <http://www.w3.org/2000/01/rdf-schema#label> "See also" .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/sort-order> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://digitalhumanities.umass.edu/p-lod/vocabulary/sort-order> <http://www.w3.org/2000/01/rdf-schema#label> "Sort order" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> <http://www.w3.org/2000/01/rdf-schema#label> "Photo or drawing" .
 <http://digitalhumanities.umass.edu/p-lod/vocabulary/visual-documentation-file> <http://digitalhumanities.umass.edu/p-lod/vocabulary/sort-order> "001top-000" .
