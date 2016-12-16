@@ -332,7 +332,7 @@ def vocabulary(vocab):
                             p(a(str(sub.label), href = str(sub.sub).replace('http://digitalhumanities.umass.edu','')))
                             
                 if len(vusage) > 0:
-                    dt('Used as Property')
+                    dt('Used by')
                     with dd():
                         for use in vusage:
                             with p():
