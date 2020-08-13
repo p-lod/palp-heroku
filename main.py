@@ -26,15 +26,17 @@ ns = {"dcterms" : "http://purl.org/dc/terms/",
       "owl"     : "http://www.w3.org/2002/07/owl#",
       "rdf"     : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs"    : "http://www.w3.org/2000/01/rdf-schema#" ,
-      "p-lod"   : "http://digitalhumanities.umass.edu/p-lod/",
+      "p-lod"   : "http://p-lod.umasscreate.net/vocabulary#",
       "p-lod-v" : "http://digitalhumanities.umass.edu/p-lod/vocabulary/",
       "p-lod-e" : "http://digitalhumanities.umass.edu/p-lod/entities/" }
 
 app = Flask(__name__)
 
+
 g = rdflib.Graph()
 
-result = g.parse("p-lod.nt", format="nt")
+
+result = g.parse("google-lod-triples.ttl", format="turtle")
 
 def plodheader(doc, plod = ''):
     
@@ -60,27 +62,28 @@ def entities(entity):
     eresult = g.query(
         """SELECT ?p ?o ?plabel ?prange ?olabel ?sortorder
            WHERE {
-              p-lod-e:%s ?p ?o .
+              p-lod:%s ?p ?o .
               OPTIONAL { ?p rdfs:label ?plabel }
               OPTIONAL { ?p rdfs:range ?prange }
-              OPTIONAL { ?p p-lod-v:sort-order ?sortorder }
+              OPTIONAL { ?p p-lod:sort-order ?sortorder }
               OPTIONAL { ?o rdfs:label ?olabel }
            } ORDER BY ?sortorder ?plabel""" % (entity), initNs = ns)
 
     elabel = g.query(
         """SELECT ?slabel 
            WHERE {
-              p-lod-e:%s rdfs:label ?slabel
+              p-lod:%s dcterms:title ?slabel
            }""" % (entity), initNs = ns)
            
     eparts = g.query(
         """SELECT ?part ?label ?vfile ?sortorder
            WHERE {
-              ?part p-lod-v:is-part-of p-lod-e:%s .
-              ?part rdfs:label ?label .
+              ?part ?sub_property  p-lod:%s .
+              ?sub_property rdfs:subPropertyOf p-lod:is-part-of .
+              OPTIONAL { ?part dcterms:title ?label . }
               ?part rdf:type ?type .
-              OPTIONAL { ?part p-lod-v:visual-documentation-file ?vfile }
-              OPTIONAL { ?part p-lod-v:sort-order ?sortorder }
+              OPTIONAL { ?part p-lod:visual-documentation-file ?vfile }
+              OPTIONAL { ?part p-lod:sort-order ?sortorder }
            } ORDER BY ?type ?sortorder ?part""" % (entity), initNs = ns)
            
     esameas = g.query(
@@ -96,8 +99,8 @@ def entities(entity):
               ?s  ?p p-lod-e:%s .
               OPTIONAL { ?s rdfs:label ?slabel }
               OPTIONAL { ?p rdfs:label ?plabel }
-              FILTER ( ?p != p-lod-v:next )
-              FILTER ( ?p != p-lod-v:is-part-of )
+              FILTER ( ?p != p-lod:next )
+              FILTER ( ?p != p-lod:is-part-of )
               FILTER ( ?p != owl:sameAs )
            }  ORDER BY ?s LIMIT 1000""" % (entity), initNs = ns)
 
@@ -143,10 +146,10 @@ def entities(entity):
                         if re.search(r'(\.png|\.jpg)$', row.o, flags= re.I):
                             img(src=row.o,style="max-width:350px")
                         elif str(row.o)[0:4] == 'http':
-                            if 'http://digitalhumanities.umass.edu' in str(row.o):
-                                a(olabel, title = str(row.o),href = str(row.o).replace('http://digitalhumanities.umass.edu',''))
+                            if 'http://p-lod.umasscreate.net/vocabulary#' in str(row.o):
+                                a(olabel, title = str(row.o),href = str(row.o).replace('http://p-lod.umasscreate.net/vocabulary#',''))
                             else:
-                                a(str(row.o),href = str(row.o).replace('http://digitalhumanities.umass.edu',''))
+                                a(str(row.o),href = str(row.o).replace('http://p-lod.umasscreate.net/vocabulary#',''))
                         else:
                             if str(row.prange) == 'http://digitalhumanities.umass.edu/p-lod/vocabulary/markdown-literal':
                                 unescapehtml = True
@@ -161,8 +164,8 @@ def entities(entity):
                         dd(str(row.url))
 
         
-                dt("Future permalink")
-                dd("http://digitalhumanities.umass.edu/p-lod/entities/%s" % (entity) )
+                # dt("Future permalink")
+                # dd("http://digitalhumanities.umass.edu/p-lod/entities/%s" % (entity) )
       
                 if len(eparts) > 0:
                     dt('Has parts')
@@ -180,12 +183,12 @@ def entities(entity):
                                 else:
                                     pstyle = 'border-top: thin dotted #aaa;width:25%'
 
-                                p(a(label, rel="dcterms:hasPart", href = str(part.part).replace('http://digitalhumanities.umass.edu','')), style=pstyle)
+                                p(a(label, rel="dcterms:hasPart", href = str(part.part).replace('http://p-lod.umasscreate.net/vocabulary#','')), style=pstyle)
                             
 
                             if str(part.vfile) != "None":
                                 thumb = str(part.vfile)
-                                a(img(style="margin-left:1em;margin-bottom:15px;max-width:150px;max-height:150px",src=thumb),href=str(part.part).replace('http://digitalhumanities.umass.edu',''))
+                                a(img(style="margin-left:1em;margin-bottom:15px;max-width:150px;max-height:150px",src=thumb),href=str(part.part).replace('http://p-lod.umasscreate.net/vocabulary#',''))
                 
                 objlength = len(eobjects)
                 if objlength > 0:
@@ -204,11 +207,11 @@ def entities(entity):
         with footer(cls="footer"):
             with div(cls="container"):
                 with p(cls="text-muted"):
-                    span("P-LOD is under construction and is overseen by Steven Ellis, Sebastian Heath and Eric Poehler. Data available on ")
-                    a("Github", href = "https://github.com/p-lod/p-lod")
-                    span(". Parse ")
-                    a('RDFa', href="http://www.w3.org/2012/pyRdfa/extract?uri=http://p-lod.herokuapp.com/p-lod/entities/%s" % (entity))
-                    span(".")
+                    span("P-LOD/PALP is under construction.")
+                    a(" Github", href = "https://github.com/p-lod/p-lod")
+                    # span(". Parse ")
+                    # a('RDFa', href="http://www.w3.org/2012/pyRdfa/extract?uri=http://p-lod.herokuapp.com/p-lod/entities/%s" % (entity))
+                    # span(".")
                     
     if unescapehtml == True:
         soup =  BeautifulSoup(edoc.render(), "html.parser") 
@@ -348,7 +351,7 @@ def vocabulary(vocab):
             hr()
             with p():
                 span("P-LOD is under construction and is overseen by Steven Ellis, Sebastian Heath and Eric Poehler. Data available on ")
-                a("Github", href = "https://github.com/p-lod/p-lod")
+                a("Github", href = "https://github.com/p-lod/p-lod-data")
                 span(".")  
                  
     return vdoc.render()
