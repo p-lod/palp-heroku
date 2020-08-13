@@ -5,8 +5,8 @@ pyhtml = html
 
 import os
 import re
-import urllib.parse
-import urllib.request
+#import urllib.parse
+#import urllib.request
 
 import dominate
 from dominate.tags import *
