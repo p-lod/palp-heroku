@@ -208,7 +208,7 @@ def entities(entity):
             with div(cls="container"):
                 with p(cls="text-muted"):
                     span("P-LOD/PALP is under construction.")
-                    a(" Github", href = "https://github.com/p-lod/p-lod")
+                    a(" Githubb", href = "https://github.com/p-lod/p-lod")
                     # span(". Parse ")
                     # a('RDFa', href="http://www.w3.org/2012/pyRdfa/extract?uri=http://p-lod.herokuapp.com/p-lod/entities/%s" % (entity))
                     # span(".")
