@@ -21,6 +21,10 @@ p-lod:city-wall a owl:Class ;
 p-lod:coin a owl:Class ;
     rdfs:label "Coin" .
 
+p-lod:created-on-surface-of a owl:ObjectProperty ;
+    rdfs:label "Created on Surface Of" ;
+    rdfs:subPropertyOf p-lod:is-part-of .
+
 p-lod:doorway a owl:Class ;
     rdfs:label "Doorway" ;
     rdfs:subClassOf p-lod:spatial-item .
@@ -44,7 +48,7 @@ p-lod:found-within a owl:ObjectProperty ;
     rdfs:label "Found Within" .
 
 p-lod:geojson a owl:DatatypeProperty ;
-    rdfs:label "Geojson String" .
+    rdfs:label "Geojson Stringg" .
 
 p-lod:getty-lod-url a owl:ObjectProperty ;
     rdfs:label "Getty LOD URL" .
