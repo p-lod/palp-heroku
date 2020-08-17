@@ -11,6 +11,7 @@ import re
 import dominate
 from dominate.tags import *
 
+
 from bs4 import BeautifulSoup
 
 from flask import Flask
