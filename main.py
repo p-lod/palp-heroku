@@ -113,7 +113,7 @@ def entities(entity):
         with nav(cls="navbar navbar-default navbar-fixed-top"):
            with div(cls="container-fluid"):
                with div(cls="navbar-header"):
-                   a("P-LOD Linked Open Data for Pompeii: Entity", href="/p-lod/entities/pompeii",cls="navbar-brand")
+                   a("Pompeii Artistic Landscape Project", href="/p-lod/entities/pompeii",cls="navbar-brand")
                    with ul(cls="nav navbar-nav"):
                        with li(cls="dropdown"):
                            a("Browse", href="#",cls="dropdown-toggle", data_toggle="dropdown")
