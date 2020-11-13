@@ -5,12 +5,11 @@ pyhtml = html
 
 import os
 import re
-#import urllib.parse
-#import urllib.request
+
+import pandas as pd
 
 import dominate
 from dominate.tags import *
-
 
 from bs4 import BeautifulSoup
 
@@ -19,25 +18,30 @@ from flask import render_template
 from flask import request
 from flask import redirect, url_for, after_this_request
 
+from string import Template
+
 import markdown
 
-import rdflib
+import rdflib as rdf
+from rdflib.plugins.stores import sparqlstore
+
 
 ns = {"dcterms" : "http://purl.org/dc/terms/",
       "owl"     : "http://www.w3.org/2002/07/owl#",
       "rdf"     : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs"    : "http://www.w3.org/2000/01/rdf-schema#" ,
-      "p-lod"   : "http://p-lod.umasscreate.net/vocabulary#",
-      "p-lod-v" : "http://digitalhumanities.umass.edu/p-lod/vocabulary/",
-      "p-lod-e" : "http://digitalhumanities.umass.edu/p-lod/entities/" }
+      "p-lod"   : "urn:p-lod:id:" }
 
 app = Flask(__name__)
 
 
-g = rdflib.Graph()
 
+# Connect to the remote triplestore with read-only connection
+store = rdf.plugin.get("SPARQLStore", rdf.store.Store)(endpoint="http://52.170.134.25:3030/plod_endpoint/query",
+                                                       context_aware = False,
+                                                       returnFormat = 'json')
+g = rdf.Graph(store)
 
-result = g.parse("google-lod-triples.ttl", format="turtle")
 
 def plodheader(doc, plod = ''):
     
@@ -51,90 +55,109 @@ def plodheader(doc, plod = ''):
     doc.head += script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js",integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa",crossorigin="anonymous")
     doc.head += style("body { padding-top: 60px; }")
     doc.head += meta(name="DC.title",lang="en",content="%s" % (plod) )
-    doc.head += meta(name="DC.identifier", content="http://digitalhumanities.umass.edu/p-lod/%s" % plod)
+    doc.head += meta(name="DC.identifier", content="urn:p-lod:id/%s" % plod)
 
-@app.route('/p-lod/entities/<path:entity>')
-def entities(entity):
+@app.route('/p-lod/id/<path:identifier>')
+def identifiers(identifier):
     # @after_this_request
     # def add_header(response):
     #    response.headers['Content-Type'] = 'application/xhtml+xml; charset=utf-8'
     #    return response
-         
-    eresult = g.query(
-        """SELECT ?p ?o ?plabel ?prange ?olabel ?sortorder
+    
+    # as subject w/additional info
+    qt =  Template("""SELECT ?p ?o ?plabel ?prange ?olabel
            WHERE {
-              p-lod:%s ?p ?o .
+              p-lod:$identifier ?p ?o .
               OPTIONAL { ?p rdfs:label ?plabel }
-              OPTIONAL { ?p rdfs:range ?prange }
-              OPTIONAL { ?p p-lod:sort-order ?sortorder }
               OPTIONAL { ?o rdfs:label ?olabel }
-           } ORDER BY ?sortorder ?plabel""" % (entity), initNs = ns)
 
-    elabel = g.query(
-        """SELECT ?slabel 
+           } ORDER BY ?plabel""")
+    id_as_subject = g.query(qt.substitute(identifier = identifier), initNs = ns)
+    id_as_subject_df = pd.DataFrame(id_as_subject, columns = id_as_subject.json['head']['vars']).set_index('p')
+        
+    # as object
+    qt = Template("""SELECT ?s ?p 
            WHERE {
-              p-lod:%s dcterms:title ?slabel
-           }""" % (entity), initNs = ns)
-           
-    eparts = g.query(
-        """SELECT ?part ?label ?vfile ?sortorder
-           WHERE {
-              ?part ?sub_property  p-lod:%s .
-              ?sub_property rdfs:subPropertyOf p-lod:is-part-of .
-              OPTIONAL { ?part dcterms:title ?label . }
-              ?part rdf:type ?type .
-              OPTIONAL { ?part p-lod:visual-documentation-file ?vfile }
-              OPTIONAL { ?part p-lod:sort-order ?sortorder }
-           } ORDER BY ?type ?sortorder ?part""" % (entity), initNs = ns)
-           
-    esameas = g.query(
-        """SELECT ?url ?label
-           WHERE {
-              ?url owl:sameAs p-lod-e:%s .
-              ?url rdfs:label ?label .
-           }""" % (entity), initNs = ns)
-           
-    eobjects = g.query(
-        """SELECT ?s ?p ?slabel ?plabel 
-           WHERE {
-              ?s  ?p p-lod-e:%s .
-              OPTIONAL { ?s rdfs:label ?slabel }
-              OPTIONAL { ?p rdfs:label ?plabel }
-              FILTER ( ?p != p-lod:next )
-              FILTER ( ?p != p-lod:is-part-of )
-              FILTER ( ?p != owl:sameAs )
-           }  ORDER BY ?s LIMIT 1000""" % (entity), initNs = ns)
+              ?s  ?p p-lod:$identifier .
+           }  ORDER BY ?s LIMIT 100""")
+    id_as_object = g.query(qt.substitute(identifier = identifier), initNs = ns)
 
-    edoc = dominate.document(title="Pompeii Artistic Landscape Project: %s" % (entity))
-    plodheader(edoc, entity)
+
+    # as predicate
+    qt = Template("""SELECT ?s ?o 
+           WHERE {
+              ?s p-lod:$identifier ?o  .
+           }  ORDER BY ?s LIMIT 100""") 
+    id_as_predicate = g.query(qt.substitute(identifier = identifier), initNs = ns)
+
+
+    # spatial ancestors
+    qt = Template("""
+PREFIX p-lod: <urn:p-lod:id:>
+SELECT DISTINCT ?spatial_item WHERE { 
+  { p-lod:$identifier p-lod:is-part-of*/p-lod:created-on-surface-of* ?feature .
+    ?feature p-lod:spatially-within* ?spatial_item .
+    ?feature a p-lod:feature }
+    UNION
+    { p-lod:$identifier p-lod:spatially-within+ ?spatial_item  . }
+  }""")
+    id_spatial_ancestors = g.query(qt.substitute(identifier = identifier))
+
+
+    # has_art
+    qt = Template("""
+PREFIX plod: <urn:p-lod:id:>
+
+SELECT DISTINCT ?depiction WHERE {
+ 
+    plod:$identifier ^plod:spatially-within*/^plod:created-on-surface-of*/^plod:is-part-of* ?component .
+    ?component a plod:artwork-component .
+    ?component plod:depicts ?depiction .
+
+    # when this is part of the PALP interface, this clause can select "smallest 
+    # clickable spatial unit" that will be shown to public via its own page
+    #?component plod:is-part-of+/plod:created-on-surface-of/plod:spatially-within* ?within .
+    #?within a plod:####within_resolution .
+
+} ORDER BY ?depiction LIMIT 100""")
+    id_has_art = g.query(qt.substitute(identifier = identifier))
+
+
+    
+
+
+    edoc = dominate.document(title="Linked Open Data for Pompeii: %s" % (identifier))
+    plodheader(edoc, identifier)
     
     edoc.body['prefix'] = "bibo: http://purl.org/ontology/bibo/  cc: http://creativecommons.org/ns#  dcmitype: http://purl.org/dc/dcmitype/  dcterms: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  nm: http://nomisma.org/id/  owl:  http://www.w3.org/2002/07/owl#  rdfs: http://www.w3.org/2000/01/rdf-schema#   rdfa: http://www.w3.org/ns/rdfa#  rdf:  http://www.w3.org/1999/02/22-rdf-syntax-ns#  skos: http://www.w3.org/2004/02/skos/core#"
     with edoc:
         with nav(cls="navbar navbar-default navbar-fixed-top"):
            with div(cls="container-fluid"):
                with div(cls="navbar-header"):
-                   a("Pompeii Artistic Landscape Project", href="/p-lod/entities/pompeii",cls="navbar-brand")
+                   a("P-LOD Linked Open Data for Pompeii: Identifier Display and Browse", href="/p-lod/id/pompeii",cls="navbar-brand")
+                   
                    with ul(cls="nav navbar-nav"):
                        with li(cls="dropdown"):
-                           a("Browse", href="#",cls="dropdown-toggle", data_toggle="dropdown")
+                           a("Go to...", href="#",cls="dropdown-toggle", data_toggle="dropdown")
                            with ul(cls="dropdown-menu", role="menu"):
-                               li(a('Go to Pompeii', href="/p-lod/entities/pompeii"))
-                               li(a('All Classes', href="/p-lod/vocabulary/entity"))
-                               li(a('All Properties', href="/p-lod/vocabulary/vocabulary-item"))
+                               li(a('Pompeii', href="/p-lod/id/pompeii"))
     
-        with div(cls="container", about="/p-lod/%s" % (entity)):
+        with div(cls="container", about="/p-lod/%s" % (identifier)):
         
             with dl(cls="dl-horizontal"):
                 unescapehtml = False
                 dt()
-                for row in elabel:
-                    dd(strong(str(row.slabel), cls="large"))
-                    
-                for row in eresult:
-                    if str(row.p) == 'http://www.w3.org/2000/01/rdf-schema#label':
-                        continue
-                    elif str(row.plabel) != 'None':
-                        dt(str(row.plabel))
+                #if rdf.URIRef('http://www.w3.org/2000/01/rdf-schema#label') in id_as_subject_df.index:
+                #    c_title = id_as_subject_df.loc[rdf.URIRef('http://www.w3.org/2000/01/rdf-schema#label'),'o']
+                #else:
+                # c_title = identifier
+
+                dd(strong(identifier, cls="large"), style="margin-top:.5em;margin-bottom:.5em")
+
+                for row in id_as_subject:
+                    if str(row.plabel) != 'None':
+                        with dt():
+                          a(str(row.plabel), href = str(row.p).replace('urn:p-lod:id:',''))
                     else:
                         dt(i(str(row.p)))
                 
@@ -147,72 +170,65 @@ def entities(entity):
                         if re.search(r'(\.png|\.jpg)$', row.o, flags= re.I):
                             img(src=row.o,style="max-width:350px")
                         elif str(row.o)[0:4] == 'http':
-                            if 'http://p-lod.umasscreate.net/vocabulary#' in str(row.o):
-                                a(olabel, title = str(row.o),href = str(row.o).replace('http://p-lod.umasscreate.net/vocabulary#',''))
-                            else:
-                                a(str(row.o),href = str(row.o).replace('http://p-lod.umasscreate.net/vocabulary#',''))
+                            a(str(row.o),href = str(row.o).replace('urn:p-lod:id:',''))
+                        elif str(row.o)[0:3] == 'urn':
+                            a(row.o, title = str(row.o),href = str(row.o).replace('urn:p-lod:id:',''))
                         else:
-                            if str(row.prange) == 'http://digitalhumanities.umass.edu/p-lod/vocabulary/markdown-literal':
-                                unescapehtml = True
-                                span( markdown.markdown(olabel),cls="unescapehtml")
-                            else:
-                                span(olabel)
-                
-        
-                if len(esameas) > 0:
-                    for row in esameas:
-                        dt("Alternate identifier")
-                        dd(str(row.url))
-
-        
-                # dt("Future permalink")
-                # dd("http://digitalhumanities.umass.edu/p-lod/entities/%s" % (entity) )
-      
-                if len(eparts) > 0:
-                    dt('Has parts')
-                    with dd():
-                        first = 0
-                        curlabel = ''
-                        for part in eparts:
-                            label = str(part.label)
-                            if curlabel != label:
-                                curlabel = label
-                                
-                                if first == 1:
-                                    first = 0
-                                    pstyle = ''
-                                else:
-                                    pstyle = 'border-top: thin dotted #aaa;width:25%'
-
-                                p(a(label, rel="dcterms:hasPart", href = str(part.part).replace('http://p-lod.umasscreate.net/vocabulary#','')), style=pstyle)
-                            
-
-                            if str(part.vfile) != "None":
-                                thumb = str(part.vfile)
-                                a(img(style="margin-left:1em;margin-bottom:15px;max-width:150px;max-height:150px",src=thumb),href=str(part.part).replace('http://p-lod.umasscreate.net/vocabulary#',''))
-                
-                objlength = len(eobjects)
-                if objlength > 0:
+                            span(olabel)  
+    
+                 
+            objlength = len(id_as_object)
+            if objlength: # objlength > 0:
+                with dl(cls="dl-horizontal"):
                     lenstr = ''
                     if objlength == 1000:
                         lenstr = '(first 1000)'
-                    dt("Property of %s" % (lenstr))
+                    dt(f"Used as Object By {lenstr}")
                     with dd():
-                         for s_p in eobjects:
-                            a(str(s_p.slabel), href= str(s_p.s).replace('http://digitalhumanities.umass.edu',''))
+                         for s_p in id_as_object:
+                            a(str(s_p.s), href= str(s_p.s).replace('urn:p-lod:id:',''))
                             span(" via ")
-                            span(str(s_p.plabel))
+                            a(str(s_p.p),href = str(s_p.p).replace('urn:p-lod:id:',''))
                             br()
 
-                
+            predlength = len(id_as_predicate)
+            if predlength: # objlength > 0:
+                with dl(cls="dl-horizontal"):
+                    lenstr = ''
+                    if predlength == 1000:
+                        lenstr = '(first 1000)'
+                    dt(f"Used as Predicate By {lenstr}")
+                    with dd():
+                         for s_o in id_as_predicate:
+                            a(str(s_o.s), href= str(s_o.s).replace('urn:p-lod:id:',''))
+                            span(" → ")
+                            a(str(s_o.o),href = str(s_o.o).replace('urn:p-lod:id:',''))
+                            br()
+
+            if len(id_spatial_ancestors) > 0:
+                with dl(cls="dl-horizontal"):
+                    dt('Spatial Ancestors', style="")
+                    with dd():
+                        for ancestor in id_spatial_ancestors:
+                            label = str(ancestor.spatial_item)
+                            span(a(label, rel="dcterms:hasPart", href = str(ancestor.spatial_item).replace('urn:p-lod:id:','')))
+                            br()
+
+            if len(id_has_art) > 0:
+                with dl(cls="dl-horizontal"):
+                    dt('Depicts concepts (100)')
+
+                    with dd():
+                        for art in id_has_art:
+                            label = str(art.depiction)
+                            span(a(label, rel="dcterms:hasPart", href = str(art.depiction).replace('urn:p-lod:id:','')))
+                            br()
+
         with footer(cls="footer"):
             with div(cls="container"):
                 with p(cls="text-muted"):
-                    span("P-LOD/PALP is under construction.")
-                    a(" Github", href = "https://github.com/p-lod/p-lod")
-                    # span(". Parse ")
-                    # a('RDFa', href="http://www.w3.org/2012/pyRdfa/extract?uri=http://p-lod.herokuapp.com/p-lod/entities/%s" % (entity))
-                    # span(".")
+                  with p():
+                    span("Work on the Pompeii Linked Open Data (P-LOD) browser is currently undertaken as part of the Getty funded Pompeii Artistic Landscape Project. PALP is co-directed by Eric Poehler and Sebastian Heath.")
                     
     if unescapehtml == True:
         soup =  BeautifulSoup(edoc.render(), "html.parser") 
@@ -223,159 +239,26 @@ def entities(entity):
     else:
         return edoc.render()
 
-                
-@app.route('/p-lod/vocabulary/<path:vocab>')
-def vocabulary(vocab):
-    vresult = g.query(
-        """SELECT ?p ?o ?plabel ?olabel
-           WHERE {
-              p-lod-v:%s ?p ?o .
-              OPTIONAL { ?p rdfs:label ?plabel }
-              OPTIONAL { ?o rdfs:label ?olabel }
-           } ORDER BY ?plabel""" % (vocab), initNs = ns)
 
-    vlabel = g.query(
-        """SELECT ?slabel 
-           WHERE {
-              p-lod-v:%s rdfs:label ?slabel
-           }""" % (vocab), initNs = ns)
-           
-    vinstances = g.query(
-        """SELECT ?instance ?label ?vfile
-           WHERE {
-              ?instance rdf:type p-lod-v:%s .
-              ?instance rdfs:label ?label .
-              OPTIONAL { ?instance p-lod-v:visual-documentation-file ?vfile }
-           } ORDER BY ?instance""" % (vocab), initNs = ns)
-           
-    vsubs = g.query(
-        """SELECT ?sub ?label
-           WHERE {
-              ?sub rdfs:subClassOf|rdfs:subPropertyOf p-lod-v:%s .
-              ?sub rdfs:label ?label .
-           } ORDER BY ?label""" % (vocab), initNs = ns)
-    
-    vusage = g.query(
-        """SELECT ?s ?o ?slabel ?olabel
-           WHERE {
-              ?s p-lod-v:%s ?o .
-              OPTIONAL { ?s rdfs:label ?slabel }
-              OPTIONAL { ?o rdfs:label ?olabel }
-           } ORDER BY ?s ?o LIMIT 2000""" % (vocab), initNs = ns)    
+format_these = ['city','region','insula','property','space','feature','artwork','concept']
 
-    vdoc = dominate.document(title="Pompeii LOD: %s" % (vocab))
-    plodheader(vdoc, vocab)
+def city(identifier):
+  return "city: {identifier}"
 
-    with vdoc:
+def region(identifier):
+  return f"region: {identifier}"
 
-        with nav(cls="navbar navbar-default navbar-fixed-top"):
-           with div(cls="container-fluid"):
-               with div(cls="navbar-header"):
-                   a("P-LOD Linked Open Data for Pompeii: Vocabulary", href="/p-lod/entities/pompeii",cls="navbar-brand")
-                   with ul(cls="nav navbar-nav"):
-                       with li(cls="dropdown"):
-                           a("Browse", href="#",cls="dropdown-toggle", data_toggle="dropdown")
-                           with ul(cls="dropdown-menu", role="menu"):
-                               li(a('Go to Pompeii', href="/p-lod/entities/pompeii"))
-                               li(a('All Classes', href="/p-lod/vocabulary/entity"))
-                               li(a('All Properties', href="/p-lod/vocabulary/vocabulary-item"))
+@app.route('/palp/<path:formatted_type>/<path:identifier>')
+def formatted_types(formatted_type,identifier):
+    if formatted_type not in format_these:
+      return("Don't know what to do")
+    else:
+      return globals()[formatted_type](identifier)
 
-        with div(cls="container"):
-            with dl(cls="dl-horizontal"):
-                dt()
-                for row in vlabel:
-                    dd(strong(str(row.slabel), cls="large"))
-
-                for row in vresult:
-                    if str(row.p) == 'http://www.w3.org/2000/01/rdf-schema#label':
-                        continue
-                    elif str(row.plabel) != 'None':
-                        dt(str(row.plabel)+":")
-                    else:
-                        dt(i(str(row.p)), style = "margin-left:.25em")
-                
-                    with dd():
-                        if str(row.olabel) != "None":
-                            olabel = str(row.olabel)
-                        else:
-                            olabel = str(row.o)
-                
-                        if str(row.o)[0:4] == 'http':
-                            a(olabel,href = str(row.o).replace('http://digitalhumanities.umass.edu',''))
-                        else:
-                            span(olabel)
-        
-                if len(vinstances) > 0:
-                    dt('Entities')
-                    with dd():
-                        first = 0
-                        curlabel = ''
-
-                        for instance in vinstances:
-                            label = str(instance.label)
-                            if curlabel != label:
-                                curlabel = label
-                                
-                                if first == 1:
-                                    first = 0
-                                    pstyle = ''
-                                else:
-                                    pstyle = 'border-top: thin dotted #aaa;width:25%'
-
-                                p(a(label, href = str(instance.instance).replace('http://digitalhumanities.umass.edu','')),style = pstyle)
-
-                            if str(instance.vfile) != "None":
-                                thumb = str(instance.vfile)
-                                a(img(style="margin-left:1em;margin-bottom:15px;max-width:150px;max-height:150px",src=thumb),href=str(instance.instance).replace('http://digitalhumanities.umass.edu',''))
-
-        
-                if len(vsubs) > 0:
-                    dt('Hierarchy')
-                    with dd():
-                        for sub in vsubs:
-                            p(a(str(sub.label), href = str(sub.sub).replace('http://digitalhumanities.umass.edu','')))
-                            
-                if len(vusage) > 0:
-                    dt('Used by')
-                    with dd():
-                        for use in vusage:
-                            with p():
-                                a(str(use.slabel), href = str(use.s).replace('http://digitalhumanities.umass.edu',''))
-                                span(" ⇒ ", style="color:gray")
-                                if str(use.olabel) != 'None':
-                                    label = str(use.olabel)
-                                else:
-                                    label = str(use.o).replace('http://digitalhumanities.umass.edu','')
-                                a(str(label), href = str(use.o).replace('http://digitalhumanities.umass.edu',''))
-                            
-
-            hr()
-            with p():
-                span("P-LOD is under construction and is overseen by Steven Ellis, Sebastian Heath and Eric Poehler. Data available on ")
-                a("Github", href = "https://github.com/p-lod/p-lod-data")
-                span(".")  
-                 
-    return vdoc.render()
-
-@app.route('/api/geojson/<path:entity>')
-def geojson_entity(entity):
-        geojsonr = g.query(
-        """SELECT ?lat ?long ?geojson
-           WHERE {
-              OPTIONAL { p-lod-e:%s p-lod-v:latitude ?lat ;
-                                    p-lod-v:longitude ?long .
-                         }
-              OPTIONAL { p-lod-e:%s p-lod-v:geojson ?geojson }
-           }""" % (entity, entity), initNs = ns)
-        
-        if len(geojsonr) > 0:
-            for row in geojsonr:
-                pass
-                    
 
 @app.route('/')
 def index():
-    return redirect("/p-lod/entities/pompeii", code=302)
+    return redirect("/p-lod/id/pompeii", code=302)
     
 
     

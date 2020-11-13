@@ -4,6 +4,7 @@ Flask
 folium
 gunicorn
 markdown
+pandas
 rdflib
 #whitenoise==2.0.6
 Jinja2
