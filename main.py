@@ -92,7 +92,7 @@ SELECT DISTINCT ?spatial_id ?type WHERE {
 
 
 
-# list of type to render for PALP
+# list of types to render for PALP
 render_these = ['city','region','insula','property','space','feature','artwork','concept']
 
 # type renderers
@@ -123,7 +123,7 @@ def region_render(identifier):
   with html_doc:
       with div(id="page-content-wrapper"):
         with div(id="container-fluid"):
-          span(f"Assuming it's right type, query the triple store for info about {identifier}.")
+          span(f"Check that it's a region and if yes, query the triple store for info about {identifier}.")
           div(dominate.util.raw(spatial_hierarchy(identifier)))
   
   return html_doc.render()
@@ -136,7 +136,7 @@ def insula_render(identifier):
   with html_doc:
       with div(id="page-content-wrapper"):
         with div(id="container-fluid"):
-          span(f"Assuming it's an insula, query the triple store for info about {identifier}.")
+          span(f"Check that it's an insula and if yes, query the triple store for info about {identifier}.")
           div(dominate.util.raw(spatial_hierarchy(identifier)))
   
   return html_doc.render()
@@ -149,7 +149,7 @@ def property_render(identifier):
   with html_doc:
       with div(id="page-content-wrapper"):
         with div(id="container-fluid"):
-          span(f"Assuming it's right type, query the triple store for info about {identifier}.")
+          span(f"Check that it's a property and if yes, query the triple store for info about {identifier}.")
           div(dominate.util.raw(spatial_hierarchy(identifier)))
   
   return html_doc.render()
@@ -162,7 +162,7 @@ def space_render(identifier):
   with html_doc:
       with div(id="page-content-wrapper"):
         with div(id="container-fluid"):
-          span(f"Assuming it's right type, query the triple store for info about {identifier}.")
+          span(f"Check that it's a space and if yes, query the triple store for info about {identifier}.")
           div(dominate.util.raw(spatial_hierarchy(identifier)))
   
   return html_doc.render()
@@ -175,7 +175,7 @@ def feature_render(identifier):
   with html_doc:
       with div(id="page-content-wrapper"):
         with div(id="container-fluid"):
-          span(f"Assuming it's right type, query the triple store for info about {identifier}.")
+          span(f"Check that it's a feature and if yes, query the triple store for info about {identifier}.")
           div(dominate.util.raw(spatial_hierarchy(identifier)))
   
   return html_doc.render()
