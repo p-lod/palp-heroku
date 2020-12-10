@@ -66,8 +66,36 @@ def palp_page_footer(doc, identifier):
         a("[display in p-lod]",href=f"http://p-lod.herokuapp.com/p-lod/id/{identifier}")
 
 
-format_these = ['city','region','insula','property','space','feature','artwork','concept']
 
+
+def spatial_hierarchy(identifier):
+  # spatial ancestors
+    qt = Template("""
+PREFIX p-lod: <urn:p-lod:id:>
+SELECT DISTINCT ?spatial_id ?type WHERE { 
+  { p-lod:$identifier p-lod:is-part-of*/p-lod:created-on-surface-of* ?feature .
+    ?feature p-lod:spatially-within* ?spatial_id .
+    ?feature a p-lod:feature  .
+    OPTIONAL { ?spatial_id a ?type }
+    }
+    UNION
+    { p-lod:$identifier p-lod:spatially-within+ ?spatial_id  . 
+      OPTIONAL { ?spatial_id a ?type }
+    }
+  }""")
+    id_spatial_ancestors = g.query(qt.substitute(identifier = identifier))
+    id_spatial_ancestors_df = pd.DataFrame(id_spatial_ancestors, columns = id_spatial_ancestors.json['head']['vars']).astype(str)
+    
+
+    return id_spatial_ancestors_df[['spatial_id','type']].to_html()
+ 
+
+
+
+# list of type to render for PALP
+render_these = ['city','region','insula','property','space','feature','artwork','concept']
+
+# type renderers
 def city_render(identifier):
   if identifier == 'pompeii':
       html_doc = dominate.document(title="Pompeii Artistic Landscape Project: %s" % (identifier))
@@ -95,17 +123,108 @@ def region_render(identifier):
   with html_doc:
       with div(id="page-content-wrapper"):
         with div(id="container-fluid"):
-          span(f"Query the triple store for info about {identifier} if that's a region.")
+          span(f"Assuming it's right type, query the triple store for info about {identifier}.")
+          div(dominate.util.raw(spatial_hierarchy(identifier)))
+  
+  return html_doc.render()
+
+def insula_render(identifier):
+  html_doc = dominate.document(title="Pompeii Artistic Landscape Project: %s" % (identifier))
+  palp_html_head(html_doc, identifier)
+  html_doc.body
+  palp_page_header(html_doc)
+  with html_doc:
+      with div(id="page-content-wrapper"):
+        with div(id="container-fluid"):
+          span(f"Assuming it's an insula, query the triple store for info about {identifier}.")
+          div(dominate.util.raw(spatial_hierarchy(identifier)))
+  
+  return html_doc.render()
+
+def property_render(identifier):
+  html_doc = dominate.document(title="Pompeii Artistic Landscape Project: %s" % (identifier))
+  palp_html_head(html_doc, identifier)
+  html_doc.body
+  palp_page_header(html_doc)
+  with html_doc:
+      with div(id="page-content-wrapper"):
+        with div(id="container-fluid"):
+          span(f"Assuming it's right type, query the triple store for info about {identifier}.")
+          div(dominate.util.raw(spatial_hierarchy(identifier)))
+  
+  return html_doc.render()
+
+def space_render(identifier):
+  html_doc = dominate.document(title="Pompeii Artistic Landscape Project: %s" % (identifier))
+  palp_html_head(html_doc, identifier)
+  html_doc.body
+  palp_page_header(html_doc)
+  with html_doc:
+      with div(id="page-content-wrapper"):
+        with div(id="container-fluid"):
+          span(f"Assuming it's right type, query the triple store for info about {identifier}.")
+          div(dominate.util.raw(spatial_hierarchy(identifier)))
+  
+  return html_doc.render()
+
+def feature_render(identifier):
+  html_doc = dominate.document(title="Pompeii Artistic Landscape Project: %s" % (identifier))
+  palp_html_head(html_doc, identifier)
+  html_doc.body
+  palp_page_header(html_doc)
+  with html_doc:
+      with div(id="page-content-wrapper"):
+        with div(id="container-fluid"):
+          span(f"Assuming it's right type, query the triple store for info about {identifier}.")
+          div(dominate.util.raw(spatial_hierarchy(identifier)))
+  
+  return html_doc.render()
+
+def feature_render(identifier):
+  html_doc = dominate.document(title="Pompeii Artistic Landscape Project: %s" % (identifier))
+  palp_html_head(html_doc, identifier)
+  html_doc.body
+  palp_page_header(html_doc)
+  with html_doc:
+      with div(id="page-content-wrapper"):
+        with div(id="container-fluid"):
+          span(f"Assuming it's right type, query the triple store for info about {identifier}.")
+          div(dominate.util.raw(spatial_hierarchy(identifier)))
+  
+  return html_doc.render()
+
+def artwork_render(identifier):
+  html_doc = dominate.document(title="Pompeii Artistic Landscape Project: %s" % (identifier))
+  palp_html_head(html_doc, identifier)
+  html_doc.body
+  palp_page_header(html_doc)
+  with html_doc:
+      with div(id="page-content-wrapper"):
+        with div(id="container-fluid"):
+          span(f"Assuming it's right type, query the triple store for info about {identifier}.")
+          div(dominate.util.raw(spatial_hierarchy(identifier)))
+  
+  return html_doc.render()
+
+def concept_render(identifier):
+  html_doc = dominate.document(title="Pompeii Artistic Landscape Project: %s" % (identifier))
+  palp_html_head(html_doc, identifier)
+  html_doc.body
+  palp_page_header(html_doc)
+  with html_doc:
+      with div(id="page-content-wrapper"):
+        with div(id="container-fluid"):
+          span(f"Assuming it's right type, query the triple store for info about {identifier}.")
   
   return html_doc.render()
 
 
-@app.route('/palp/<path:formatted_type>/<path:identifier>')
-def formatted_types(formatted_type,identifier):
-    if formatted_type not in format_these:
-      return("Don't know what to do")
+@app.route('/palp/<path:type_to_render>/<path:identifier>')
+def render_types(type_to_render,identifier):
+    if type_to_render not in render_these:
+      return(f"No specific PALP view available. Try at https://p-lod.herokuapp.com/p-lod/id/{identifier}")
     else:
-      return globals()[f'{formatted_type}_render'](identifier)
+      return globals()[f'{type_to_render}_render'](identifier) # dispatch to function for render
 
 
 @app.route('/')
