@@ -122,7 +122,7 @@ def region_render(identifier):
   with html_doc:
       with div(id="page-content-wrapper"):
         with div(id="container-fluid"):
-          span(f"Check that it's a region and if yes, query the triple store for info about {identifier}.")
+          span(f"Check that it's a region and if yess, query the triple store for info about {identifier}.")
           div(dominate.util.raw(spatial_hierarchy(identifier)))
   palp_page_footer(html_doc, identifier)
   return html_doc.render()
