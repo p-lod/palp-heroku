@@ -62,8 +62,8 @@ def palp_page_header(doc):
 
 def palp_page_footer(doc, identifier):
     with doc:
-      with div:
-        a("[display in p-lod]",href=f"http://p-lod.herokuapp.com/p-lod/id/{identifier}")
+      with div():
+        a("[display in p-lod]", href=f"http://p-lod.herokuapp.com/p-lod/id/{identifier}")
 
 
 
@@ -108,8 +108,7 @@ def city_render(identifier):
               span(f"Query the triple store and show the results but we can also add all sorts of stuff.")
               a("Pompeii In Pictures ", href="https://pompeiiinpictures.com/pompeiiinpictures/index.htm")
               a("Getty DAH Grants", href="https://www.getty.edu/foundation/initiatives/current/dah/dah_grants_awarded.html")
-
-
+      palp_page_footer(html_doc, identifier)
       return html_doc.render()
       
   else:
@@ -125,7 +124,7 @@ def region_render(identifier):
         with div(id="container-fluid"):
           span(f"Check that it's a region and if yes, query the triple store for info about {identifier}.")
           div(dominate.util.raw(spatial_hierarchy(identifier)))
-  
+  palp_page_footer(html_doc, identifier)
   return html_doc.render()
 
 def insula_render(identifier):
@@ -138,7 +137,7 @@ def insula_render(identifier):
         with div(id="container-fluid"):
           span(f"Check that it's an insula and if yes, query the triple store for info about {identifier}.")
           div(dominate.util.raw(spatial_hierarchy(identifier)))
-  
+  palp_page_footer(html_doc, identifier)
   return html_doc.render()
 
 def property_render(identifier):
@@ -151,7 +150,7 @@ def property_render(identifier):
         with div(id="container-fluid"):
           span(f"Check that it's a property and if yes, query the triple store for info about {identifier}.")
           div(dominate.util.raw(spatial_hierarchy(identifier)))
-  
+  palp_page_footer(html_doc, identifier)
   return html_doc.render()
 
 def space_render(identifier):
@@ -164,7 +163,7 @@ def space_render(identifier):
         with div(id="container-fluid"):
           span(f"Check that it's a space and if yes, query the triple store for info about {identifier}.")
           div(dominate.util.raw(spatial_hierarchy(identifier)))
-  
+  palp_page_footer(html_doc, identifier)
   return html_doc.render()
 
 def feature_render(identifier):
@@ -177,7 +176,7 @@ def feature_render(identifier):
         with div(id="container-fluid"):
           span(f"Check that it's a feature and if yes, query the triple store for info about {identifier}.")
           div(dominate.util.raw(spatial_hierarchy(identifier)))
-  
+  palp_page_footer(html_doc, identifier)
   return html_doc.render()
 
 def feature_render(identifier):
@@ -190,7 +189,7 @@ def feature_render(identifier):
         with div(id="container-fluid"):
           span(f"Assuming it's right type, query the triple store for info about {identifier}.")
           div(dominate.util.raw(spatial_hierarchy(identifier)))
-  
+  palp_page_footer(html_doc, identifier)
   return html_doc.render()
 
 def artwork_render(identifier):
@@ -203,7 +202,7 @@ def artwork_render(identifier):
         with div(id="container-fluid"):
           span(f"Assuming it's right type, query the triple store for info about {identifier}.")
           div(dominate.util.raw(spatial_hierarchy(identifier)))
-  
+          palp_page_footer(html_doc, identifier)
   return html_doc.render()
 
 def concept_render(identifier):
@@ -215,7 +214,7 @@ def concept_render(identifier):
       with div(id="page-content-wrapper"):
         with div(id="container-fluid"):
           span(f"Assuming it's right type, query the triple store for info about {identifier}.")
-  
+  palp_page_footer(html_doc, identifier)
   return html_doc.render()
 
 
