@@ -10,7 +10,7 @@ from rdflib.plugins.stores import sparqlstore
 
 
 # Define a class
-class PLODId:
+class PLODResource:
     def __init__(self,identifier = None):
 
         # could defaut to 'pompeii' along with its info?
@@ -62,8 +62,12 @@ SELECT ?p ?o WHERE { p-lod:$identifier ?p ?o . }
         except:
         	self.wikidata_url = None
         
+        self._identifier_parameter = identifier
+        if len(id_df.index) > 0:
+        	self.identifier = identifier
+        else:
+        	self.identifier = None
 
-        self.identifier = identifier
         self._sparql_results_as_html_table = id_df.to_html()
         self._id_df = id_df
 
