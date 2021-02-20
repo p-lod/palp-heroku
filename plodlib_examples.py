@@ -1,12 +1,11 @@
 import plodlib
 
+r_list = ['pompeii','r1','r1-i1','r1-i9-p1','bird','dog','ariadne','bogus_id_bogus']
 
 # run through instantiating ids and printing standard info
-r_list = ['pompeii','r1','r1-i1','r1-i1-p1','bird','bogus_id_bogus']
-
 for r in r_list:
 	c = plodlib.PLODResource(r)
-	print(f'''*Got info for "{r}" now reading from returned object
+	print(f'''*Made instance of PLODResource for "{r}" now reading from returned object
   Identifier: {c.identifier} (as passed: {c._identifier_parameter})
   Type: {c.type}
   Label: {c.label}
@@ -15,11 +14,20 @@ for r in r_list:
 
 		''')
 
-# some direct calls
+# Call functions for each item in r_list
 
-print('Dog depicted where')
-print(plodlib.PLODResource('dog').get_depicted_where())
+for r in r_list:
+	print(f'*Spatial hierarchy for "{r}"')
+	print(plodlib.PLODResource(r).spatial_hierarchy_up())
 
-print('r1-i9 depicts concepts')
+for r in r_list:
+	print(f'*Spatial children for "{r}"')
+	print(plodlib.PLODResource(r).spatial_children())
 
-print(plodlib.PLODResource('r1-i9').get_depicted_concepts())
+for r in r_list:
+	print(f'*Depicted concepts for "{r}"')
+	print(plodlib.PLODResource(r).depicts_concepts())
+
+for r in r_list:
+	print(f'*Depicted where for "{r}"')
+	print(plodlib.PLODResource(r).depicted_where())

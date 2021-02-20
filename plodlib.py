@@ -51,7 +51,7 @@ SELECT ?p ?o WHERE { p-lod:$identifier ?p ?o . }
         # now in alphabetical order
         self.geojson = None
         try:
-        	self.geojson = id_df.loc['urn:p-lod:id:geojson','o']
+            self.geojson = id_df.loc['urn:p-lod:id:geojson','o']
         except:
         	self.geojson = None
 
@@ -103,15 +103,81 @@ SELECT ?o WHERE { p-lod:$identifier <$predicate> ?o . }
 """)
 
         results = g.query(qt.substitute(identifier = identifier, predicate = predicate))
-        id_df = pd.DataFrame(results, columns = results.json['head']['vars'])
-        id_df = id_df.applymap(str)
+        df = pd.DataFrame(results, columns = results.json['head']['vars'])
+        df = id_df.applymap(str)
 
-        return list(id_df['o'])
+        return df.values.tolist()
 
+
+    ## get_depicted_concepts ##
+    def depicts_concepts(self):
+        # Connect to the remote triplestore with read-only connection
+        store = rdf.plugin.get("SPARQLStore", rdf.store.Store)(endpoint="http://52.170.134.25:3030/plod_endpoint/query",
+                                                       context_aware = False,
+                                                       returnFormat = 'json')
+        g = rdf.Graph(store)
+
+        identifier = self.identifier
+
+        qt = Template("""
+PREFIX plod: <urn:p-lod:id:>
+
+SELECT DISTINCT ?concept WHERE {
+ 
+    plod:$identifier ^plod:spatially-within*/^plod:created-on-surface-of*/^plod:is-part-of* ?component .
+    ?component a plod:artwork-component .
+    ?component plod:depicts ?concept .
+
+    # when this is part of the PALP interface, this clause can select "smallest 
+    # clickable spatial unit" that will be shown to public via its own page
+    #?component plod:is-part-of+/plod:created-on-surface-of/plod:spatially-within* ?within .
+    #?within a plod:####within_resolution .
+
+} ORDER BY ?depiction""")
+        results = g.query(qt.substitute(identifier = identifier))
+        df = pd.DataFrame(results, columns = results.json['head']['vars'])
+        df = df.applymap(str)
     
+        return df.values.tolist()
 
-    ## get_spatial_hierarchy ##
-    def get_spatial_hierarchy(self):
+
+    ## depicted_where ##
+    def depicted_where(self, level_of_detail = 'space'):
+        # Connect to the remote triplestore with read-only connection
+        store = rdf.plugin.get("SPARQLStore", rdf.store.Store)(endpoint="http://52.170.134.25:3030/plod_endpoint/query",
+                                                       context_aware = False,
+                                                       returnFormat = 'json')
+        g = rdf.Graph(store)
+
+        identifier = self.identifier
+
+        qt = Template("""
+PREFIX plod: <urn:p-lod:id:>
+
+SELECT DISTINCT ?within ?action ?color  WHERE {
+    
+    BIND ( plod:$resource AS ?resource )
+   
+    ?component plod:depicts ?resource .
+
+    ?component plod:is-part-of+/plod:created-on-surface-of/plod:spatially-within* ?within .
+    ?within a plod:$level_of_detail
+ 
+    OPTIONAL { ?component plod:has-action ?action . }
+    OPTIONAL { ?component plod:has-color  ?color . }
+
+} ORDER BY ?within""")
+
+       # resource = what you're looking for, level_of_detail = spatial resolution at which to list results 
+        results = g.query(qt.substitute(resource = identifier, level_of_detail = level_of_detail))
+
+        df = pd.DataFrame(results, columns = results.json['head']['vars'])
+        df = df.applymap(str)
+
+        return df.values.tolist()
+
+   ## spatial_hierarchy_up ##
+    def spatial_hierarchy_up(self):
         # Connect to the remote triplestore with read-only connection
         store = rdf.plugin.get("SPARQLStore", rdf.store.Store)(endpoint="http://52.170.134.25:3030/plod_endpoint/query",
                                                        context_aware = False,
@@ -139,8 +205,8 @@ SELECT DISTINCT ?spatial_id ?type WHERE {
         return df.values.tolist()
 
 
-    ## get_depicted_concepts ##
-    def get_depicted_concepts(self):
+## spatial_children ##
+    def spatial_children(self):
         # Connect to the remote triplestore with read-only connection
         store = rdf.plugin.get("SPARQLStore", rdf.store.Store)(endpoint="http://52.170.134.25:3030/plod_endpoint/query",
                                                        context_aware = False,
@@ -148,62 +214,13 @@ SELECT DISTINCT ?spatial_id ?type WHERE {
         g = rdf.Graph(store)
 
         identifier = self.identifier
-
         qt = Template("""
-PREFIX plod: <urn:p-lod:id:>
-
-SELECT DISTINCT ?concept WHERE {
- 
-    plod:$identifier ^plod:spatially-within*/^plod:created-on-surface-of*/^plod:is-part-of* ?component .
-    ?component a plod:artwork-component .
-    ?component plod:depicts ?concept .
-
-    # when this is part of the PALP interface, this clause can select "smallest 
-    # clickable spatial unit" that will be shown to public via its own page
-    #?component plod:is-part-of+/plod:created-on-surface-of/plod:spatially-within* ?within .
-    #?within a plod:####within_resolution .
-
-} ORDER BY ?depiction LIMIT 100""")
+PREFIX p-lod: <urn:p-lod:id:>
+SELECT DISTINCT ?spatial_id WHERE { ?spatial_id p-lod:spatially-within p-lod:$identifier }""")
         results = g.query(qt.substitute(identifier = identifier))
         df = pd.DataFrame(results, columns = results.json['head']['vars'])
         df = df.applymap(str)
     
-        return df.values.tolist()
-
-
-    ## get_depicted_where ##
-    def get_depicted_where(self, level_of_detail = 'space'):
-        # Connect to the remote triplestore with read-only connection
-        store = rdf.plugin.get("SPARQLStore", rdf.store.Store)(endpoint="http://52.170.134.25:3030/plod_endpoint/query",
-                                                       context_aware = False,
-                                                       returnFormat = 'json')
-        g = rdf.Graph(store)
-
-        identifier = self.identifier
-
-        qt = Template("""
-PREFIX plod: <urn:p-lod:id:>
-
-SELECT DISTINCT ?within ?action ?color  WHERE {
-    
-    BIND ( plod:$resource AS ?resource )
-   
-    ?component plod:depicts ?resource .
-
-    ?component plod:is-part-of+/plod:created-on-surface-of/plod:spatially-within* ?within .
-    ?within a plod:$level_of_detail
- 
-    OPTIONAL { ?component plod:has-action ?action . }
-    OPTIONAL { ?component plod:has-color  ?color . }
-
-} ORDER BY ?within""")
-
-       # resource = what you're looking for, within_resolution = spatial resolution at which to list results 
-        results = g.query(qt.substitute(resource = identifier, level_of_detail = level_of_detail))
-
-        df = pd.DataFrame(results, columns = results.json['head']['vars'])
-        df = df.applymap(str)
-
         return df.values.tolist()
 
 
