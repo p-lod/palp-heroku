@@ -5,6 +5,7 @@ pyhtml = html
 
 import os
 import re
+import sys
 
 import pandas as pd
 
@@ -25,6 +26,9 @@ import markdown
 import rdflib as rdf
 from rdflib.plugins.stores import sparqlstore
 
+# install with python3 -m pip install git+https://github.com/p-lod/plodlib
+import plodlib
+
 
 ns = {"dcterms" : "http://purl.org/dc/terms/",
       "owl"     : "http://www.w3.org/2002/07/owl#",
@@ -43,191 +47,273 @@ store = rdf.plugin.get("SPARQLStore", rdf.store.Store)(endpoint="http://52.170.1
 g = rdf.Graph(store)
 
 
-def palp_html_head(doc, plod = ''):
-    doc.head += meta(charset="utf-8")
-    doc.head += meta(http_equiv="X-UA-Compatible", content="IE=edge")
-    doc.head += meta(name="viewport", content="width=device-width, initial-scale=1")    
-    doc.head += link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css", integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2", crossorigin="anonymous")
-    doc.head += script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js", integrity = "sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj", crossorigin="anonymous")
-    doc.head += script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js",integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx",crossorigin="anonymous")
-    doc.head += style("body { padding-top: 60px; }")
-    doc.head += meta(name="DC.title",lang="en",content="%s" % (plod) )
-    doc.head += meta(name="DC.identifier", content="urn:p-lod:id/%s" % plod)
+def palp_html_head(r, html_doc):
+    html_doc.head += meta(charset="utf-8")
+    html_doc.head += meta(http_equiv="X-UA-Compatible", content="IE=edge")
+    html_doc.head += meta(name="viewport", content="width=device-width, initial-scale=1")    
+    html_doc.head += link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css", integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2", crossorigin="anonymous")
+    html_doc.head += script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js", integrity = "sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj", crossorigin="anonymous")
+    html_doc.head += script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js",integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx",crossorigin="anonymous")
+    html_doc.head += style("body { padding-top: 60px; }")
+    html_doc.head += meta(name="DC.title",lang="en",content=r.identifier )
+    html_doc.head += meta(name="DC.identifier", content=f"urn:p-lod:id:{r.identifier}" )
 
-def palp_page_header(doc):
-    with doc:
+def palp_page_header(r, html_doc):
+    with html_doc:
       with div(cls="jumbotron text-center"):
-        div("Standard (smaller?) PALP Banner Here",)
-        div("And other content / navigation /etc. Same for every page.", style="font-size:smaller")
+        div("Pompeii Artistic Landscape Project (PALP)")
+        if r.label:
+          div(r.label)
+        div(r.identifier, style="font-size:smaller")
 
-def palp_page_footer(doc, identifier):
+def palp_page_footer(r, doc):
     with doc:
       with div():
-        a("[display in p-lod]", href=f"http://p-lod.herokuapp.com/p-lod/id/{identifier}")
+        span("The Pompeii Artistic Landscape Project (PALP) is hosted at the University of Massachusetts-Amherst, Eric Poehler (UMass), Director and Sebastian Heath (NYU/ISAW), Co-Director. PALP is funded by the Getty Foundation.")
+        a("[show further information in p-lod]", href=f"http://p-lod.herokuapp.com/p-lod/id/{r.identifier}")
 
 
+# convenience functions
+def urn_to_anchor(urn):
+
+  label         = urn.replace("urn:p-lod:id:","") # eventually get the actual label
+  relative_url  = f'/browse/{urn.replace("urn:p-lod:id:","")}'
+
+  return relative_url, label
 
 
-def spatial_hierarchy(identifier):
-  # spatial ancestors
-    qt = Template("""
-PREFIX p-lod: <urn:p-lod:id:>
-SELECT DISTINCT ?spatial_id ?type WHERE { 
-  { p-lod:$identifier p-lod:is-part-of*/p-lod:created-on-surface-of* ?feature .
-    ?feature p-lod:spatially-within* ?spatial_id .
-    ?feature a p-lod:feature  .
-    OPTIONAL { ?spatial_id a ?type }
-    }
-    UNION
-    { p-lod:$identifier p-lod:spatially-within+ ?spatial_id  . 
-      OPTIONAL { ?spatial_id a ?type }
-    }
-  }""")
-    id_spatial_ancestors = g.query(qt.substitute(identifier = identifier))
-    id_spatial_ancestors_df = pd.DataFrame(id_spatial_ancestors, columns = id_spatial_ancestors.json['head']['vars']).astype(str)
-    
+# type renderers
+def city_render(r,html_doc):
 
-    return id_spatial_ancestors_df[['spatial_id','type']].to_html()
+  with html_doc:
+    with div(id="page-content-wrapper"):
+      with div(id="container-fluid"):
+
+        with div(id="spatial_children"):
+          span("Insula and Streets Within")
+          for i in r.spatial_children():
+            relative_url, label = urn_to_anchor(i[0])
+            with pre():
+              a(label, href=relative_url)
+
+        with div(id="depicts_concepts"):
+          span("Depicts Concepts")
+          for i in r.depicts_concepts():
+            relative_url, label = urn_to_anchor(i[0])
+            with span():
+              a(label, href=relative_url)
+              span(" / ")
+
+
+def region_render(r,html_doc):
+
+  with html_doc:
+      with div(id="page-content-wrapper"):
+        with div(id="container-fluid"):
+
+          with div(id="spatial_hierarchy"):
+            span("Spatial Hierarchy: ")
+            for i in reversed(r.spatial_hierarchy_up()):
+              relative_url, label = urn_to_anchor(i[0])
+              a(f"{label} / ", href=relative_url)
+
+          with div(id="spatial_children"):
+            span("Insula and Streets Within")
+            for i in r.spatial_children():
+              relative_url, label = urn_to_anchor(i[0])
+              a(f"{label} / ", href=relative_url)
+
+          with div(id="depicts_concepts"):
+            span("Depicts Concepts")
+            for i in r.depicts_concepts():
+              relative_url, label = urn_to_anchor(i[0])
+              a(f"{label} / ", href=relative_url)
+
+
+def insula_render(r,html_doc):
+
+  with html_doc:
+      with div(id="page-content-wrapper"):
+        with div(id="container-fluid"):
+
+          with div(id="spatial_hierarchy"):
+            span("Spatial Hierarchy")
+            for i in r.spatial_hierarchy_up():
+              relative_url, label = urn_to_anchor(i[0])
+              a(f"{label} / ", href=relative_url)
+
+          with div(id="spatial_children"):
+            span("Properties Within")
+            for i in r.spatial_children():
+              relative_url, label = urn_to_anchor(i[0])
+              a(f"{label} / ", href=relative_url)
+
+          with div(id="depicts_concepts"):
+            span("Depicts Concepts")
+            for i in r.depicts_concepts():
+              relative_url, label = urn_to_anchor(i[0])
+              a(f"{label} / ", href=relative_url)
+
+
+def property_render(r,html_doc):
+
+  with html_doc:
+      with div(id="page-content-wrapper"):
+        with div(id="container-fluid"):
+
+          with div(id="spatial_hierarchy"):
+            span("Spatial Hierarchy")
+            for i in reversed(r.spatial_hierarchy_up()):
+              relative_url, label = urn_to_anchor(i[0])
+              a(f"{label} / ", href=relative_url)
+
+          with div(id="spatial_children"):
+            span("Spaces Within")
+            for i in r.spatial_children():
+              relative_url, label = urn_to_anchor(i[0])
+              a(f"{label} / ", href=relative_url)
+
+          with div(id="depicts_concepts"):
+            span("Depicts Concepts")
+            for i in r.depicts_concepts():
+              relative_url, label = urn_to_anchor(i[0])
+              a(f"{label} / ", href=relative_url)
+
+
+def space_render(r,html_doc):
+
+  with html_doc:
+      with div(id="page-content-wrapper"):
+        with div(id="container-fluid"):
+
+          with div(id="spatial_hierarchy"):
+            span("Spatial Hierarchy: ")
+            for i in reversed(r.spatial_hierarchy_up()):
+              relative_url, label = urn_to_anchor(i[0])
+              a(f"{label} / ", href=relative_url)
+
+          with div(id="spatial_children"):
+            span("Features Within")
+            for i in r.spatial_children():
+              relative_url, label = urn_to_anchor(i[0])
+              a(f"{label} / ", href=relative_url)
+
+          with div(id="depicts_concepts"):
+            span("Depicts Concepts")
+            for i in r.depicts_concepts():
+              relative_url, label = urn_to_anchor(i[0])
+              a(f"{label} / ", href=relative_url)
+
+
+def feature_render(r,html_doc):
+
+  with html_doc:
+      with div(id="page-content-wrapper"):
+        with div(id="container-fluid"):
+
+          with div(id="spatial_hierarchy"):
+            span("Spatial Hierarchy")
+            for i in r.spatial_hierarchy_up():
+              relative_url, label = urn_to_anchor(i[0])
+              a(f"{label} / ", href=relative_url)
+
+          with div(id="depicts_concepts"):
+            span("Depicts Concepts")
+            for i in r.depicts_concepts():
+              relative_url, label = urn_to_anchor(i[0])
+              a(f"{label} / ", href=relative_url)
  
 
 
+def artwork_render(r,html_doc):
 
-# list of types to render for PALP
-render_these = ['city','region','insula','property','space','feature','artwork','concept']
-
-# type renderers
-def city_render(identifier):
-  if identifier == 'pompeii':
-      html_doc = dominate.document(title="Pompeii Artistic Landscape Project: %s" % (identifier))
-      palp_html_head(html_doc, identifier)
-      html_doc.body
-      palp_page_header(html_doc)
-      with html_doc:
-          with div(id="page-content-wrapper"):
-            with div(id="container-fluid"):
-              span(f"Query the triple store and show the results but we can also add all sorts of stuff.")
-              a("Pompeii In Pictures ", href="https://pompeiiinpictures.com/pompeiiinpictures/index.htm")
-              a("Getty DAH Grants", href="https://www.getty.edu/foundation/initiatives/current/dah/dah_grants_awarded.html")
-      palp_page_footer(html_doc, identifier)
-      return html_doc.render()
-      
-  else:
-      return("Unknown city.")
-
-def region_render(identifier):
-  html_doc = dominate.document(title="Pompeii Artistic Landscape Project: %s" % (identifier))
-  palp_html_head(html_doc, identifier)
-  html_doc.body
-  palp_page_header(html_doc)
   with html_doc:
       with div(id="page-content-wrapper"):
         with div(id="container-fluid"):
-          span(f"Check that it's a region and if yess, query the triple store for info about {identifier}.")
-          div(dominate.util.raw(spatial_hierarchy(identifier)))
-  palp_page_footer(html_doc, identifier)
-  return html_doc.render()
 
-def insula_render(identifier):
-  html_doc = dominate.document(title="Pompeii Artistic Landscape Project: %s" % (identifier))
-  palp_html_head(html_doc, identifier)
-  html_doc.body
-  palp_page_header(html_doc)
+          with div(id="spatial_hierarchy"):
+            span("Spatial Hierarchy")
+            for i in r.spatial_hierarchy_up():
+              relative_url, label = urn_to_anchor(i[0])
+              a(f"{label} / ", href=relative_url)
+
+          with div(id="depicts_concepts"):
+            span("Depicts Concepts")
+            for i in r.depicts_concepts():
+              relative_url, label = urn_to_anchor(i[0])
+              a(f"{label} / ", href=relative_url)
+
+
+def concept_render(r,html_doc):
+
   with html_doc:
       with div(id="page-content-wrapper"):
         with div(id="container-fluid"):
-          span(f"Check that it's an insula and if yes, query the triple store for info about {identifier}.")
-          div(dominate.util.raw(spatial_hierarchy(identifier)))
-  palp_page_footer(html_doc, identifier)
-  return html_doc.render()
+          span("Depicted in the following Pompeian spaces: ")
+          for i in r.depicted_where():
+              relative_url, label = urn_to_anchor(i[0])
+              with span():
+                a(f"{label} / ", href=relative_url)
 
-def property_render(identifier):
-  html_doc = dominate.document(title="Pompeii Artistic Landscape Project: %s" % (identifier))
-  palp_html_head(html_doc, identifier)
-  html_doc.body
-  palp_page_header(html_doc)
+
+def street_render(r,html_doc):
+
   with html_doc:
       with div(id="page-content-wrapper"):
         with div(id="container-fluid"):
-          span(f"Check that it's a property and if yes, query the triple store for info about {identifier}.")
-          div(dominate.util.raw(spatial_hierarchy(identifier)))
-  palp_page_footer(html_doc, identifier)
-  return html_doc.render()
+          span(f"Assuming it's right type, query the triple store for info about {r.identifier}.")
+          for i in r.depicted_where():
+            pre(' '.join(i))
 
-def space_render(identifier):
-  html_doc = dominate.document(title="Pompeii Artistic Landscape Project: %s" % (identifier))
-  palp_html_head(html_doc, identifier)
-  html_doc.body
-  palp_page_header(html_doc)
+def unknown_render(r,html_doc):
+
   with html_doc:
       with div(id="page-content-wrapper"):
         with div(id="container-fluid"):
-          span(f"Check that it's a space and if yes, query the triple store for info about {identifier}.")
-          div(dominate.util.raw(spatial_hierarchy(identifier)))
-  palp_page_footer(html_doc, identifier)
-  return html_doc.render()
+          span(f"Assuming it's right type, query the triple store for info about {r.identifier}.")
+          for i in r.depicted_where():
+            pre(' '.join(i))
 
-def feature_render(identifier):
-  html_doc = dominate.document(title="Pompeii Artistic Landscape Project: %s" % (identifier))
-  palp_html_head(html_doc, identifier)
+
+def palp_html_document(r,renderer):
+
+  html_doc = dominate.document(title=f"Pompeii Artistic Landscape Project: {r.identifier}" )
+
+  palp_html_head(r, html_doc)
   html_doc.body
-  palp_page_header(html_doc)
-  with html_doc:
-      with div(id="page-content-wrapper"):
-        with div(id="container-fluid"):
-          span(f"Check that it's a feature and if yes, query the triple store for info about {identifier}.")
-          div(dominate.util.raw(spatial_hierarchy(identifier)))
-  palp_page_footer(html_doc, identifier)
-  return html_doc.render()
+  palp_page_header(r,html_doc)
 
-def feature_render(identifier):
-  html_doc = dominate.document(title="Pompeii Artistic Landscape Project: %s" % (identifier))
-  palp_html_head(html_doc, identifier)
-  html_doc.body
-  palp_page_header(html_doc)
-  with html_doc:
-      with div(id="page-content-wrapper"):
-        with div(id="container-fluid"):
-          span(f"Assuming it's right type, query the triple store for info about {identifier}.")
-          div(dominate.util.raw(spatial_hierarchy(identifier)))
-  palp_page_footer(html_doc, identifier)
-  return html_doc.render()
+  renderer(r, html_doc)
 
-def artwork_render(identifier):
-  html_doc = dominate.document(title="Pompeii Artistic Landscape Project: %s" % (identifier))
-  palp_html_head(html_doc, identifier)
-  html_doc.body
-  palp_page_header(html_doc)
-  with html_doc:
-      with div(id="page-content-wrapper"):
-        with div(id="container-fluid"):
-          span(f"Assuming it's right type, query the triple store for info about {identifier}.")
-          div(dominate.util.raw(spatial_hierarchy(identifier)))
-          palp_page_footer(html_doc, identifier)
-  return html_doc.render()
+  palp_page_footer(r, html_doc)
 
-def concept_render(identifier):
-  html_doc = dominate.document(title="Pompeii Artistic Landscape Project: %s" % (identifier))
-  palp_html_head(html_doc, identifier)
-  html_doc.body
-  palp_page_header(html_doc)
-  with html_doc:
-      with div(id="page-content-wrapper"):
-        with div(id="container-fluid"):
-          span(f"Assuming it's right type, query the triple store for info about {identifier}.")
-  palp_page_footer(html_doc, identifier)
-  return html_doc.render()
+  return html_doc
 
 
-@app.route('/palp/<path:type_to_render>/<path:identifier>')
-def render_types(type_to_render,identifier):
-    if type_to_render not in render_these:
-      return(f"No specific PALP view available. Try at https://p-lod.herokuapp.com/p-lod/id/{identifier}")
-    else:
-      return globals()[f'{type_to_render}_render'](identifier) # dispatch to function for render
+@app.route('/browse/<path:identifier>')
+def render_id(identifier):
 
+  r = plodlib.PLODResource(identifier)
+
+  try:
+    return palp_html_document(r, globals()[f'{r.type}_render']).render() # call p_h_d with right render function if it exists
+  except KeyError as e:
+    return(f"""<html><body><pre>
+No specific PALP view for '{r.type}' available.
+Try at https://p-lod.herokuapp.com/p-lod/id/{identifier}
+Error type is: {e.__class__.__name__}
+     </pre></body></html>""")
+
+@app.route('/map/')
+def palp_mapper():
+    return redirect("/pompeii", code=302)
+
+@app.route('/search/')
+def palp_search():
+    return redirect("/show/pompeii", code=302)
 
 @app.route('/')
 def index():
-    return redirect("/palp/city//pompeii", code=302)
+    return redirect("/show/pompeii", code=302)
 
     
