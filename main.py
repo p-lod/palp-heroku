@@ -270,9 +270,7 @@ def unknown_render(r,html_doc):
   with html_doc:
       with div(id="page-content-wrapper"):
         with div(id="container-fluid"):
-          span(f"Assuming it's right type, query the triple store for info about {r.identifier}.")
-          for i in r.depicted_where():
-            pre(' '.join(i))
+          span(f"Unknown type.")
 
 
 def palp_html_document(r,renderer):
@@ -298,11 +296,7 @@ def render_id(identifier):
   try:
     return palp_html_document(r, globals()[f'{r.type}_render']).render() # call p_h_d with right render function if it exists
   except KeyError as e:
-    return(f"""<html><body><pre>
-No specific PALP view for '{r.type}' available.
-Try at https://p-lod.herokuapp.com/p-lod/id/{identifier}
-Error type is: {e.__class__.__name__}
-     </pre></body></html>""")
+    return palp_html_document(r,unknown_render)
 
 @app.route('/map/')
 def palp_mapper():
