@@ -67,6 +67,7 @@ def palp_page_header(r, html_dom):
         if r.identifier:
           div(r.identifier, style="font-size:smaller")
         with div(style="margin-top:1em"):
+          # feature request: suppress a link when displaying the page it links to.
           a("[start]", href="/start")
           a("[map]", href="/map")
           a("[search]", href="/search")
@@ -114,6 +115,11 @@ def region_render(r,html_dom):
       with div(id="page-content-wrapper"):
         with div(id="container-fluid"):
 
+          if r.geojson:
+            with div(id="geojson"):
+              span(f"Geojson: {r.geojson[0:20]} ...")
+
+
           with div(id="spatial_hierarchy"):
             span("Spatial Hierarchy: ")
             for i in r.spatial_hierarchy_up():
@@ -138,6 +144,10 @@ def insula_render(r,html_dom):
   with html_dom:
       with div(id="page-content-wrapper"):
         with div(id="container-fluid"):
+
+          if r.geojson:
+            with div(id="geojson"):
+              span(f"Geojson: {r.geojson[0:20]} ...")
 
           with div(id="spatial_hierarchy"):
             span("Spatial Hierarchy")
