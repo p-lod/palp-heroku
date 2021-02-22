@@ -75,7 +75,8 @@ def palp_page_footer(r, doc):
     with doc:
       with div():
         span("The Pompeii Artistic Landscape Project (PALP) is hosted at the University of Massachusetts-Amherst. PALP is funded by the Getty Foundation.")
-        a("[show further information in p-lod]", href=f"http://p-lod.herokuapp.com/p-lod/id/{r.identifier}")
+        if r.identifier:
+          a(f"[view {r.identifier} in p-lod]", href=f"http://p-lod.herokuapp.com/p-lod/id/{r.identifier}")
 
 
 # convenience functions
