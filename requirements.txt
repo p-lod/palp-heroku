@@ -1,3 +1,4 @@
+git+git://github.com/p-lod/plodlib.git
 beautifulsoup4
 dominate
 Flask
