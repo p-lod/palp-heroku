@@ -271,7 +271,6 @@ def feature_render(r,html_dom):
       palp_depicts_concepts(r)
  
 
-
 def artwork_render(r,html_dom):
 
   with html_dom:
