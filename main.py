@@ -58,7 +58,7 @@ def palp_html_head(r, html_dom):
     html_dom.head += meta(name="DC.title",lang="en",content=r.identifier )
     html_dom.head += meta(name="DC.identifier", content=f"urn:p-lod:id:{r.identifier}" )
 
-def palp_page_header(r, html_dom):
+def palp_page_banner(r, html_dom):
     with html_dom:
       with div(cls="jumbotron text-center"):
 
@@ -106,235 +106,209 @@ def urn_to_anchor(urn):
 
   return relative_url, label
 
+# palp page part renderers
+
+def palp_geojson(r):
+  return r.geojson
+
+def palp_spatial_hierarchy(r):
+
+  element = span()
+  with element:
+    for i in reversed(r.spatial_hierarchy_up()):
+      relative_url, label = urn_to_anchor(i[0])
+      a(f"{label} / ", href=relative_url)
+
+def palp_spatial_children(r):
+
+  element = span()
+  with element:
+    for i in r.spatial_children():
+      relative_url, label = urn_to_anchor(i[0])
+      a(f"{label} / ", href=relative_url)
+  return element
+
+def palp_depicts_concepts(r):
+
+  element = span()
+  with element:
+    for i in r.depicts_concepts():
+      relative_url, label = urn_to_anchor(i[0])
+      a(f"{label} / ", href=relative_url)
+  return element
 
 # type renderers
 def city_render(r,html_dom):
 
   with html_dom:
-    with div(id="page-content-wrapper"):
-      with div(id="container-fluid"):
-
         if r.geojson:
           with div(id="geojson"):
-            span(f"Geojson: {r.geojson[0:20]} ...")
-
+            span(f"Geojson: {palp_geojson(r)[0:20]} ...")
+        
         with div(id="spatial_children"):
-          span("Insula and Streets Within: ")
-          for i in r.spatial_children():
-            relative_url, label = urn_to_anchor(i[0])
-            a(f"{label} / ", href=relative_url)
+          span("Regions and Streets Within:")
+          palp_spatial_children(r)
 
         with div(id="depicts_concepts"):
           span("Depicts Concepts: ")
-          for i in r.depicts_concepts():
-            relative_url, label = urn_to_anchor(i[0])
-            a(f"{label} / ", href=relative_url)
+          palp_depicts_concepts(r)
+          
 
 
 def region_render(r,html_dom):
 
   with html_dom:
-      with div(id="page-content-wrapper"):
-        with div(id="container-fluid"):
 
-          if r.geojson:
-            with div(id="geojson"):
-              span(f"Geojson: {r.geojson[0:20]} ...")
+    if r.geojson:
+      with div(id="geojson"):
+        span(f"Geojson: {palp_geojson(r)[0:20]} ...")
 
-          with div(id="spatial_hierarchy"):
-            span("Spatial Hierarchy: ")
-            for i in r.spatial_hierarchy_up():
-              relative_url, label = urn_to_anchor(i[0])
-              a(f"{label} / ", href=relative_url)
+    with div(id="spatial_hierarchy"):
+      span("Spatial Hierarchy: ")
+      palp_spatial_hierarchy(r)
 
-          with div(id="spatial_children"):
-            span("Insula and Streets Within: ")
-            for i in r.spatial_children():
-              relative_url, label = urn_to_anchor(i[0])
-              a(f"{label} / ", href=relative_url)
+    with div(id="spatial_children"):
+      span("Insula and Streets Within: ")
+      palp_spatial_children(r)
 
-          with div(id="depicts_concepts: "):
-            span("Depicts Concepts")
-            for i in r.depicts_concepts():
-              relative_url, label = urn_to_anchor(i[0])
-              a(f"{label} / ", href=relative_url)
+    with div(id="depicts_concepts: "):
+      span("Depicts Concepts: ")
+      palp_depicts_concepts(r)
 
 
 def insula_render(r,html_dom):
 
   with html_dom:
-      with div(id="page-content-wrapper"):
-        with div(id="container-fluid"):
 
-          if r.geojson:
-            with div(id="geojson"):
-              span(f"Geojson: {r.geojson[0:20]} ...")
+    if r.geojson:
+      with div(id="geojson"):
+        span(f"Geojson: {palp_geojson(r)[0:20]} ...")
 
-          with div(id="spatial_hierarchy"):
-            span("Spatial Hierarchy: ")
-            for i in r.spatial_hierarchy_up():
-              relative_url, label = urn_to_anchor(i[0])
-              a(f"{label} / ", href=relative_url)
+    with div(id="spatial_hierarchy"):
+      span("Spatial Hierarchy: ")
+      palp_spatial_hierarchy(r)
 
-          with div(id="spatial_children"):
-            span("Properties Within: ")
-            for i in r.spatial_children():
-              relative_url, label = urn_to_anchor(i[0])
-              a(f"{label} / ", href=relative_url)
+    with div(id="spatial_children"):
+      span("Properties Within: ")
+      palp_spatial_children(r)
 
-          with div(id="depicts_concepts"):
-            span("Depicts Concepts: ")
-            for i in r.depicts_concepts():
-              relative_url, label = urn_to_anchor(i[0])
-              a(f"{label} / ", href=relative_url)
+    with div(id="depicts_concepts: "):
+      span("Depicts Concepts: ")
+      palp_depicts_concepts(r)
 
 
 def property_render(r,html_dom):
 
   with html_dom:
-      with div(id="page-content-wrapper"):
-        with div(id="container-fluid"):
 
-          if r.geojson:
-            with div(id="geojson"):
-              span(f"Geojson: {r.geojson[0:20]} ...")
+    if r.geojson:
+      with div(id="geojson"):
+        span(f"Geojson: {palp_geojson(r)[0:20]} ...")
 
-          with div(id="spatial_hierarchy: "):
-            span("Spatial Hierarchy")
-            for i in r.spatial_hierarchy_up():
-              relative_url, label = urn_to_anchor(i[0])
-              a(f"{label} / ", href=relative_url)
+    with div(id="spatial_hierarchy"):
+      span("Spatial Hierarchy: ")
+      palp_spatial_hierarchy(r)
 
-          with div(id="spatial_children: "):
-            span("Spaces Within")
-            for i in r.spatial_children():
-              relative_url, label = urn_to_anchor(i[0])
-              a(f"{label} / ", href=relative_url)
+    with div(id="spatial_children"):
+      span("Spaces (aka 'Rooms') Within: ")
+      palp_spatial_children(r)
 
-          with div(id="depicts_concepts"):
-            span("Depicts Concepts: ")
-            for i in r.depicts_concepts():
-              relative_url, label = urn_to_anchor(i[0])
-              a(f"{label} / ", href=relative_url)
+    with div(id="depicts_concepts: "):
+      span("Depicts Concepts: ")
+      palp_depicts_concepts(r)
 
 
 def space_render(r,html_dom):
 
   with html_dom:
-      with div(id="page-content-wrapper"):
-        with div(id="container-fluid"):
 
-          if r.geojson:
-            with div(id="geojson"):
-              span(f"Geojson: {r.geojson[0:20]} ...")
+    if r.geojson:
+      with div(id="geojson"):
+        span(f"Geojson: {palp_geojson(r)[0:20]} ...")
 
-          with div(id="spatial_hierarchy"):
-            span("Spatial Hierarchy: ")
-            for i in r.spatial_hierarchy_up():
-              relative_url, label = urn_to_anchor(i[0])
-              a(f"{label} / ", href=relative_url)
+    with div(id="spatial_hierarchy"):
+      span("Spatial Hierarchy: ")
+      palp_spatial_hierarchy(r)
 
-          with div(id="spatial_children"):
-            span("Features Within: ")
-            for i in r.spatial_children():
-              relative_url, label = urn_to_anchor(i[0])
-              a(f"{label} / ", href=relative_url)
+    with div(id="spatial_children"):
+      span("Features Within: ")
+      palp_spatial_children(r)
 
-          with div(id="depicts_concepts"):
-            span("Depicts Concepts: ")
-            for i in r.depicts_concepts():
-              relative_url, label = urn_to_anchor(i[0])
-              a(f"{label} / ", href=relative_url)
+    with div(id="depicts_concepts: "):
+      span("Depicts Concepts: ")
+      palp_depicts_concepts(r)
 
 
 def feature_render(r,html_dom):
 
   with html_dom:
-      with div(id="page-content-wrapper"):
-        with div(id="container-fluid"):
 
-          if r.geojson:
-            with div(id="geojson"):
-              span(f"Geojson: {r.geojson[0:20]} ...")
+    if r.geojson:
+      with div(id="geojson"):
+        span(f"Geojson: {palp_geojson(r)[0:20]} ...")
 
-          with div(id="spatial_hierarchy"):
-            span("Spatial Hierarchy: ")
-            for i in r.spatial_hierarchy_up():
-              relative_url, label = urn_to_anchor(i[0])
-              a(f"{label} / ", href=relative_url)
+    with div(id="spatial_hierarchy"):
+      span("Spatial Hierarchy: ")
+      palp_spatial_hierarchy(r)
 
-          with div(id="depicts_concepts"):
-            span("Depicts Concepts: ")
-            for i in r.depicts_concepts():
-              relative_url, label = urn_to_anchor(i[0])
-              a(f"{label} / ", href=relative_url)
+    with div(id="depicts_concepts: "):
+      span("Depicts Concepts: ")
+      palp_depicts_concepts(r)
  
 
 
 def artwork_render(r,html_dom):
 
   with html_dom:
-      with div(id="page-content-wrapper"):
-        with div(id="container-fluid"):
 
-          if r.geojson:
-            with div(id="geojson"):
-              span(f"Geojson: {r.geojson[0:20]} ...")
+    if r.geojson:
+      with div(id="geojson"):
+        span(f"Geojson: {palp_geojson(r)[0:20]} ...")
 
-          with div(id="spatial_hierarchy"):
-            span("Spatial Hierarchy: ")
-            for i in r.spatial_hierarchy_up():
-              relative_url, label = urn_to_anchor(i[0])
-              a(f"{label} / ", href=relative_url)
+    with div(id="spatial_hierarchy"):
+      span("Spatial Hierarchy: ")
+      palp_spatial_hierarchy(r)
 
-          with div(id="depicts_concepts"):
-            span("Depicts Concepts: ")
-            for i in r.depicts_concepts():
-              relative_url, label = urn_to_anchor(i[0])
-              a(f"{label} / ", href=relative_url)
+    with div(id="depicts_concepts: "):
+      span("Depicts Concepts: ")
+      palp_depicts_concepts(r)
 
 
 def concept_render(r,html_dom):
 
   with html_dom:
-      with div(id="page-content-wrapper"):
-        with div(id="container-fluid"):
 
-          if r.geojson:
-            with div(id="geojson"):
-              span(f"Geojson: {r.geojson[0:20]} ...")
+    if r.geojson:
+      with div(id="geojson"):
+        span(f"Geojson: {r.geojson[0:20]} ...")
 
-          with div(id="depicted_where"):
-            span("Depicted in the following Pompeian spaces: ")
-            for i in r.depicted_where():
-                relative_url, label = urn_to_anchor(i[0])
-                a(f"{label} / ", href=relative_url)
+    with div(id="depicted_where"):
+      span("Depicted in the following Pompeian spaces: ")
+      for i in r.depicted_where():
+          relative_url, label = urn_to_anchor(i[0])
+          a(f"{label} / ", href=relative_url)
 
 
 def street_render(r,html_dom):
 
   with html_dom:
-      with div(id="page-content-wrapper"):
-        with div(id="container-fluid"):
 
-          if r.geojson:
-            with div(id="geojson"):
-              span(f"Geojson: {r.geojson[0:20]} ...")
+    if r.geojson:
+      with div(id="geojson"):
+        span(f"Geojson: {r.geojson[0:20]} ...")
 
-          with div(id="spatial_hierarchy"):
-            span("Spatial Hierarchy: ")
-            for i in r.spatial_hierarchy_up():
-              relative_url, label = urn_to_anchor(i[0])
-              a(f"{label} / ", href=relative_url)
+    with div(id="spatial_hierarchy"):
+      span("Spatial Hierarchy: ")
+      for i in r.spatial_hierarchy_up():
+        relative_url, label = urn_to_anchor(i[0])
+        a(f"{label} / ", href=relative_url)
 
 
 
 def unknown_render(r,html_dom):
 
   with html_dom:
-      with div(id="page-content-wrapper"):
-        with div(id="container-fluid"):
-          span(f"Unknown type.")
+    span(f"Unknown type.")
 
 
 
@@ -344,9 +318,11 @@ def palp_html_document(r,renderer):
 
   palp_html_head(r, html_dom)
   html_dom.body
-  palp_page_header(r,html_dom)
+  palp_page_banner(r,html_dom)
 
-  renderer(r, html_dom)
+  with div(id="page-content-wrapper"):
+    with div(id="container-fluid"):
+      renderer(r, html_dom)
 
   palp_page_footer(r, html_dom)
 
