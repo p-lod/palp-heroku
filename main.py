@@ -85,9 +85,9 @@ def palp_page_banner(r, html_dom):
         # external links
         with div(style="margin-top:1em"):
           if r.p_in_p_url:
-            a("[p-in-p]", href=r.p_in_p_url)
+            a("[p-in-p]", href=r.p_in_p_url, target = "_new")
           if r.wikidata_url:
-            a("[wikidata]", href=r.wikidata_url)
+            a("[wikidata]", href=r.wikidata_url, target = "_new")
 
 
 def palp_page_footer(r, doc):
@@ -117,7 +117,9 @@ def palp_spatial_hierarchy(r):
   with element:
     for i in reversed(r.spatial_hierarchy_up()):
       relative_url, label = urn_to_anchor(i[0])
-      a(f"{label} / ", href=relative_url)
+      a(label, href=relative_url)
+      span(" /", style="color: LightGray")
+  return element
 
 def palp_spatial_children(r):
 
@@ -125,7 +127,8 @@ def palp_spatial_children(r):
   with element:
     for i in r.spatial_children():
       relative_url, label = urn_to_anchor(i[0])
-      a(f"{label} / ", href=relative_url)
+      a(label, href=relative_url)
+      span(" /", style="color: LightGray")
   return element
 
 def palp_depicts_concepts(r):
@@ -134,8 +137,20 @@ def palp_depicts_concepts(r):
   with element:
     for i in r.depicts_concepts():
       relative_url, label = urn_to_anchor(i[0])
-      a(f"{label} / ", href=relative_url)
+      a(label, href=relative_url)
+      span(" /", style="color: LightGray")
   return element
+
+def palp_depicted_where(r):
+
+  element = span()
+  with element:
+    for i in r.depicted_where():
+      relative_url, label = urn_to_anchor(i[0])
+      a(label, href=relative_url)
+      span(" /", style="color: LightGray")
+  return element
+
 
 # type renderers
 def city_render(r,html_dom):
@@ -284,9 +299,7 @@ def concept_render(r,html_dom):
 
     with div(id="depicted_where"):
       span("Depicted in the following Pompeian spaces: ")
-      for i in r.depicted_where():
-          relative_url, label = urn_to_anchor(i[0])
-          a(f"{label} / ", href=relative_url)
+      palp_depicted_where(r)
 
 
 def street_render(r,html_dom):
