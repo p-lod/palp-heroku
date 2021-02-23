@@ -54,6 +54,8 @@ def palp_html_head(r, html_dom):
     html_dom.head += link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css", integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2", crossorigin="anonymous")
     html_dom.head += script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js", integrity = "sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj", crossorigin="anonymous")
     html_dom.head += script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js",integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx",crossorigin="anonymous")
+    html_dom.head += link(rel="stylesheet", href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css", integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==", crossorigin="")
+    html_dom.head += script(src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js", integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==", crossorigin="")
     html_dom.head += style("body { padding-top: 60px; }")
     html_dom.head += meta(name="DC.title",lang="en",content=r.identifier )
     html_dom.head += meta(name="DC.identifier", content=f"urn:p-lod:id:{r.identifier}" )
@@ -109,7 +111,29 @@ def urn_to_anchor(urn):
 # palp page part renderers
 
 def palp_geojson(r):
-  return r.geojson
+  mapdiv = div(id="minimap")
+  with mapdiv:
+      innerdiv = div(id="minimap-geojson", style="display:none")
+      innerdiv += r.geojson
+      div(id="minimapid", style="width: 50%; height: 200px;display:none")
+      s = script(type='text/javascript')
+      s += """// check if the item-geojson div has content and make a map if it does. 
+if ($('#minimap-geojson').html().trim()) {
+       $('#minimapid').show()
+
+  var mymap = L.map('minimapid').setView([40.75, 14.485], 16);
+
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19,
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+    id: 'mapbox.streets'
+  }).addTo(mymap);
+
+       L.geoJSON(JSON.parse($('#minimap-geojson').html())).addTo(mymap)
+       
+}"""
+
+  return mapdiv
 
 def palp_spatial_hierarchy(r):
 
@@ -176,7 +200,7 @@ def region_render(r,html_dom):
 
     if r.geojson:
       with div(id="geojson"):
-        span(f"Geojson: {palp_geojson(r)[0:20]} ...")
+        palp_geojson(r)
 
     with div(id="spatial_hierarchy"):
       span("Spatial Hierarchy: ")
@@ -197,7 +221,7 @@ def insula_render(r,html_dom):
 
     if r.geojson:
       with div(id="geojson"):
-        span(f"Geojson: {palp_geojson(r)[0:20]} ...")
+        palp_geojson(r)
 
     with div(id="spatial_hierarchy"):
       span("Spatial Hierarchy: ")
@@ -218,7 +242,7 @@ def property_render(r,html_dom):
 
     if r.geojson:
       with div(id="geojson"):
-        span(f"Geojson: {palp_geojson(r)[0:20]} ...")
+        palp_geojson(r)[0:20]
 
     with div(id="spatial_hierarchy"):
       span("Spatial Hierarchy: ")
@@ -239,7 +263,7 @@ def space_render(r,html_dom):
 
     if r.geojson:
       with div(id="geojson"):
-        span(f"Geojson: {palp_geojson(r)[0:20]} ...")
+        palp_geojson(r)[0:20]
 
     with div(id="spatial_hierarchy"):
       span("Spatial Hierarchy: ")
@@ -260,7 +284,7 @@ def feature_render(r,html_dom):
 
     if r.geojson:
       with div(id="geojson"):
-        span(f"Geojson: {palp_geojson(r)[0:20]} ...")
+        palp_geojson(r)[0:20]
 
     with div(id="spatial_hierarchy"):
       span("Spatial Hierarchy: ")
@@ -277,7 +301,7 @@ def artwork_render(r,html_dom):
 
     if r.geojson:
       with div(id="geojson"):
-        span(f"Geojson: {palp_geojson(r)[0:20]} ...")
+        palp_geojson(r)
 
     with div(id="spatial_hierarchy"):
       span("Spatial Hierarchy: ")
@@ -294,7 +318,7 @@ def concept_render(r,html_dom):
 
     if r.geojson:
       with div(id="geojson"):
-        span(f"Geojson: {r.geojson[0:20]} ...")
+        r.geojson[0:20]
 
     with div(id="depicted_where"):
       span("Depicted in the following Pompeian spaces: ")
@@ -307,7 +331,7 @@ def street_render(r,html_dom):
 
     if r.geojson:
       with div(id="geojson"):
-        span(f"Geojson: {r.geojson[0:20]} ...")
+        r.geojson[0:20]
 
     with div(id="spatial_hierarchy"):
       span("Spatial Hierarchy: ")
