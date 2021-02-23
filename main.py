@@ -350,6 +350,7 @@ def palp_start():
   <a href="/browse/pompeii">Pompeii</a>.
   """
 
+
 @app.route('/browse/<path:identifier>')
 def palp_browse(identifier):
 
