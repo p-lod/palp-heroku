@@ -173,7 +173,6 @@ def palp_spatial_hierarchy(r):
     #   ul(li("root"))
     with di:
       element = ul()
-      li("root")
       with element:
         for i in reversed(r.spatial_hierarchy_up()):
           relative_url, label = urn_to_anchor(i[0])
@@ -184,11 +183,11 @@ def palp_spatial_hierarchy(r):
               li(a(label, href=relative_url))
               li(" /", style="color: LightGray")
     s = script(type='text/javascript')
-    s += """  $(function () {
+    s += """$(function () {
       // 6 create an instance when the DOM is ready
       $('#jstree').jstree();
       // 7 bind to events triggered on the tree
-      $('#jstree').on("changed.jstree", function (e, data) {
+      $('#jstree').on('changed.jstree', function (e, data) {
         console.log(data.selected);
       });
     });"""
