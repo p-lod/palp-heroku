@@ -84,6 +84,8 @@ def palp_html_head(r, html_dom):
     html_dom.head += script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js",integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx",crossorigin="anonymous")
     html_dom.head += link(rel="stylesheet", href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css", integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==", crossorigin="")
     html_dom.head += script(src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js", integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==", crossorigin="")
+    html_dom.head += script(src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js")
+    html_dom.head += link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css")
     html_dom.head += style("body { padding-top: 60px; }")
     html_dom.head += meta(name="DC.title",lang="en",content=r.identifier )
     html_dom.head += meta(name="DC.identifier", content=f"urn:p-lod:id:{r.identifier}" )
@@ -164,14 +166,33 @@ if ($('#minimap-geojson').html().trim()) {
   return mapdiv
 
 def palp_spatial_hierarchy(r):
-
-  element = span()
-  with element:
-    for i in reversed(r.spatial_hierarchy_up()):
-      relative_url, label = urn_to_anchor(i[0])
-      a(label, href=relative_url)
-      span(" /", style="color: LightGray")
-  return element
+  ditop = div(id="alljstree")
+  with ditop:
+    di = div(id="jstree")
+    # with di:
+    #   ul(li("root"))
+    with di:
+      element = ul()
+      li("root")
+      with element:
+        for i in reversed(r.spatial_hierarchy_up()):
+          relative_url, label = urn_to_anchor(i[0])
+          newel = li()
+          with newel:
+            newlist = ul()
+            with newlist:
+              li(a(label, href=relative_url))
+              li(" /", style="color: LightGray")
+    s = script(type='text/javascript')
+    s += """  $(function () {
+      // 6 create an instance when the DOM is ready
+      $('#jstree').jstree();
+      // 7 bind to events triggered on the tree
+      $('#jstree').on("changed.jstree", function (e, data) {
+        console.log(data.selected);
+      });
+    });"""
+  return ditop
 
 def palp_spatial_children(r):
 
@@ -210,7 +231,7 @@ def city_render(r,html_dom):
   with html_dom:
         if r.geojson:
           with div(id="geojson"):
-            span(f"Geojson: {palp_geojson(r)[0:20]} ...")
+            palp_geojson(r)
         
         with div(id="spatial_children"):
           span("Regions and Streets Within:")
@@ -272,9 +293,9 @@ def property_render(r,html_dom):
       with div(id="geojson"):
         palp_geojson(r)[0:20]
 
-    with div(id="spatial_hierarchy"):
-      span("Spatial Hierarchy: ")
-      palp_spatial_hierarchy(r)
+    # with div(id="spatial_hierarchy"):
+    #   span("Spatial Hierarchy: ")
+    #   palp_spatial_hierarchy(r)
 
     with div(id="spatial_children"):
       span("Spaces (aka 'Rooms') Within: ")
@@ -485,4 +506,3 @@ def palp_search():
 @app.route('/')
 def index():
     return redirect("/start", code=302)
-
