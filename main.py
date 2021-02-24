@@ -177,10 +177,11 @@ def palp_spatial_hierarchy(r):
         for i in reversed(r.spatial_hierarchy_up()):
           wl = li()
           with wl:
+            relative_url, label = urn_to_anchor(i[0])
             a(label, href=relative_url)
             wu = ul()
-            relative_url, label = urn_to_anchor(i[0])
-            li(" /", style="color: LightGray")
+            with wu:
+              li(" /", style="color: LightGray")
     s = script(type='text/javascript')
     s += """$(function () {
       // 6 create an instance when the DOM is ready
