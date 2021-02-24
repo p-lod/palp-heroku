@@ -175,10 +175,11 @@ def palp_spatial_hierarchy(r):
       element = ul()
       with element:
         for i in reversed(r.spatial_hierarchy_up()):
-          wl = li(ul())
+          wl = li()
           with wl:
+            a(label, href=relative_url)
+            wu = ul()
             relative_url, label = urn_to_anchor(i[0])
-            li(a(label, href=relative_url))
             li(" /", style="color: LightGray")
     s = script(type='text/javascript')
     s += """$(function () {
