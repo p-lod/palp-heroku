@@ -184,15 +184,7 @@ def palp_spatial_hierarchy(r):
     s += """$(function () {
       // 6 create an instance when the DOM is ready
       $('#jstree').jstree();
-      // 7 bind to events triggered on the tree
-      $('#jstree').on('changed.jstree', function (e, data) {
-           var i, j, r = [];
-          for(i = 0, j = data.selected.length; i < j; i++) {
-            r.push(data.instance.get_node(data.selected[i]).text);
-          }
-          $('#event_result').html('Selected: ' + r.join(', '));
-      });
-    });"""
+      });"""
   return ditop
 
 def palp_spatial_children(r):
