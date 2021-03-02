@@ -86,6 +86,7 @@ def palp_html_head(r, html_dom):
     html_dom.head += script(src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js", integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==", crossorigin="")
     html_dom.head += script(src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js")
     html_dom.head += link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css")
+    html_dom.head += link(rel="stylesheet", href="/static/css/style.css")
     html_dom.head += style("body { padding-top: 60px; }")
     html_dom.head += meta(name="DC.title",lang="en",content=r.identifier )
     html_dom.head += meta(name="DC.identifier", content=f"urn:p-lod:id:{r.identifier}" )
@@ -172,21 +173,38 @@ def palp_spatial_hierarchy(r):
     # with di:
     #   ul(li("root"))
     with di:
-      element = ul()
+      element = ul(cls="tree")
       with element:
-        for i in reversed(r.spatial_hierarchy_up()):
-          wl = li()
-          with wl:
-            relative_url, label = urn_to_anchor(i[0])
-            a(label, href=relative_url)
-            wu = ul()
-            with wu:
-              li(" /", style="color: LightGray")
-    s = script(type='text/javascript')
-    s += """$(function () {
-      // 6 create an instance when the DOM is ready
-      $('#jstree').jstree();
-      });"""
+        hier_up = r.spatial_hierarchy_up()
+        if len(hier_up) >= 1:
+          relative_url, label = urn_to_anchor(hier_up[-1][0])
+          li(a(label, href=relative_url))
+        if len(hier_up) >= 2:
+          wb = ul()
+          with wb:
+            relative_url, label = urn_to_anchor(hier_up[-2][0])
+            li(a(label, href=relative_url))
+            if len(hier_up) >= 3:
+              wc = ul()
+              with wc:
+                relative_url, label = urn_to_anchor(hier_up[-3][0])
+                li(a(label, href=relative_url))
+                if len(hier_up) >= 4:
+                  wd = ul()
+                  with wd:
+                    relative_url, label = urn_to_anchor(hier_up[-4][0])
+                    li(a(label, href=relative_url))
+                    if len(hier_up) >= 5:
+                      we = ul()
+                      with we:
+                        relative_url, label = urn_to_anchor(hier_up[-5][0])
+                        li(a(label, href=relative_url))
+            
+    # s = script(type='text/javascript')
+    # s += """$(function () {
+    #   // 6 create an instance when the DOM is ready
+    #   $('#jstree').jstree();
+    #   });"""
   return ditop
 
 def palp_spatial_children(r):
@@ -288,9 +306,9 @@ def property_render(r,html_dom):
       with div(id="geojson"):
         palp_geojson(r)[0:20]
 
-    # with div(id="spatial_hierarchy"):
-    #   span("Spatial Hierarchy: ")
-    #   palp_spatial_hierarchy(r)
+    with div(id="spatial_hierarchy"):
+      span("Spatial Hierarchy: ")
+      palp_spatial_hierarchy(r)
 
     with div(id="spatial_children"):
       span("Spaces (aka 'Rooms') Within: ")
@@ -474,11 +492,23 @@ def palp_html_document(r,renderer):
 
 @app.route('/start')
 def palp_start():
-  return """Useful, appealing, and explanatory start page that looks like a PALP page.
-  Eric Poehler (UMass), Director and Sebastian Heath (NYU/ISAW), Co-Director. Funded by Getty Foundation. Etc., etc., etc.
-  <a href="/browse/pompeii">Pompeii</a>.
-  """
+  r = plodlib.PLODResource("Pompeii")
+  html_dom = dominate.document(title=f"Pompeii Artistic Landscape Project" )
 
+  palp_html_head(r, html_dom)
+  html_dom.body
+  palp_page_banner(r,html_dom)
+
+  with html_dom:
+    with div(id="page-content-wrapper"):
+      with div(id="container-fluid"):
+        pi = p("""Useful, appealing, and explanatory start page that looks like a PALP page.
+    Eric Poehler (UMass), Director and Sebastian Heath (NYU/ISAW), Co-Director. Funded by Getty Foundation. Etc., etc., etc.
+    """)
+        pi.add(a("Pompeii", href="/browse/pompeii"))
+
+  palp_page_footer(r, html_dom)
+  return html_dom.render()
 
 @app.route('/browse/<path:identifier>')
 def palp_browse(identifier):
