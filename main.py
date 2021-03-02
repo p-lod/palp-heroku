@@ -11,13 +11,12 @@ import pandas as pd
 
 import dominate
 from dominate.tags import *
+from dominate.util import raw
 
 from bs4 import BeautifulSoup
 
-from flask import Flask
-from flask import render_template
-from flask import request
-from flask import redirect, url_for, after_this_request
+from flask import Flask, render_template, session, json, request, flash, redirect, url_for, after_this_request
+from flask_mysqldb import MySQL
 
 from string import Template
 
@@ -26,8 +25,19 @@ import markdown
 import rdflib as rdf
 from rdflib.plugins.stores import sparqlstore
 
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+
 # install with python3 -m pip install git+https://github.com/p-lod/plodlib
 import plodlib
+
+import boxsdk
+import json
+from datetime import datetime
+import glob
+import sentry_sdk
+from sentry_sdk.integrations.flask import FlaskIntegration
+from markupsafe import escape
 
 
 ns = {"dcterms" : "http://purl.org/dc/terms/",
@@ -38,13 +48,31 @@ ns = {"dcterms" : "http://purl.org/dc/terms/",
 
 app = Flask(__name__)
 
-
-
 # Connect to the remote triplestore with read-only connection
 store = rdf.plugin.get("SPARQLStore", rdf.store.Store)(endpoint="http://52.170.134.25:3030/plod_endpoint/query",
                                                        context_aware = False,
                                                        returnFormat = 'json')
 g = rdf.Graph(store)
+
+# MySQL configurations using environment variables
+app.config['MYSQL_USER'] = os.environ['MYSQL_USER']
+app.config['MYSQL_PASSWORD'] = os.environ['MYSQL_PASSWORD']
+app.config['MYSQL_DB'] = os.environ['MYSQL_USER']
+app.config['MYSQL_HOST'] = os.environ['MYSQL_HOST']
+mysql = MySQL(app)
+
+#Box API configurations using environment variables
+box_auth = boxsdk.JWTAuth(
+    client_id=str(os.environ["BOX_ID"]),
+    client_secret=str(os.environ["BOX_SECRET"]),
+    enterprise_id=str(os.environ["BOX_ENTERPRISE"]),
+    jwt_key_id=str(os.environ["BOX_PUBLIC_KEY"]),
+    rsa_private_key_data=str(os.environ["BOX_PRIVATE_KEY"]).replace("||n||", "\n").replace("beginnnn", "BEGIN ENCRYPTED PRIVATE KEY").replace("endddd", 'END ENCRYPTED PRIVATE KEY'),
+    rsa_private_key_passphrase=str(os.environ["BOX_PASSPHRASE"])
+)
+
+box_access_token = box_auth.authenticate_instance()
+box_client = boxsdk.Client(box_auth)
 
 
 def palp_html_head(r, html_dom):
@@ -56,6 +84,9 @@ def palp_html_head(r, html_dom):
     html_dom.head += script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js",integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx",crossorigin="anonymous")
     html_dom.head += link(rel="stylesheet", href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css", integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==", crossorigin="")
     html_dom.head += script(src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js", integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==", crossorigin="")
+    html_dom.head += script(src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js")
+    html_dom.head += link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css")
+    html_dom.head += link(rel="stylesheet", href="/static/css/style.css")
     html_dom.head += style("body { padding-top: 60px; }")
     html_dom.head += meta(name="DC.title",lang="en",content=r.identifier )
     html_dom.head += meta(name="DC.identifier", content=f"urn:p-lod:id:{r.identifier}" )
@@ -136,14 +167,45 @@ if ($('#minimap-geojson').html().trim()) {
   return mapdiv
 
 def palp_spatial_hierarchy(r):
-
-  element = span()
-  with element:
-    for i in reversed(r.spatial_hierarchy_up()):
-      relative_url, label = urn_to_anchor(i[0])
-      a(label, href=relative_url)
-      span(" /", style="color: LightGray")
-  return element
+  ditop = div(id="alljstree")
+  with ditop:
+    di = div(id="jstree")
+    # with di:
+    #   ul(li("root"))
+    with di:
+      element = ul(cls="tree")
+      with element:
+        hier_up = r.spatial_hierarchy_up()
+        if len(hier_up) >= 1:
+          relative_url, label = urn_to_anchor(hier_up[-1][0])
+          li(a(label, href=relative_url))
+        if len(hier_up) >= 2:
+          wb = ul()
+          with wb:
+            relative_url, label = urn_to_anchor(hier_up[-2][0])
+            li(a(label, href=relative_url))
+            if len(hier_up) >= 3:
+              wc = ul()
+              with wc:
+                relative_url, label = urn_to_anchor(hier_up[-3][0])
+                li(a(label, href=relative_url))
+                if len(hier_up) >= 4:
+                  wd = ul()
+                  with wd:
+                    relative_url, label = urn_to_anchor(hier_up[-4][0])
+                    li(a(label, href=relative_url))
+                    if len(hier_up) >= 5:
+                      we = ul()
+                      with we:
+                        relative_url, label = urn_to_anchor(hier_up[-5][0])
+                        li(a(label, href=relative_url))
+            
+    # s = script(type='text/javascript')
+    # s += """$(function () {
+    #   // 6 create an instance when the DOM is ready
+    #   $('#jstree').jstree();
+    #   });"""
+  return ditop
 
 def palp_spatial_children(r):
 
@@ -182,7 +244,7 @@ def city_render(r,html_dom):
   with html_dom:
         if r.geojson:
           with div(id="geojson"):
-            span(f"Geojson: {palp_geojson(r)[0:20]} ...")
+            palp_geojson(r)
         
         with div(id="spatial_children"):
           span("Regions and Streets Within:")
@@ -281,7 +343,68 @@ def space_render(r,html_dom):
 def feature_render(r,html_dom):
 
   with html_dom:
+    ar = r.identifier
+    totimgs = {}
+    pinpCur = mysql.connection.cursor()
+    pinpQuery = "SELECT  `archive_id`, `hero_image` FROM `PinP_preq` WHERE `ARC`='" + ar +"' OR `other_ARC` LIKE '%" + ar + "%';"
+    pinpCur.execute(pinpQuery)
+    pinpdata = pinpCur.fetchall()
+    pinpCur.close()
+    for d in pinpdata:
+      indpinp = {}
+      if str(d[1]) == "1":
+        indpinp['is_hero'] = True
+      else:
+        indpinp['is_hero'] = False
+      assocCur = mysql.connection.cursor()
+      assocQuery = "SELECT DISTINCT `id_box_file`, `img_alt` FROM `PinP` WHERE `archive_id` = '"+str(d[0])+"' ORDER BY `img_url`;"
+      assocCur.execute(assocQuery)
+      all0 = assocCur.fetchall()
+      indpinp['description'] = all0[0][1]
+      indpinp['box_id'] = all0[0][0]
+      assocCur.close()
+      totimgs[d[0]] = indpinp
+    ppmCur = mysql.connection.cursor()
+    ppmQuery = "SELECT  `id`, `hero_image` FROM `PPM_preq` WHERE `ARC`='" + ar +"' OR `other_ARC` LIKE '%" + ar + "%';"
+    ppmCur.execute(ppmQuery)
+    ppmdata = ppmCur.fetchall()
+    ppmCur.close()
+    for d in ppmdata:
+      indppm = {}
+      if str(d[1]) == "1":
+        indppm['is_hero'] = True
+      else:
+        indppm['is_hero'] = False
+      assocCur = mysql.connection.cursor()
+      assocQuery = "SELECT DISTINCT `image_id`, `translated_text` FROM `PPM` WHERE `id` = '"+str(d[0])+"';"
+      assocCur.execute(assocQuery)
+      all0 = assocCur.fetchall()
+      indppm['description'] = all0[0][1]
+      indppm['box_id'] = all0[0][0]
+      assocCur.close()
+      totimgs[d[0]] = indppm
 
+    with div(id="images"):
+      span("Images: ")
+      element = span()
+      with element:
+        for i in totimgs:
+          # try:
+          #   boxlink = box_client.file(totimgs[i]['box_id']).get_shared_link(access='collaborators')
+          # except boxsdk.BoxAPIException as exception:
+          #   boxlink=exception
+          # div(raw("""<iframe
+          #   src="{}?view=icon"
+          #   frameborder="0"
+          #   allowfullscreen
+          #   webkitallowfullscreen
+          #   msallowfullscreen
+          # ></iframe>""".format(boxlink)))
+          boxlink = "https://app.box.com/file/"+str(totimgs[i]['box_id'])
+          a(totimgs[i]['description'], href=boxlink)
+          if totimgs[i]['is_hero']:
+            span("-- is hero")
+          br()    
     if r.geojson:
       with div(id="geojson"):
         palp_geojson(r)[0:20]
@@ -369,11 +492,23 @@ def palp_html_document(r,renderer):
 
 @app.route('/start')
 def palp_start():
-  return """Useful, appealing, and explanatory start page that looks like a PALP page.
-  Eric Poehler (UMass), Director and Sebastian Heath (NYU/ISAW), Co-Director. Funded by Getty Foundation. Etc., etc., etc.
-  <a href="/browse/pompeii">Pompeii</a>.
-  """
+  r = plodlib.PLODResource("Pompeii")
+  html_dom = dominate.document(title=f"Pompeii Artistic Landscape Project" )
 
+  palp_html_head(r, html_dom)
+  html_dom.body
+  palp_page_banner(r,html_dom)
+
+  with html_dom:
+    with div(id="page-content-wrapper"):
+      with div(id="container-fluid"):
+        pi = p("""Useful, appealing, and explanatory start page that looks like a PALP page.
+    Eric Poehler (UMass), Director and Sebastian Heath (NYU/ISAW), Co-Director. Funded by Getty Foundation. Etc., etc., etc.
+    """)
+        pi.add(a("Pompeii", href="/browse/pompeii"))
+
+  palp_page_footer(r, html_dom)
+  return html_dom.render()
 
 @app.route('/browse/<path:identifier>')
 def palp_browse(identifier):
@@ -396,4 +531,3 @@ def palp_search():
 @app.route('/')
 def index():
     return redirect("/start", code=302)
-
