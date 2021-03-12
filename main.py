@@ -91,9 +91,6 @@ def palp_html_head(r, html_dom):
     html_dom.head += style("body { padding-top: 60px; }")
     html_dom.head += meta(name="DC.title",lang="en",content=r.identifier )
     html_dom.head += meta(name="DC.identifier", content=f"urn:p-lod:id:{r.identifier}" )
-    html_dom.head += link(rel="stylesheet", type="text/css", href="/static/uv/uv.css")
-    html_dom.head += script(src="/static/uv/lib/offline.js")
-    html_dom.head += script(src="/static/uv/helpers.js")
 
 def palp_page_banner(r, html_dom):
     with html_dom:
@@ -425,26 +422,10 @@ def feature_render(r,html_dom):
     params = "q=East stairwell, between 21st and 22nd floors"
     request = requests.get(base_url+params)
     result = request.json()
-    div(id="uv", cls="uv")
-    s = script(type='text/javascript')
-    s += raw("""
-      var myUV;
 
-        window.addEventListener('uvLoaded', function (e) {
-
-            myUV = createUV('#uv', {
-                iiifResourceUri: '"""+result['results'][0]["iiifManifest"] + """',
-                configUri: 'uv-config.json'
-            }, new UV.URLDataProvider());
-
-            myUV.on("created", function(obj) {
-                console.log('parsed metadata', myUV.extension.helper.manifest.getMetadata());
-                console.log('raw jsonld', myUV.extension.helper.manifest.__jsonld);
-            });
-
-        }, false);""")
-
-    script(src="/static/uv/uv.js")
+    div(id="tify", style="position: absolute; width: 600px; height: 600px;")
+    script(raw("tifyOptions = {'manifest': '"+result['results'][0]["iiifManifest"]+"'}"))
+    script(src="/static/tify/tify.js")
 
 def artwork_render(r,html_dom):
 
